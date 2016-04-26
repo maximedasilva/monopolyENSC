@@ -10,6 +10,7 @@ namespace monopolyENSC
     {
         static void Main(string[] args)
         {
+            var t = new Plateau();
         }
     }
 }
