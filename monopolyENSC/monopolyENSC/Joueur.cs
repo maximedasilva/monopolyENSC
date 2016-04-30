@@ -39,7 +39,6 @@ public class Joueur {
     {
         sous += valeur;
     }
-
     public void ajoutCarte(Cartes c)
     {
         cartesEnPossession.Add(c);
