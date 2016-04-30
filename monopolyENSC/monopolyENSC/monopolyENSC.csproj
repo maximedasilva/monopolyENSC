@@ -43,8 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaisseCommunaute.cs" />
+    <Compile Include="Cartes.cs" />
+    <Compile Include="Cases.cs" />
+    <Compile Include="Chance.cs" />
+    <Compile Include="Communaute.cs" />
+    <Compile Include="Compagnies.cs" />
+    <Compile Include="Couleur.cs" />
+    <Compile Include="Deplacement.cs" />
+    <Compile Include="Gare.cs" />
+    <Compile Include="Jeu.cs" />
+    <Compile Include="Joueur.cs" />
+    <Compile Include="LibereDePrison.cs" />
+    <Compile Include="Plateau.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProprieteDeCouleur.cs" />
+    <Compile Include="Propriete.cs" />
+    <Compile Include="Taxe.cs" />
+    <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
