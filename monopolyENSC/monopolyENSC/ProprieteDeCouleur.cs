@@ -9,37 +9,28 @@ using System.Text;
  */
 public class ProprieteDeCouleur : Propriete {
 
-    /**
-     * 
-     */
+
     public ProprieteDeCouleur() {
     }
 
-    /**
-     * 
-     */
-    public float prixMaison;
 
-    /**
-     * 
-     */
-    public float prixHotel;
+    public float prixMaison { get; set; }
 
-    /**
-     * 
-     */
-    public int nbMaisonConstruites;
+    public float prixHotel { get; set; }
 
-    /**
-     * 
-     */
-    public int nbHotelsConstruites;
 
-    /**
-     * 
-     */
-    public void calculLoyer() {
-        // TODO implement here
+    public int nbMaisonConstruites { get; set; }
+
+    public int nbHotelsConstruits { get; set; }
+
+
+    public double calculLoyer() {
+        if (nbHotelsConstruits == 0)
+        {
+            return nbMaisonConstruites * prixMaison;
+        }
+        else
+            return prixHotel;
     }
 
 }

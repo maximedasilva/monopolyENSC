@@ -53,4 +53,9 @@ public class Jeu {
         else return false;
 
     }
+    public void addJoueur(Joueur j)
+    {
+        Joueurs.Add(j);
+    }
+   
 }
