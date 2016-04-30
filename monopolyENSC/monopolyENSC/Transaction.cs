@@ -8,10 +8,8 @@ using System.Text;
  * 
  */
 public class Transaction : Chance {
+    
 
-    /**
-     * 
-     */
     public Transaction() {
     }
 
