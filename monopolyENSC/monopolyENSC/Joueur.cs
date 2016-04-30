@@ -13,32 +13,40 @@ public class Joueur {
     public Joueur() {
     }
 
-    private enum Etat { vivant, mort, enPrison };
+    public enum Etat { vivant, mort, enPrison };
 
     public int num  { get; set;}
+
+    public List<Cartes> cartesEnPossession;
 
     public string nom { get; set; }
 
     public double sous { get; set; }
 
-    private Etat etatCourant { get; set; }
+    public Etat etatCourant { get; set; }
 
+    public int position { get; set; }
 
-
-
-
-/**
- * 
- */
-public void Operation2() {
-        // TODO implement here
+    public void mouvementArgent(double valeur)
+    {
+        sous += valeur;
     }
 
-    /**
-     * 
-     */
-    public void Operation1() {
-        // TODO implement here
+    public void ajoutCarte(Cartes c)
+    {
+        cartesEnPossession.Add(c);
+    }
+    public void retraitCartes(Cartes c)
+    {
+        if (cartesEnPossession.Count>0)
+        {
+            cartesEnPossession.Remove(cartesEnPossession.Find(current=>current.id==c.id));
+        }
+    }
+
+    public void jouer()
+    {
+
     }
 
 }

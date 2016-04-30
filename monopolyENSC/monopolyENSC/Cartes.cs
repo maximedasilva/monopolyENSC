@@ -15,8 +15,7 @@ public class Cartes {
     public Cartes() {
     }
 
-
-
+    public int id { get; set; }
 
 
 }
