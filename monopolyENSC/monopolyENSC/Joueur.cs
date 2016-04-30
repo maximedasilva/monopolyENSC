@@ -20,6 +20,7 @@ public class Joueur {
     }
 
     public enum Etat { vivant, mort, enPrison };
+    public Plateau p { get; set; }
 
     public int num  { get; set;}
 
@@ -57,7 +58,20 @@ public class Joueur {
     }
     public void jouer()
     {
+        if(etatCourant==Etat.vivant)
+        {
+            Random des = new Random();
+            int De1 = des.Next(1, 7);
+            int de2 = des.Next(1, 7);
 
+            position += position + De1 + de2;
+            if(position>=p.cases.Length)
+            {
+                position = position % p.cases.Length;
+                sous += 2000;
+
+            }
+        }
     }
 
 }
