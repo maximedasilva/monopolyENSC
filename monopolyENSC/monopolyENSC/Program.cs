@@ -10,7 +10,9 @@ namespace monopolyENSC
     {
         static void Main(string[] args)
         {
-            var t = new Plateau();
+            var j = new Joueur("anthony");
+            Console.Write(j);
+            var t = new Jeu();
         }
     }
 }

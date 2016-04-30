@@ -18,22 +18,22 @@ public class ProprieteDeCouleur : Propriete {
     /**
      * 
      */
-    public void prixMaison;
+    public float prixMaison;
 
     /**
      * 
      */
-    public void prixHotel;
+    public float prixHotel;
 
     /**
      * 
      */
-    public void nbMaisonConstruites;
+    public int nbMaisonConstruites;
 
     /**
      * 
      */
-    public void nbHotelsConstruites;
+    public int nbHotelsConstruites;
 
     /**
      * 

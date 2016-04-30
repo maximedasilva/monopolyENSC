@@ -18,6 +18,6 @@ public class Taxe : Cases {
     /**
      * 
      */
-    public void valeurTaxe;
+    public float valeurTaxe;
 
 }

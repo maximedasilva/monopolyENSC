@@ -1,2 +1,6 @@
 C:\Users\maxime\Documents\Visual Studio 2015\Projects\S2\projet\monopolyENSC\monopolyENSC\bin\Debug\monopolyENSC.exe.config
 C:\Users\maxime\Documents\Visual Studio 2015\Projects\S2\projet\monopolyENSC\monopolyENSC\obj\Debug\monopolyENSC.csprojResolveAssemblyReference.cache
+C:\Users\maxime\Documents\Visual Studio 2015\Projects\S2\projet\monopolyENSC\monopolyENSC\bin\Debug\monopolyENSC.exe
+C:\Users\maxime\Documents\Visual Studio 2015\Projects\S2\projet\monopolyENSC\monopolyENSC\bin\Debug\monopolyENSC.pdb
+C:\Users\maxime\Documents\Visual Studio 2015\Projects\S2\projet\monopolyENSC\monopolyENSC\obj\Debug\monopolyENSC.exe
+C:\Users\maxime\Documents\Visual Studio 2015\Projects\S2\projet\monopolyENSC\monopolyENSC\obj\Debug\monopolyENSC.pdb
