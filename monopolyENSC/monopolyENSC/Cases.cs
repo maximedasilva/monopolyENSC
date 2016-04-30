@@ -16,8 +16,4 @@ public class Cases {
     }
     public int num { get; set; }
 
-
-
-
-
 }

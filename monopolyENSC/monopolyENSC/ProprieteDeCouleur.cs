@@ -24,7 +24,7 @@ public class ProprieteDeCouleur : Propriete {
     public int nbHotelsConstruits { get; set; }
 
 
-    public double calculLoyer() {
+    public override double calculLoyer() {
         if (nbHotelsConstruits == 0)
         {
             return nbMaisonConstruites * prixMaison;

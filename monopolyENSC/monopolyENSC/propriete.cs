@@ -39,8 +39,8 @@ public class Propriete : Cases {
     /**
      * 
      */
-    public void calculLoyer() {
-        // TODO implement here
+    public virtual double calculLoyer() {
+        return 0;
     }
 
 }
