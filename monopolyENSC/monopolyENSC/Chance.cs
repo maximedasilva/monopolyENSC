@@ -7,7 +7,7 @@ using System.Text;
 /**
  * 
  */
-public class Chance : Cases {
+public class Chance : Cartes {
 
     /**
      * 
