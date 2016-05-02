@@ -38,6 +38,7 @@ public class Jeu {
             {
                 j.jouer();
                 Console.WriteLine(j.position + " " + j.nom);
+              //  System.Threading.Thread.Sleep(5000);
             }
         }
     }
