@@ -12,17 +12,27 @@ using System.Xml.Linq;
 public class Plateau {
     public Cases[] cases{ get; set; }
   //  public List<CaisseCommunaute> {get; set;}
-    public List<Cartes> cartes { get; set; }//TODO modififier cette liste pour qu'il y ait deux pile
+    public List<Cartes> cartesChance { get; set; }
+    public List<Cartes> cartesCaisseCommunaute { get; set; }
 
     public Plateau()
     {
         cases = new Cases[40];
-        cartes = new List<Cartes>();
+
         generate();
+
+        cartesChance = new List<Cartes>();
+        cartesCaisseCommunaute = new List<Cartes>();
+$
     }
-    public void addCartes(Cartes c)
+
+    public void addCartesChance(Cartes c)
     {
-        cartes.Add(c);
+        cartesChance.Add(c);
+    }
+    public void addCartesCaisseCommunaute(Cartes c)
+    {
+        cartesCaisseCommunaute.Add(c);
     }
     public void generate()
     {
