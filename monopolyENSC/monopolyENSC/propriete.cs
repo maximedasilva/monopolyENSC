@@ -7,39 +7,27 @@ using System.Text;
 /**
  * 
  */
-public class Propriete : Cases {
+public abstract class Propriete : Cases {
 
-    /**
-     * 
-     */
-    public Propriete() {
+    
+    public string _nom {get; }
+    public double _prixAchat {get; }
+    public double _prixLoyer { get; }
+    public double _prixHypotheque { get; }
+
+
+
+    public Propriete(string nom, double prixAchat, double prixLoyer, double prixHypotheque)
+    {
+        _nom = nom;
+        _prixAchat = prixAchat;
+        _prixLoyer = prixLoyer;
+        _prixHypotheque = prixHypotheque;
     }
 
-    /**
-     * 
-     */
-    public string nom;
-
-    /**
-     * 
-     */
-    public float prixAchat;
-
-    /**
-     * 
-     */
-    public float prixLoyer;
-
-    /**
-     * 
-     */
-    public float prixHypotheque;
-
-
-    /**
-     * 
-     */
-    public virtual double calculLoyer() {
+    
+    public virtual double calculLoyer()
+    {
         return 0;
     }
 
