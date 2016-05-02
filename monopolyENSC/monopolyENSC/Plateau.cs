@@ -53,6 +53,11 @@ public class Plateau {
         {
             cases[(int)ga.Attribute("id")] = new Gare((string)ga.Attribute("nom"), (double)gares.Attribute("prix"), (double)gares.Attribute("t0"), (double)gares.Attribute("hyp"));
         }
+        var taxe = plateau.Descendants("taxe");
+        foreach(var t in taxe)
+        {
+            cases[(int)t.Attribute("id")] = new Taxe((string)t.Attribute("nom"), (double)t.Attribute("prix"));
+        }
         
     }
 }

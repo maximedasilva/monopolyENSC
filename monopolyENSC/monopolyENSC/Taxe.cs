@@ -8,11 +8,12 @@ using System.Text;
  */
 public class Taxe : Cases {
 
-    /**
-     * 
-     */
-    public Taxe() :base()
+    string nom;
+    double prix;
+    public Taxe(string _nom,double _prix) :base()
     {
+        nom = _nom;
+        prix = _prix;
     }
 
     /**
