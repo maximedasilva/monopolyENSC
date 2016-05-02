@@ -10,13 +10,14 @@ using System.Text;
 public class Joueur {
 
 
-    public Joueur(string _nom) {
+    public Joueur(string _nom,Plateau _p) {
         nom = _nom;
         num = cpt++;
         cartesEnPossession = new List<Cartes>();
         sous = 10000;
         etatCourant = Etat.vivant;
         position = 0;
+        p = _p;
     }
 
     public enum Etat { vivant, mort, enPrison };
@@ -69,7 +70,6 @@ public class Joueur {
             {
                 position = position % p.cases.Length;
                 sous += 2000;
-
             }
         }
     }

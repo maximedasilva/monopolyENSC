@@ -49,7 +49,6 @@
     <Compile Include="Chance.cs" />
     <Compile Include="Communaute.cs" />
     <Compile Include="Compagnies.cs" />
-    <Compile Include="Couleur.cs" />
     <Compile Include="Deplacement.cs" />
     <Compile Include="Gare.cs" />
     <Compile Include="Jeu.cs" />

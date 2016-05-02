@@ -13,8 +13,11 @@ public class Jeu {
      * 
      */
     public Jeu() {
+        Joueurs = new List<Joueur>();
+        plateau = new Plateau();
+        addJoueur();
     }
-
+    
     public List<Joueur> Joueurs { get; set; }
 
     public Plateau plateau{get; set;}
@@ -34,6 +37,8 @@ public class Jeu {
             if (j.etatCourant != Joueur.Etat.enPrison)
             {
                 j.jouer();
+                Console.WriteLine(j.position + " " + j.nom);
+              //  System.Threading.Thread.Sleep(5000);
             }
         }
     }
@@ -43,7 +48,7 @@ public class Jeu {
         int cpt = 0;
         foreach(Joueur j in Joueurs)
         {
-            if (j.etatCourant != Joueur.Etat.enPrison)
+            if (j.etatCourant != Joueur.Etat.mort)
             {
                 cpt++;
             }
@@ -53,9 +58,24 @@ public class Jeu {
         else return false;
 
     }
-    public void addJoueur(Joueur j)
+    public void addJoueur()
     {
-        Joueurs.Add(j);
+        Console.Clear();
+        string name = null;
+        int cpt = 0;
+        do
+        {
+            Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
+
+            name = Console.ReadLine();
+            if (name != ".")
+            {
+                Joueurs.Add(new Joueur(name, this.plateau));
+                cpt++;
+            }
+        }
+        while (cpt < 2 || name != ".");
+
     }
    
 }
