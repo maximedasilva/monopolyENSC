@@ -51,7 +51,7 @@ public class Joueur {
         if (cartesEnPossession.Count>0)
         {
             //permet de supprimer une carte de la main du joueur
-            cartesEnPossession.Remove(cartesEnPossession.Find(current=>current.id==c.id));
+            cartesEnPossession.Remove(cartesEnPossession.Find(current=>current.num==c.num));
         }
     }
     public override string ToString()

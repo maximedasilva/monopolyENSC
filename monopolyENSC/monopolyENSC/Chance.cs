@@ -12,7 +12,7 @@ public class Chance : Cartes {
     /**
      * 
      */
-    public Chance() {
+    public Chance(Type typeCarte):base(typeCarte) {
     }
 
 }

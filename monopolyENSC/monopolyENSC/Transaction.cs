@@ -10,7 +10,7 @@ using System.Text;
 public class Transaction : Chance {
     
 
-    public Transaction() {
+    public Transaction(Type typeCarte):base(typeCarte) {
     }
 
 }

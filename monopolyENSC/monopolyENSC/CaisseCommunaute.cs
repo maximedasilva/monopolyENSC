@@ -12,7 +12,8 @@ public class CaisseCommunaute : Cartes {
     /**
      * 
      */
-    public CaisseCommunaute() {
+    public CaisseCommunaute(Type typeCarte):base(typeCarte)
+    {
     }
 
 }

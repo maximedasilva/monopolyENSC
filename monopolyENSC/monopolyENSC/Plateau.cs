@@ -18,12 +18,10 @@ public class Plateau {
     public Plateau()
     {
         cases = new Cases[40];
-
         generate();
-
         cartesChance = new List<Cartes>();
         cartesCaisseCommunaute = new List<Cartes>();
-$
+
     }
 
     public void addCartesChance(Cartes c)
@@ -36,16 +34,24 @@ $
     }
     public void generate()
     {
-        XDocument plateau = XDocument.Load("..//..//Plateau.xml");
-        var jeu = plateau.Descendants("jeu").First();
-        var groupe = j.Descendants("groupe");
+        XDocument document = XDocument.Load("..//..//Plateau.xml");
+        var jeu = document.Descendants("jeu").First();
+        var plateau = document.Descendants("plateau").First();
+        var groupe = jeu.Descendants("groupe");
+        var gares = jeu.Descendants("gare").First();
         foreach(var g in groupe)
         {
-            var terrain = g.Descendants("Terrain");
+            var terrain = g.Descendants("terrain");
             foreach(var t in terrain)
             {
-                cases[t.]
+                cases[(int)t.Attribute("id")] = new ProprieteDeCouleur((double)g.Attribute("maison"), 1000, (string)t.Attribute("nom"), (double)t.Attribute("prix"), (double)t.Attribute("t0"), (double)t.Attribute("hyp"), (ProprieteDeCouleur.couleur)Enum.Parse(typeof(ProprieteDeCouleur.couleur),(string)g.Attribute("couleur")));
             }
+        }
+
+        var gare = plateau.Descendants("gare");
+        foreach(var ga in gare)
+        {
+            cases[(int)ga.Attribute("id")] = new Gare((string)ga.Attribute("nom"), (double)gares.Attribute("prix"), (double)gares.Attribute("t0"), (double)gares.Attribute("hyp"));
         }
         
     }
