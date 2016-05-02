@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.Xml.Linq;
 
 /**
  * 
@@ -16,9 +18,25 @@ public class Plateau {
     {
         cases = new Cases[40];
         cartes = new List<Cartes>();
+        generate();
     }
     public void addCartes(Cartes c)
     {
         cartes.Add(c);
+    }
+    public void generate()
+    {
+        XDocument plateau = XDocument.Load("..//..//Plateau.xml");
+        var jeu = plateau.Descendants("jeu").First();
+        var groupe = j.Descendants("groupe");
+        foreach(var g in groupe)
+        {
+            var terrain = g.Descendants("Terrain");
+            foreach(var t in terrain)
+            {
+                cases[t.]
+            }
+        }
+        
     }
 }

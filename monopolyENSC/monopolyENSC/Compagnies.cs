@@ -12,7 +12,8 @@ public class Compagnies : Propriete {
     /**
      * 
      */
-    public Compagnies() {
+    public Compagnies(string nom,double prixAchat,double prixLoyer,double prixHypotheque):base(nom,prixAchat,prixLoyer,prixHypotheque)
+    {
     }
 
     /**

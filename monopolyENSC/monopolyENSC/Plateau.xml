@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jeu>
+	<compagnie prix="150" mul1="4" mul2="10" hyp="75"/>
+	<gare prix="200" t0="25" t1="50" t2="100" t3="200" hyp="100" />
+	<plateau taille_case="300" espace_maison="240" taille_traits="5">
+		<groupe couleur="bleu" r="" g="" b="" maison="200">
+			<terrain id="37" nom="Avenue des Champs-Elysees" t0="35" t1="175" t2="500" t3="1100" t4="1300" t5="1500" hyp="175" prix="350"/>
+			<terrain id="39" nom="Rue de la Paix" t0="50" t1="200" t2="600" t3="1400" t4="1700" t5="2000" hyp="200" prix="400"/>
+		</groupe>
+		<groupe couleur="vert" r="" g="" b="" maison="200">
+			<terrain id="31" nom="Avenue de Breteuil" t0="26" t1="130" t2="390" t3="900" t4="1100" t5="1275" hyp="150" prix="300"/>
+			<terrain id="32" nom="Avenue Foch" t0="26" t1="130" t2="390" t3="900" t4="1100" t5="1275" hyp="150" prix="300"/>
+			<terrain id="34" nom="Boulevard des Capucines" t0="28" t1="150" t2="450" t3="1000" t4="1200" t5="1400" hyp="160" prix="320"/>
+		</groupe>
+		<groupe couleur="jaune" r="" g="" b="" maison="150">
+			<terrain id="26" nom="Faubourg Saint-Honore" t0="22" t1="110" t2="330" t3="800" t4="975" t5="1150" hyp="130" prix="260"/>
+			<terrain id="27" nom="Place de la Bourse" t0="22" t1="110" t2="330" t3="800" t4="975" t5="1150" hyp="130" prix="260"/>
+			<terrain id="29" nom="Rue la Fayette" t0="24" t1="120" t2="360" t3="850" t4="1025" t5="1200" hyp="140" prix="280"/>
+		</groupe>
+		<groupe couleur="rouge" r="" g="" b="" maison="150">
+			<terrain id="21" nom="Avenue Matignon" t0="18" t1="90" t2="250" t3="700" t4="875" t5="1050" hyp="110" prix="220"/>
+			<terrain id="23" nom="Boulevard Malesherbes" t0="18" t1="90" t2="250" t3="700" t4="875" t5="1050" hyp="110" prix="220"/>
+			<terrain id="24" nom="Avenue Henri-Martin" t0="20" t1="100" t2="300" t3="750" t4="925" t5="1100" hyp="120" prix="240"/>
+		</groupe>
+		<groupe couleur="orange" r="" g="" b="" maison="100">
+			<terrain id="16" nom="Avenue Mozart" t0="14" t1="70" t2="200" t3="550" t4="750" t5="950" hyp="90" prix="180"/>
+			<terrain id="18" nom="Boumlevard Saint-Michel" t0="14" t1="70" t2="200" t3="550" t4="750" t5="950" hyp="90" prix="180"/>
+			<terrain id="19" nom="Place Pligalle" t0="16" t1="80" t2="220" t3="600" t4="800" t5="1000" hyp="100" prix="200"/>
+		</groupe>
+		<groupe couleur="violet" r="" g="" b="" maison="100">
+			<terrain id="11" nom="Boulevard de la Villette" t0="10" t1="50" t2="150" t3="450" t4="625" t5="750" hyp="70" prix="140"/>
+			<terrain id="13" nom="Avenue de Neuilly" t0="10" t1="50" t2="150" t3="450" t4="625" t5="750" hyp="70" prix="140"/>
+			<terrain id="14" nom="Rue de Paradis" t0="12" t1="60" t2="180" t3="500" t4="700" t5="900" hyp="80" prix="160"/>
+		</groupe>
+		<groupe couleur="azur" r="" g="" b="" maison="50">
+			<terrain id="6" nom="Rue de Vaugirard" t0="6" t1="30" t2="90" t3="270" t4="400" t5="550" hyp="50" prix="100"/>
+			<terrain id="8" nom="Rue de Courcelles" t0="6" t1="30" t2="90" t3="270" t4="400" t5="550" hyp="50" prix="100"/>
+			<terrain id="9" nom="Avenue de la Republique" t0="8" t1="40" t2="100" t3="300" t4="450" t5="600" hyp="60" prix="120"/>
+		</groupe>
+		<groupe couleur="mauve" r="" g="" b="" maison="50">
+			<terrain id="1" nom="Boulvard de Belleville" t0="2" t1="10" t2="30" t3="90" t4="160" t5="250" hyp="30" prix="60"/>
+			<terrain id="3" nom="Rue Lecourbe" t0="4" t1="20" t2="60" t3="180" t4="320" t5="450" hyp="30" prix="60"/>
+		</groupe>
+		<gare id="5" nom="Gare Montparnasse" />
+		<gare id="15" nom="Gare de Lyon" />
+		<gare id="25" nom="Gare du Nord" />
+		<gare id="35" nom="Gare Saint-Lazare"/>
+		<parc id="20"/> <prison id="10"/>
+		<police id="30"/>
+		<depart id="0"/>
+		<carte id="2" type="1"/>
+		<carte id="7" type="0"/>
+		<carte id="17" type="1"/>
+		<carte id="22" type="0"/>
+		<carte id="33" type="1"/>
+		<carte id="36" type="0"/>
+		<taxe id="4" nom="Impot sur le revenu" prix="200"/>
+		<taxe id="38" nom="Taxe de luxe" prix="100"/>
+		<compagnie id="12" nom="Campagne de distribution d'electricite" />
+		<compagnie id="28" nom="Campagne de distribution des eaux" />
+	</plateau>
+	<cartes>
+		<paquet type="1" nom="Caisse de Communaute">
+			<carte lib="Payez a l'hopital 10e" type="argent" valeur="-10" />
+			<carte lib="Erreur de la banque en votre faveur.
+				Recevez 200e" type="argent" valeur="200" />
+			<carte lib="Recevez votre interet sur l'emprunt a 7%, 25e" type="argent" valeur="25" />
+			<carte lib="Payez une amende de 10e ou bien tirez une carte chance" type="argent_tirer" valeur="-10" autre="0" />
+			<carte lib="Les contributions vous remboursent la somme de 20e" type="argent" valeur="20" />
+			<carte lib="Payer la note du medecin 50e" type="argent" valeur="-50"/>
+			<carte lib="Vous avez gagne le deuxieme prix de beaute.
+				Recevez 10e." type="argent" valeur="10" />
+			<carte lib="Vous heritez 100e" type="argent" valeur="100" />
+			<carte lib="La vente de votre stock vous rapporte 50e" type="argent" valeur="50" />
+			<carte lib="Allez en prison.
+Avancez tous droit en prison.
+Ne passez pas par la case depart.
+Ne recevez pas 200e"
+				type="aller_prison" />
+			<carte lib="Recevez votre revenu annuel 100e" type="argent" valeur="100" />
+			<carte lib="C'est votre anniversaire:
+chaque joueur doit vous donner 10e" type="argent_depuis_joueurs" valeur="10"/>
+			<carte lib="Retournez a Belleville" type="retourner" id="1" />
+			<carte lib="Vous etes libere de prison." type="libere" />
+			<carte lib="Avancez jusqu'a la case depart" type="aller_a" id="0" />
+			<carte lib="Payer votre Police d'Assurance s'elevant a 50e" type="argent" valeur="-50" />
+		</paquet>
+		<paquet type="0" nom="Chance">
+			<carte lib="Reculez de 3 cases" type="aller_relatif" dep="-3" />
+			<carte lib="Avancez a Boulevard de la Villette.
+Si vous passez par la case Depart recevez 200e" type="aller_a" id="11" />
+			<carte lib="La banque vous verse un diviende de 50e" type="argent" valeur="50" />
+			<carte lib="Payez pour frais de scolarite. 150e" type="argent" valeur="-150" />
+			<carte lib="Rendez-vous a l'Avenue Henri-Martin.
+Si vous passer par la case Depart recevez 200e" type="aller_a" id="24" />
+			<carte lib="Faites des reparations dans toutes vos maisons.
+Versez pour chaque maison 25e.
+Versez pour chaque hotel 100e." type="reparation" maison="-25" hotel="-100" />
+			<carte lib="Vous etes impose pour les reparations
+de voirie a raison de:
+40e par maison et
+115e par hotel." type="reparation" maison="-40" hotel="-115" />
+			<carte lib="Allez a la gare de Lyon" type="aller_a" id="15" />
+			<carte lib="Amende pour exces de vitesse: 15e." type="argent" valeur="-15" />
+			<carte lib="Vous avez gagne le prix de mots croises.
+recevez 100e." type="argent" valeur="100" />
+			<carte lib="Amende pour ivresse: 20e" type="argent" valeur="-20" />
+			<carte lib="Avancez jusqu'a la case depart" type="allez_a" id="0" />
+			<carte lib="Vous etes libere de prison." type="libere" />
+			<carte lib="Rendez-vous a la Rue de la Paix" type="retourner" id="39" />
+			<carte lib="Votre immeuble et votre pret rapportent 150e" type="argent" valeur="150" />
+			<carte lib="Allez en prison.
+Avancez tous droit en prison.
+Ne passez pas par la case depart.
+Ne recevez pas 200e"
+				type="aller_prison" />
+		</paquet>
+	</cartes>
+</jeu>

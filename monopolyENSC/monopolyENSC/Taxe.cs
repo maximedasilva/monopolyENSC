@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +11,8 @@ public class Taxe : Cases {
     /**
      * 
      */
-    public Taxe() {
+    public Taxe() :base()
+    {
     }
 
     /**
