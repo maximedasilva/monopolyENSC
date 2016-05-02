@@ -45,10 +45,12 @@ public class Joueur {
     {
         cartesEnPossession.Add(c);
     }
+    
     public void retraitCartes(Cartes c)
     {
         if (cartesEnPossession.Count>0)
         {
+            //permet de supprimer une carte de la main du joueur
             cartesEnPossession.Remove(cartesEnPossession.Find(current=>current.id==c.id));
         }
     }
