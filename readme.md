@@ -6,7 +6,8 @@ dépôt github:
 https://github.com/maximedasilva/monopolyENSC
 
 contributors
-
+Jean Witt (https://github.com/jwittensc)
+Maxime Da Silva(https://github.com/maximedasilva)
 
 DONE
 -
