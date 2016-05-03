@@ -1,4 +1,5 @@
 
+using monopolyENSC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,8 @@ public class Plateau {
         var plateau = document.Descendants("plateau").First();
         var groupe = jeu.Descendants("groupe");
         var gares = jeu.Descendants("gare").First();
+        var compagnie = jeu.Descendants("compagnie").First();
+
         foreach(var g in groupe)
         {
             var terrain = g.Descendants("terrain");
@@ -58,6 +61,16 @@ public class Plateau {
         {
             cases[(int)t.Attribute("id")] = new Taxe((string)t.Attribute("nom"), (double)t.Attribute("prix"));
         }
+        var compagnies = plateau.Descendants("compagnie");
+        foreach(var c in compagnies)
+        {
+            cases[(int)c.Attribute("id")] = new Compagnies((string)c.Attribute("nom"),(double) compagnie.Attribute("prix"), (double)compagnie.Attribute("mul1"), (double)compagnie.Attribute("hyp"));
+        }
+        cases[20] = new ParcGratuit();
+        cases[30] = new police();
+        cases[10] = new Prison();
+        cases[0] = new Depart();
+        
         
     }
 }
