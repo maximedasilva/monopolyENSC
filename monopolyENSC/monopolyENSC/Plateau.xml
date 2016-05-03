@@ -45,7 +45,8 @@
 		<gare id="15" nom="Gare de Lyon" />
 		<gare id="25" nom="Gare du Nord" />
 		<gare id="35" nom="Gare Saint-Lazare"/>
-		<parc id="20"/> <prison id="10"/>
+		<parc id="20"/>
+	 	<prison id="10"/>
 		<police id="30"/>
 		<depart id="0"/>
 		<carte id="2" type="1"/>
