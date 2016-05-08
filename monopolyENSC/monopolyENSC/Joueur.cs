@@ -67,7 +67,7 @@ public class Joueur {
             int De1 = des.Next(1, 7);
             int de2 = des.Next(1, 7);
 
-            position += position + De1 + de2;
+            position += De1 + de2;
             if(position>=p.cases.Length)
             {
                 position = position % p.cases.Length;
