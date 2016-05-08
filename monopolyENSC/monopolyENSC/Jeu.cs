@@ -4,14 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-/**
- * 
- */
+
 public class Jeu {
 
-    /**
-     * 
-     */
+
     public Jeu() {
         Joueurs = new List<Joueur>();
         plateau = new Plateau();
