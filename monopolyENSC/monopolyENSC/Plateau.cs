@@ -41,6 +41,9 @@ public class Plateau {
         var groupe = jeu.Descendants("groupe");
         var gares = jeu.Descendants("gare").First();
         var compagnie = jeu.Descendants("compagnie").First();
+        var cartes = document.Descendants("cartes").First();
+        
+
 
         foreach(var g in groupe)
         {
@@ -70,7 +73,76 @@ public class Plateau {
         cases[30] = new police();
         cases[10] = new Prison();
         cases[0] = new Depart();
+
+        var caisseCom = cartes.Descendants("paquet");
         
-        
+
+        foreach (var p in caisseCom)
+        {
+            var carte = p.Descendants("carte");
+
+            if ((int)p.Attribute("type")==1) // creation des cartes communaute
+            {
+                
+                foreach (var c in carte)
+                {
+                    if ((string)c.Attribute("type") == "argent")
+                    {
+                        Transaction nvCarte = new Transaction(Cartes.TypeC.communaute, (string)c.Attribute("lib"), (double)c.Attribute("valeur"), false);
+                        addCartesCaisseCommunaute(nvCarte);
+                    }
+                    
+                    else if ((string)c.Attribute("type") == "aller_a")
+                    {
+                        Deplacement nvCarte = new Deplacement(Cartes.TypeC.communaute, (string)c.Attribute("lib"), (int)c.Attribute("dep"), (int)c.Attribute("id"));
+                        addCartesCaisseCommunaute(nvCarte);
+                    }
+                    else if ((string)c.Attribute("type") == "aller_prison")
+                    {
+                        AllerPrison nvCarte = new AllerPrison(Cartes.TypeC.communaute, (string)c.Attribute("lib"));
+                        addCartesCaisseCommunaute(nvCarte);
+                    }
+                    else if ((string)c.Attribute("type") == "libere")
+                    {
+                        LibereDePrison nvCarte = new LibereDePrison(Cartes.TypeC.communaute, (string)c.Attribute("lib"));
+                        addCartesCaisseCommunaute(nvCarte);
+                    }
+                }
+                
+            }
+            else if ((int)p.Attribute("type") == 0) //creation des cartes chance
+            {
+                foreach (var c in carte)
+                {
+                    if ((string)c.Attribute("type") == "argent")
+                    {
+                        Transaction nvCarte = new Transaction(Cartes.TypeC.communaute, (string)c.Attribute("lib"), (double)c.Attribute("valeur"), false);
+                        addCartesChance(nvCarte);
+                    }
+                    else if ((string)c.Attribute("type") == "reparation")
+                    {
+                        Transaction nvCarte = new Transaction(Cartes.TypeC.communaute, (string)c.Attribute("lib"), 0, true);
+                        addCartesChance(nvCarte);
+                    }
+                    else if ((string)c.Attribute("type") == "aller_prison")
+                    {
+                        AllerPrison nvCarte = new AllerPrison(Cartes.TypeC.chance, (string)c.Attribute("lib"));
+                        addCartesChance(nvCarte);
+                    }
+                    else if ((string)c.Attribute("type") == "libere")
+                    {
+                        LibereDePrison nvCarte = new LibereDePrison(Cartes.TypeC.chance, (string)c.Attribute("lib"));
+                        addCartesChance(nvCarte);
+                    }
+                    else if ((string)c.Attribute("type") == "aller_a")
+                    {
+                        Deplacement nvCarte = new Deplacement(Cartes.TypeC.communaute, (string)c.Attribute("lib"), (int)c.Attribute("dep"), (int)c.Attribute("id"));
+                        addCartesChance(nvCarte);
+                    }
+                }
+            }
+        }
+
+
     }
 }

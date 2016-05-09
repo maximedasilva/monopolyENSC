@@ -13,7 +13,7 @@ public class Deplacement : Cartes {
     public int _deplacementAbsolu;  // aller à la rue de la Paix par exemple, c'est le numero de la case d'arrivée
 
 
-    public Deplacement(Type typecarte,int depRel, int depAbs):base (typecarte)
+    public Deplacement(TypeC typecarte, string fct,int depRel, int depAbs):base (typecarte, fct)
     {
         _deplacementAbsolu = depAbs;
         _deplacementRelatif = depRel;
