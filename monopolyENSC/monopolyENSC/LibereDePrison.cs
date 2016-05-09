@@ -8,7 +8,7 @@ using System.Text;
 public class LibereDePrison : Cartes {
 
     
-    public LibereDePrison(Type typecarte):base(typecarte)
+    public LibereDePrison(TypeC typecarte, string fct):base(typecarte, fct)
     {
 
     }
