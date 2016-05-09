@@ -54,6 +54,17 @@ public class Joueur {
             cartesEnPossession.Remove(cartesEnPossession.Find(current=>current.num==c.num));
         }
     }
+    public void mettreHypotheque()
+    {
+        foreach (Cases c in p.cases)
+        {
+            if (c is Propriete)
+            {
+
+            }
+        }
+    }
+
     public override string ToString()
     {
         string rep = String.Format("{0}, il lui rest {1} euros et il est en position {2} ", nom,sous, position);
@@ -73,6 +84,7 @@ public class Joueur {
                 position = position % p.cases.Length;
                 sous += 2000;
             }
+            p.cases[position].action(this);
         }
     }
 

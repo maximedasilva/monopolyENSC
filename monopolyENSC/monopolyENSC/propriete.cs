@@ -31,8 +31,17 @@ public abstract class Propriete : Cases {
     {
         if (this.etat == EtatPropriete.achete && proprietaire != j)
         {
-            j.sous -= this.calculLoyer();
-            Console.Write("vous venez de payer le loyer");
+            if (j.sous > calculLoyer())
+            {
+                j.sous -= this.calculLoyer();
+                Console.Write("vous venez de payer le loyer");
+            }
+            else
+            {
+                j.etatCourant = Joueur.Etat.mort;
+
+            }
+
         }
         else if (this.etat == EtatPropriete.libre)
         {
@@ -42,10 +51,10 @@ public abstract class Propriete : Cases {
             {
                 c = Console.ReadKey();
             }
-            while (c.KeyChar != 'y' || c.KeyChar != 'n');
+            while (c.KeyChar != 'y' && c.KeyChar != 'n');
             if (c.KeyChar == 'y' && j.sous > this._prixAchat)
             {
-
+                Console.WriteLine("Vous avez acheté {0}", this._nom);
                 j.sous -= this._prixAchat;
                 this.proprietaire = j;
                 etat = EtatPropriete.achete;
