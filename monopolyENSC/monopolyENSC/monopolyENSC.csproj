@@ -46,6 +46,7 @@
     <Compile Include="AllerPrison.cs" />
     <Compile Include="Cartes.cs" />
     <Compile Include="Cases.cs" />
+    <Compile Include="Chance.cs" />
     <Compile Include="Communaute.cs" />
     <Compile Include="Compagnies.cs" />
     <Compile Include="Depart.cs" />

@@ -19,9 +19,10 @@ public class Plateau {
     public Plateau()
     {
         cases = new Cases[40];
-        generate();
+ 
         cartesChance = new List<Cartes>();
         cartesCaisseCommunaute = new List<Cartes>();
+        generate();
 
     }
 
@@ -114,7 +115,7 @@ public class Plateau {
                     }
                     else if ((string)c.Attribute("type") == "aller_prison")
                     {
-                  //      AllerPrison nvCarte = new AllerPrison(Cartes.TypeC.communaute, (string)c.Attribute("lib"));
+                        AllerPrison nvCarte = new AllerPrison(Cartes.TypeC.communaute, (string)c.Attribute("lib"));
                         addCartesCaisseCommunaute(nvCarte);
                     }
                     else if ((string)c.Attribute("type") == "libere")
