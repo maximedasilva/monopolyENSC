@@ -7,12 +7,12 @@ using System.Text;
 /**
  * 
  */
-public class Chance : Cartes {
+public class Chance : Cases {
 
     /**
      * 
      */
-    public Chance(Type typeCarte):base(typeCarte) {
+    public Chance() { 
     }
 
 }

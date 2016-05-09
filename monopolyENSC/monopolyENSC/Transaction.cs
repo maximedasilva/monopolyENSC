@@ -7,10 +7,9 @@ using System.Text;
 /**
  * 
  */
-public class Transaction : Chance {
+public class Transaction {
     
 
-    public Transaction(Type typeCarte):base(typeCarte) {
-    }
+   
 
 }

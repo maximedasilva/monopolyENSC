@@ -70,7 +70,19 @@ public class Plateau {
         cases[30] = new police();
         cases[10] = new Prison();
         cases[0] = new Depart();
-        
+        var cartes = plateau.Descendants("carte");
+        foreach(var c in cartes)
+        {
+            if ((int)c.Attribute("type")==1)
+            {
+                cases[(int)c.Attribute("id")] = new Communaute();
+            }
+            else
+            {
+
+                cases[(int)c.Attribute("id")] = new Chance();
+            }
+        }
         
     }
 }

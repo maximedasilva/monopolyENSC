@@ -40,7 +40,7 @@ public abstract class Propriete : Cases {
             {
                 j.etatCourant = Joueur.Etat.mort;
                 j.mettreHypotheque();
-                Console.Write("Le joueur {0} est mort",this._nom)
+                Console.Write("Le joueur {0} est mort", this._nom);
             }
 
         }
@@ -59,7 +59,7 @@ public abstract class Propriete : Cases {
                 j.sous -= this._prixAchat;
                 this.proprietaire = j;
                 etat = EtatPropriete.achete;
-
+                j.proprieteEnPossession.Add(this);
             }
             else
             {

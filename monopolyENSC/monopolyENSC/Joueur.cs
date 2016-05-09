@@ -59,7 +59,14 @@ public class Joueur {
     }
     public void mettreHypotheque()
     {
-        
+        if(proprieteEnPossession.Count()>0)
+        {
+            foreach(Propriete p in proprieteEnPossession)
+            {
+                p.proprietaire = null;
+                p.etat = Propriete.EtatPropriete.hypotheque;
+            }
+        }
     }
 
     public override string ToString()
