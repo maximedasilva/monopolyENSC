@@ -19,8 +19,9 @@ public class Compagnies : Propriete {
     /**
      * 
      */
-    public void calculLoyer() {
+    public override double calculLoyer() {
         // TODO implement here
+        return 0;
     }
 
 }
