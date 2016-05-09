@@ -13,5 +13,6 @@ public abstract class Cases {
 
     }
     public int num { get; set; }
+    public virtual void action(Joueur j) { }
 
 }

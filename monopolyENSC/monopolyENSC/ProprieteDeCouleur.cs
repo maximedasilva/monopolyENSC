@@ -34,5 +34,34 @@ public class ProprieteDeCouleur : Propriete {
         double loyer= _prixLoyer* (_nbMaisonConstruites+1);
         return loyer;
     }
+    public override void action(Joueur j)
+    {
+        if(this.etat==EtatPropriete.achete && proprietaire!=j)
+        {
+            j.sous -= this.calculLoyer();
+            Console.Write("vous venez de payer le loyer");
+        }
+        else if(this.etat==EtatPropriete.libre)
+        {
+            ConsoleKeyInfo c;
+            Console.Write("voulez vous acheter {0} pour {1} (y) (n)", this._nom, this._prixAchat);
+            do
+            {
+                c = Console.ReadKey();
+            }
+            while (c.KeyChar != 'y' || c.KeyChar != 'n');
+            if (c.KeyChar == 'y'&& j.sous > this._prixAchat)
+            {
+               
+                    j.sous -= this._prixAchat;
+                    this.proprietaire = j;
+                etat = EtatPropriete.achete;
+                
+            }
+            else
+            {
+                etat= EtatPropriete.hypotheque;
+            }
+    }
 
 }
