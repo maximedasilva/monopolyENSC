@@ -18,10 +18,13 @@ public class Joueur {
         etatCourant = Etat.vivant;
         position = 0;
         p = _p;
+        proprieteEnPossession = new List<Propriete>();
     }
 
     public enum Etat { vivant, mort, enPrison };
     public Plateau p { get; set; }
+
+    public List<Propriete> proprieteEnPossession { get; set; }
 
     public int num  { get; set;}
 
@@ -56,13 +59,7 @@ public class Joueur {
     }
     public void mettreHypotheque()
     {
-        foreach (Cases c in p.cases)
-        {
-            if (c is Propriete)
-            {
-
-            }
-        }
+        
     }
 
     public override string ToString()

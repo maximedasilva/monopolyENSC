@@ -10,7 +10,7 @@ using System.Text;
 public abstract class Propriete : Cases {
 
    public enum EtatPropriete { libre,achete,hypotheque}
-    protected EtatPropriete etat { get; set; }
+    public EtatPropriete etat { get; set; }
     public string _nom {get; }
     public double _prixAchat {get; }
     public double _prixLoyer { get; }
@@ -39,7 +39,8 @@ public abstract class Propriete : Cases {
             else
             {
                 j.etatCourant = Joueur.Etat.mort;
-
+                j.mettreHypotheque();
+                Console.Write("Le joueur {0} est mort",this._nom)
             }
 
         }
