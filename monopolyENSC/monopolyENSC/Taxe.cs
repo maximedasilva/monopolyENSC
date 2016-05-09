@@ -20,5 +20,9 @@ public class Taxe : Cases {
      * 
      */
     public float valeurTaxe;
+    public override void action(Joueur j)
+    {
+        j.payer(prix);
+    }
 
 }

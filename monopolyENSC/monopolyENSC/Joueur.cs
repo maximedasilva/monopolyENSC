@@ -21,6 +21,16 @@ public class Joueur {
         proprieteEnPossession = new List<Propriete>();
     }
 
+    public bool payer(double prix)
+    {
+        if(this.sous>prix)
+        {
+            sous -= prix;
+            return true;
+        }
+        else return false;
+    }
+
     public enum Etat { vivant, mort, enPrison };
     public Plateau p { get; set; }
 

@@ -53,10 +53,9 @@ public abstract class Propriete : Cases {
                 c = Console.ReadKey();
             }
             while (c.KeyChar != 'y' && c.KeyChar != 'n');
-            if (c.KeyChar == 'y' && j.sous > this._prixAchat)
+            if (c.KeyChar == 'y' && j.payer(_prixAchat))
             {
                 Console.WriteLine("Vous avez acheté {0}", this._nom);
-                j.sous -= this._prixAchat;
                 this.proprietaire = j;
                 etat = EtatPropriete.achete;
                 j.proprieteEnPossession.Add(this);

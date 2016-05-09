@@ -32,10 +32,13 @@ public class Jeu {
         {
             if (j.etatCourant != Joueur.Etat.enPrison)
             {
+                Console.Clear();
                 j.jouer();
-                Console.WriteLine(j.position + " " + j.nom);
-                //System.Threading.Thread.Sleep(5000);
+                Console.WriteLine(j);
+                Console.WriteLine("passer au joueur suivant, appuyez sur un touche");
+                Console.ReadKey();
             }
+            
         }
     }
 
