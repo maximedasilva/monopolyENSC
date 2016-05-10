@@ -36,7 +36,7 @@ public class Gare : Propriete {
 
         }
         base.action(j);
-        }
+        
     }
 
 }
