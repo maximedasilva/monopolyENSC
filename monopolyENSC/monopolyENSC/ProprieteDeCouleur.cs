@@ -14,7 +14,7 @@ public class ProprieteDeCouleur : Propriete {
         
         _nbBatimentsConstruits = 0;
         Couleur = _Couleur;
-        double[] prixLoyer = { t0,t1,t2,t3,t4,t5};
+        prixLoyer = { t0,t1,t2,t3,t4,t5};
     }
 
     public enum couleur {bleu, cyan, rose, marron, orange, rouge, jaune, vert};
@@ -29,7 +29,7 @@ public class ProprieteDeCouleur : Propriete {
 
    
 
-    //le calcul de loyer ne peut pas se faire sans XML
+    
     public override double calculLoyer() {
         double loyer = prixLoyer[_nbBatimentsConstruits];
         return loyer;
@@ -73,5 +73,5 @@ public class ProprieteDeCouleur : Propriete {
             }
         }
     }
-
+    
 }
