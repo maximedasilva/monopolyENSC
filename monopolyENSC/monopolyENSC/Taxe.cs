@@ -16,13 +16,11 @@ public class Taxe : Cases {
         prix = _prix;
     }
 
-    /**
-     * 
-     */
+    
     public float valeurTaxe;
     public override void action(Joueur j)
     {
-        j.payer(prix);
+        j.payer(prix, null);
     }
 
 }

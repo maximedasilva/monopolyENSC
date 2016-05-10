@@ -33,7 +33,7 @@ public abstract class Propriete : Cases {
         {
             if (j.sous > calculLoyer())
             {
-                j.sous -= this.calculLoyer();
+                j.payer(calculLoyer(), proprietaire);
                 Console.Write("vous venez de payer le loyer");
             }
             else
@@ -53,7 +53,7 @@ public abstract class Propriete : Cases {
                 c = Console.ReadKey();
             }
             while (c.KeyChar != 'y' && c.KeyChar != 'n');
-            if (c.KeyChar == 'y' && j.payer(_prixAchat))
+            if (c.KeyChar == 'y' && j.payer(_prixAchat, null))
             {
                 Console.WriteLine("Vous avez acheté {0}", this._nom);
                 this.proprietaire = j;
