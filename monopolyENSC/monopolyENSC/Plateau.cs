@@ -114,7 +114,7 @@ public class Plateau {
                     }
                     else if ((string)c.Attribute("type") == "aller_prison")
                     {
-                  //      AllerPrison nvCarte = new AllerPrison(Cartes.TypeC.communaute, (string)c.Attribute("lib"));
+                        AllerPrison nvCarte = new AllerPrison(Cartes.TypeC.communaute, (string)c.Attribute("lib"));
                         addCartesCaisseCommunaute(nvCarte);
                     }
                     else if ((string)c.Attribute("type") == "libere")
