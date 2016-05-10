@@ -85,9 +85,12 @@ public class ProprieteDeCouleur : Propriete {
         {
             if (j.MemeNbMaisons(this) == true)
             {
-                j.sous = j.sous - _prixConstruction;
-                _nbBatimentsConstruits = _nbBatimentsConstruits + 1;
-                return true;
+                if (j.payer(_prixConstruction, null))
+                {
+                    _nbBatimentsConstruits = _nbBatimentsConstruits + 1;
+                    return true;
+                }
+                else return false;
             }
             else return false;
         }
