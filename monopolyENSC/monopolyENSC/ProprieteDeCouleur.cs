@@ -51,7 +51,7 @@ public class ProprieteDeCouleur : Propriete {
             {
                 j.etatCourant = Joueur.Etat.mort;
                 j.mettreHypotheque();
-                Console.Write("Le joueur {0} est mort", this._nom);
+                Console.Write("Le joueur {0} est mort", j._nom);
             }
 
         }

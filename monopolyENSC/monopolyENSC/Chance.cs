@@ -12,7 +12,8 @@ public class Chance : Cases {
     /**
      * 
      */
-    public Chance() { 
+    public Chance():base("chance") { 
+        
     }
 
 }

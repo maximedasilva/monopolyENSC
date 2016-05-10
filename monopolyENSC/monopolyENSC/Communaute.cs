@@ -12,7 +12,7 @@ public class Communaute : Cases {
     /**
      * 
      */
-    public Communaute() {
+    public Communaute():base("communaute") {
     }
 
 }

@@ -8,5 +8,6 @@ namespace monopolyENSC
 {
     class Depart : Cases
     {
+        public Depart() : base("Depart") { }
     }
 }

@@ -32,6 +32,7 @@ public class Plateau {
     public void addCartesCaisseCommunaute(Cartes c)
     {
         cartesCaisseCommunaute.Add(c);
+        
     }
     public void generate()
     {
