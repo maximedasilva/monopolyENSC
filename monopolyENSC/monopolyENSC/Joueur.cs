@@ -14,7 +14,7 @@ public class Joueur {
         nom = _nom;
         num = cpt++;
         cartesEnPossession = new List<Cartes>();
-        sous = 10000;
+        sous = 2000;
         etatCourant = Etat.vivant;
         position = 0;
         p = _p;
@@ -129,7 +129,7 @@ public class Joueur {
             if(position>=p.cases.Length)
             {
                 position = position % p.cases.Length;
-                sous += 2000;
+                sous += 100;
             }
             p.cases[position].action(this);
         }
