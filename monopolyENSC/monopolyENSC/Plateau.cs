@@ -19,9 +19,10 @@ public class Plateau {
     public Plateau()
     {
         cases = new Cases[40];
-        generate();
+ 
         cartesChance = new List<Cartes>();
         cartesCaisseCommunaute = new List<Cartes>();
+        generate();
 
     }
 
