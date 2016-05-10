@@ -10,7 +10,7 @@ public class ProprieteDeCouleur : Propriete {
 
     public ProprieteDeCouleur(double prixM, string nom, double prixAchat, double prixHypotheque, couleur _Couleur, double t0, double t1, double t2, double t3, double t4, double t5) :base(nom, prixAchat, prixHypotheque)
     {
-        _prixMaison = prixM;
+        _prixConstruction = prixM;
         
         _nbBatimentsConstruits = 0;
         Couleur = _Couleur;
@@ -24,9 +24,9 @@ public class ProprieteDeCouleur : Propriete {
     public enum couleur {bleu, cyan, rose, marron, orange, rouge, jaune, vert};
     public double[] prixLoyer;
     public couleur Couleur { get; set; }
-    public double _prixMaison { get; }
+    public double _prixConstruction { get; }
 
-    public double _prixHotel { get;}
+    
 
 
     public int _nbBatimentsConstruits { get; set; }
@@ -77,5 +77,16 @@ public class ProprieteDeCouleur : Propriete {
             }
         }
     }
-    
+    public Boolean constuire(Joueur j)
+    {
+        // on vérifie que le joueur a bien toutes les propriétés de la couleur 
+        // et aussi qu'il y a bien autant de maisons dans chaque propriété de la couleur 
+        if (j.compteProprieteCouleurJoueur(this) == j.p.calculePropCouleur(this)) 
+        {
+            j.sous = j.sous - _prixConstruction;
+            _nbBatimentsConstruits = _nbBatimentsConstruits + 1;
+            return true;
+        }
+        else return false;
+    }
 }

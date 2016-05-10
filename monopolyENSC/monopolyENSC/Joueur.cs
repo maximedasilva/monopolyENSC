@@ -23,6 +23,20 @@ public class Joueur {
 
     }
 
+
+    public int compteProprieteCouleurJoueur(ProprieteDeCouleur prop) 
+    {
+        //elle retroune le nb de propriétés de couleur que le joueur a qui sont de la même couleur qu'une propriété donnée
+        int nb = 0;
+        foreach (ProprieteDeCouleur p in proprieteEnPossession)
+        {
+            if (p.Couleur == prop.Couleur)
+            {
+                nb = nb + 1;
+            }
+        }
+        return nb;
+    }
     public bool payer(double prix, Joueur J2)
     {
         if(this.sous>prix)
