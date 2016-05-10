@@ -151,12 +151,22 @@ public class Joueur {
         }
     }
 
-    public Boolean MemeNbMaisons(ProprieteDeCouleur prop)
+    public Boolean MemeNbMaisons(ProprieteDeCouleur prop) // on vérifie ici que toutes les propriétés de la même couleur que prop ont le mêmeme nombre de maisons 
     {
         Boolean res = true;
-        foreach(ProprieteDeCouleur in proprieteEnPossession)
+        int i = 0;
+        while (res== true && i<proprieteEnPossession.Count)
         {
-            if ()
+            ProprieteDeCouleur tmp = proprieteEnPossession.ElementAt(i) as ProprieteDeCouleur;
+            if (tmp.Couleur == prop.Couleur)
+            {
+                if (tmp._nbBatimentsConstruits != prop._nbBatimentsConstruits)
+                {
+                    res = false;
+                }
+            }
+            i = i + 1;
         }
+        return res;
     }
 }

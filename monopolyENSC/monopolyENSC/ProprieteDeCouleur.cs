@@ -77,15 +77,19 @@ public class ProprieteDeCouleur : Propriete {
             }
         }
     }
-    public Boolean constuire(Joueur j)
+    public Boolean construire(Joueur j)
     {
         // on vérifie que le joueur a bien toutes les propriétés de la couleur 
         // et aussi qu'il y a bien autant de maisons dans chaque propriété de la couleur 
         if (j.compteProprieteCouleurJoueur(this) == j.p.calculePropCouleur(this) && this._nbBatimentsConstruits<=5) 
         {
-            j.sous = j.sous - _prixConstruction;
-            _nbBatimentsConstruits = _nbBatimentsConstruits + 1;
-            return true;
+            if (j.MemeNbMaisons(this) == true)
+            {
+                j.sous = j.sous - _prixConstruction;
+                _nbBatimentsConstruits = _nbBatimentsConstruits + 1;
+                return true;
+            }
+            else return false;
         }
         else return false;
     }
