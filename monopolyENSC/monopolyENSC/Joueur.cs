@@ -161,7 +161,7 @@ public class Joueur {
             ProprieteDeCouleur tmp = proprieteEnPossession.ElementAt(i) as ProprieteDeCouleur;
             if (tmp.Couleur == prop.Couleur)
             {
-                if (tmp._nbBatimentsConstruits != prop._nbBatimentsConstruits)
+                if (tmp._nbBatimentsConstruits != prop._nbBatimentsConstruits && prop._nbBatimentsConstruits != tmp._nbBatimentsConstruits - 1)
                 {
                     res = false;
                 }
