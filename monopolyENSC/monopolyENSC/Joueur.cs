@@ -151,4 +151,12 @@ public class Joueur {
         }
     }
 
+    public Boolean MemeNbMaisons(ProprieteDeCouleur prop)
+    {
+        Boolean res = true;
+        foreach(ProprieteDeCouleur in proprieteEnPossession)
+        {
+            if ()
+        }
+    }
 }
