@@ -47,7 +47,7 @@ public class ProprieteDeCouleur : Propriete {
                 if (j.sous > calculLoyer())
                 {
                     j.sous -= this.calculLoyer();
-                    Console.WriteLine("vous venez de payer le loyer");
+                    Console.WriteLine("vous venez de payer le loyer de "+calculLoyer()+" euros");
                 }
                 else
                 {
