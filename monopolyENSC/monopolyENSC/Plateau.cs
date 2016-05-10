@@ -15,9 +15,11 @@ public class Plateau {
   //  public List<CaisseCommunaute> {get; set;}
     public List<Cartes> cartesChance { get; set; }
     public List<Cartes> cartesCaisseCommunaute { get; set; }
+    public List<Joueur> Joueurs { get; set; }
 
     public Plateau()
     {
+        Joueurs = new List<Joueur>();
         cases = new Cases[40];
  
         cartesChance = new List<Cartes>();
@@ -158,6 +160,35 @@ public class Plateau {
                 }
             }
         }
+    }
+
+    internal string playerInfo()
+    {
+        string rep="";
+        foreach(Joueur j in Joueurs)
+        {
+            rep += "\n" + j.ToString();
+        }
+        return rep;
+    }
+    public void addJoueur()
+    {
+        Console.Clear();
+        string name = null;
+        int cpt = 0;
+        do
+        {
+            Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
+
+            name = Console.ReadLine();
+            if (name != ".")
+            {
+                Joueurs.Add(new Joueur(name, ));
+                cpt++;
+            }
+        }
+        while (cpt < 2 || name != ".");
+
     }
 
     public int calculePropCouleur (ProprieteDeCouleur prop) // calcule le nombre de prop de la couleur de la prop qu'on fournit 

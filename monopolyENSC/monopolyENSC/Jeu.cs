@@ -9,12 +9,12 @@ public class Jeu {
 
 
     public Jeu() {
-        Joueurs = new List<Joueur>();
+        
         plateau = new Plateau();
-        addJoueur();
+        plateau.addJoueur();
     }
     
-    public List<Joueur> Joueurs { get; set; }
+    
 
     public Plateau plateau{get; set;}
     
@@ -28,14 +28,12 @@ public class Jeu {
 
     private void simulerUnTour()
     {
-        foreach (Joueur j in Joueurs)
+        foreach (Joueur j in plateau.Joueurs)
         {
             if (j.etatCourant != Joueur.Etat.enPrison)
             {
                 Console.Clear();
                 j.jouer();
-                Console.WriteLine("passer au joueur suivant, appuyez sur un touche");
-                Console.ReadKey();
             }
             
         }
@@ -44,7 +42,7 @@ public class Jeu {
     public bool joueursEnlice()
     {
         int cpt = 0;
-        foreach(Joueur j in Joueurs)
+        foreach(Joueur j in plateau.Joueurs)
         {
             if (j.etatCourant != Joueur.Etat.mort)
             {
@@ -56,24 +54,6 @@ public class Jeu {
         else return false;
 
     }
-    public void addJoueur()
-    {
-        Console.Clear();
-        string name = null;
-        int cpt = 0;
-        do
-        {
-            Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
-
-            name = Console.ReadLine();
-            if (name != ".")
-            {
-                Joueurs.Add(new Joueur(name, this.plateau));
-                cpt++;
-            }
-        }
-        while (cpt < 2 || name != ".");
-
-    }
+   
    
 }
