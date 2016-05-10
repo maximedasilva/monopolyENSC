@@ -17,6 +17,6 @@ public abstract class Cases {
     public virtual void action(Joueur j) { }
     public override string ToString()
     {
-        return nom;
+        return num+" "+nom;
     }
 }

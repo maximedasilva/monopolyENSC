@@ -135,7 +135,7 @@ public class Joueur {
 
     public void jouer()
     {
-        if(etatCourant==Etat.vivant)
+        if (etatCourant == Etat.vivant)
         {
             Random des = new Random();
             int De1 = des.Next(1, 7);
@@ -143,21 +143,31 @@ public class Joueur {
             valeurDernierDeplacement = De1 + de2;
             position += valeurDernierDeplacement;
 
-            if(position>=p.cases.Length)
+            if (position >= p.cases.Length)
             {
                 position = position % p.cases.Length;
                 sous += 100;
             }
             Console.WriteLine(this.ToString());
-            Console.WriteLine(p.cases[position]);
+            Console.WriteLine(p.cases[position].nom);
             p.cases[position].action(this);
-            Console.WriteLine("\n Menu: \n 1) Voir tous les joueurs \n sinon passer son tour");
-           ConsoleKeyInfo c= Console.ReadKey();
-            if(c.KeyChar=='a')
+            Console.WriteLine("\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. \n sinon passer son tour");
+            ConsoleKeyInfo c = Console.ReadKey();
+            while (c.KeyChar == '1' || c.KeyChar == '2')
             {
-                Console.WriteLine(p.playerInfo());
-                Console.ReadKey();
-             }
+                if (c.KeyChar == '1')
+                {
+                    Console.WriteLine(p.playerInfo());
+
+                }
+                else if (c.KeyChar == '2')
+                {
+                    Console.WriteLine(p.cases[position].ToString());
+                }
+             
+                Console.WriteLine("\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. \n sinon passer son tour");
+                c = Console.ReadKey();
+            }
         }
         else if(etatCourant==Etat.enPrison)
         {

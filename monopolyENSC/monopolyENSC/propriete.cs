@@ -23,7 +23,15 @@ public abstract class Propriete : Cases
         _prixHypotheque = prixHypotheque;
         proprietaire = null;
     }
-
+    public override string ToString()
+    {
+      string rep=  base.ToString() + "\n elle est " + etat.ToString() + " \n a l'achat elle vaut " + _prixAchat + "e \n en hypothèque elle en vaut " + _prixHypotheque + " ";
+        if(proprietaire!=null)
+        {
+            rep += "\n" + proprietaire.ToString();
+        }
+        return rep+"\n";
+    }
     public override void action(Joueur j)
     {
 
