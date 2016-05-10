@@ -28,7 +28,7 @@ public abstract class Propriete : Cases
 
     public override void action(Joueur j)
     {
-       
+
     }
     public virtual double calculLoyer()
     {

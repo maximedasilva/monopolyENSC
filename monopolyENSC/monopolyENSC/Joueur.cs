@@ -21,11 +21,15 @@ public class Joueur {
         proprieteEnPossession = new List<Propriete>();
     }
 
-    public bool payer(double prix)
+    public bool payer(double prix, Joueur J2)
     {
         if(this.sous>prix)
         {
             sous -= prix;
+            if (J2 != null)
+            {
+                J2.sous += prix;
+            }
             return true;
         }
         else return false;
@@ -50,10 +54,7 @@ public class Joueur {
 
     public int position { get; set; }
 
-    public void mouvementArgent(double valeur)
-    {
-        sous += valeur;
-    }
+    
     public void ajoutCarte(Cartes c)
     {
         cartesEnPossession.Add(c);
@@ -81,7 +82,7 @@ public class Joueur {
 
     public override string ToString()
     {
-        string rep = String.Format("{0}, il lui rest {1} euros et il est en position {2} ", nom,sous, position);
+        string rep = String.Format("{0}, il lui reste {1} euros et il est en position {2} ", nom,sous, position);
         return rep;
     }
     public void jouer()
