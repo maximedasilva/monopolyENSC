@@ -12,15 +12,13 @@ public abstract class Propriete : Cases
 
     public enum EtatPropriete { libre, achete, hypotheque }
     public EtatPropriete etat { get; set; }
-    public string _nom { get; }
     public double _prixAchat { get; }
     public double _prixHypotheque { get; }
     public Joueur proprietaire { get; set; }
 
-    public Propriete(string nom, double prixAchat, double prixHypotheque)
+    public Propriete(string nom, double prixAchat, double prixHypotheque):base(nom)
     {
         etat = EtatPropriete.libre;
-        _nom = nom;
         _prixAchat = prixAchat;
         _prixHypotheque = prixHypotheque;
         proprietaire = null;

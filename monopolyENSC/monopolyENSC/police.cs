@@ -6,4 +6,5 @@ using System.Text;
 
 class police : Cases
 {
+    public police():base("Poste de Police") { }
 }
