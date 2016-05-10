@@ -159,4 +159,22 @@ public class Plateau {
             }
         }
     }
+
+    public int calculePropCouleur (ProprieteDeCouleur prop) // calcule le nombre de prop de la couleur de la prop qu'on fournit 
+    {
+        int nb = 0;
+        foreach (Cases c in cases)
+        {
+            if (c is ProprieteDeCouleur)
+            {
+                ProprieteDeCouleur tmp = c as ProprieteDeCouleur;
+                if (tmp.Couleur == prop.Couleur)
+                {
+                    nb = nb + 1;
+                }
+
+            }
+        }
+        return nb;
+    }
 }
