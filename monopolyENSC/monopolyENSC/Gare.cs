@@ -31,14 +31,14 @@ public class Gare : Propriete {
             {
                 j.etatCourant = Joueur.Etat.mort;
                 j.mettreHypotheque();
-                Console.Write("Le joueur {0} est mort", this._nom);
+                Console.Write("Le joueur {0} est mort", j.nom);
             }
 
         }
         else if (this.etat == EtatPropriete.libre)
         {
             ConsoleKeyInfo c;
-            Console.Write("voulez vous acheter {0} pour {1} (y) (n)", this._nom, this._prixAchat);
+            Console.Write("voulez vous acheter {0} pour {1} (y) (n)", this.nom, this._prixAchat);
             do
             {
                 c = Console.ReadKey();
@@ -46,7 +46,7 @@ public class Gare : Propriete {
             while (c.KeyChar != 'y' && c.KeyChar != 'n');
             if (c.KeyChar == 'y' && j.payer(_prixAchat,null))
             {
-                Console.WriteLine("Vous avez acheté {0}", this._nom);
+                Console.WriteLine("Vous avez acheté {0}", this.nom);
                 this.proprietaire = j;
                 etat = EtatPropriete.achete;
                 j.proprieteEnPossession.Add(this);

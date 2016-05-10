@@ -132,6 +132,7 @@ public class Joueur {
                 position = position % p.cases.Length;
                 sous += 100;
             }
+            this.ToString();
             p.cases[position].action(this);
         }
     }
