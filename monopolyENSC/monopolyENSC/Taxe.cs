@@ -20,6 +20,10 @@ public class Taxe : Cases {
     public override void action(Joueur j)
     {
         j.payer(prix, null);
+        Console.WriteLine(this);
     }
-
+    public override string ToString()
+    {
+        return  nom+" vous payez "+prix;
+    }
 }

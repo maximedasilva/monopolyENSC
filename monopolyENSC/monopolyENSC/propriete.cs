@@ -34,7 +34,27 @@ public abstract class Propriete : Cases
     }
     public override void action(Joueur j)
     {
-
+        if (this.etat == EtatPropriete.libre)
+        {
+            ConsoleKeyInfo c;
+            Console.WriteLine("voulez vous acheter {0} pour {1} (y) (n)", this.nom, this._prixAchat);
+            do
+            {
+                c = Console.ReadKey();
+            }
+            while (c.KeyChar != 'y' && c.KeyChar != 'n');
+            if (c.KeyChar == 'y' && j.payer(_prixAchat, null))
+            {
+                Console.WriteLine("Vous avez acheté {0}", this.nom);
+                this.proprietaire = j;
+                etat = EtatPropriete.achete;
+                j.proprieteEnPossession.Add(this);
+            }
+            else
+            {
+                etat = EtatPropriete.hypotheque;
+            }
+        }
     }
     public virtual double calculLoyer()
     {
