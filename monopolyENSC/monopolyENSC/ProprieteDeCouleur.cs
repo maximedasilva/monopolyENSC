@@ -45,20 +45,20 @@ public class ProprieteDeCouleur : Propriete {
             if (j.sous > calculLoyer())
             {
                 j.sous -= this.calculLoyer();
-                Console.Write("vous venez de payer le loyer");
+                Console.WriteLine("vous venez de payer le loyer");
             }
             else
             {
                 j.etatCourant = Joueur.Etat.mort;
                 j.mettreHypotheque();
-                Console.Write("Le joueur {0} est mort", j.nom);
+                Console.WriteLine("Le joueur {0} est mort", j.nom);
             }
 
         }
         else if (this.etat == EtatPropriete.libre)
         {
             ConsoleKeyInfo c;
-            Console.Write("voulez vous acheter {0} pour {1} (y) (n)", this.nom, this._prixAchat);
+            Console.WriteLine("voulez vous acheter {0} pour {1} (y) (n)", this.nom, this._prixAchat);
             do
             {
                 c = Console.ReadKey();
