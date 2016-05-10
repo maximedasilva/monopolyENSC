@@ -23,9 +23,8 @@ public class Gare : Propriete {
     {
         if (this.etat == EtatPropriete.achete && proprietaire != j)
         {
-            if (j.sous > calculLoyer())
-            {
-                j.sous -= this.calculLoyer();
+            if(j.payer(calculLoyer(25,proprietaire.getNbGares()),proprietaire))
+            { 
                 Console.Write("vous venez de payer le loyer");
             }
             else
@@ -45,7 +44,7 @@ public class Gare : Propriete {
                 c = Console.ReadKey();
             }
             while (c.KeyChar != 'y' && c.KeyChar != 'n');
-            if (c.KeyChar == 'y' && j.payer(_prixAchat))
+            if (c.KeyChar == 'y' && j.payer(_prixAchat,null))
             {
                 Console.WriteLine("Vous avez acheté {0}", this._nom);
                 this.proprietaire = j;

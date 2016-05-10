@@ -19,6 +19,8 @@ public class Joueur {
         position = 0;
         p = _p;
         proprieteEnPossession = new List<Propriete>();
+        valeurDernierDeplacement = 0;
+
     }
 
     public bool payer(double prix, Joueur J2)
@@ -35,6 +37,33 @@ public class Joueur {
         else return false;
     }
 
+    internal int getNbGares()
+    {
+        int cpt = 0;
+        foreach (Propriete p in proprieteEnPossession)
+        {
+            if (p is Gare)
+            {
+                cpt++;
+            }
+        }
+
+        return cpt;
+    }
+    public int getNbCompagnies()
+    {
+        int cpt = 0;
+        foreach (Propriete p in proprieteEnPossession)
+        {
+            if (p is Compagnies)
+            {
+                cpt++;
+            }
+        }
+
+        return cpt;
+    }
+
     public enum Etat { vivant, mort, enPrison };
     public Plateau p { get; set; }
 
@@ -47,6 +76,8 @@ public class Joueur {
     public List<Cartes> cartesEnPossession;
 
     public string nom { get; set; }
+
+    public int valeurDernierDeplacement { get; set; }
 
     public double sous { get; set; }
 
@@ -92,8 +123,9 @@ public class Joueur {
             Random des = new Random();
             int De1 = des.Next(1, 7);
             int de2 = des.Next(1, 7);
+            valeurDernierDeplacement = De1 + de2;
+            position += valeurDernierDeplacement;
 
-            position += De1 + de2;
             if(position>=p.cases.Length)
             {
                 position = position % p.cases.Length;

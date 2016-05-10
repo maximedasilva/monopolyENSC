@@ -58,7 +58,7 @@ public class Plateau {
         var gare = plateau.Descendants("gare");
         foreach(var ga in gare)
         {
-            cases[(int)ga.Attribute("id")] = new Gare((string)ga.Attribute("nom"), (double)gares.Attribute("prix"), (double)gares.Attribute("t0"), (double)gares.Attribute("hyp"));
+            cases[(int)ga.Attribute("id")] = new Gare((string)ga.Attribute("nom"), (double)gares.Attribute("prix"), (double)gares.Attribute("hyp"));
         }
         var taxe = plateau.Descendants("taxe");
         foreach(var t in taxe)

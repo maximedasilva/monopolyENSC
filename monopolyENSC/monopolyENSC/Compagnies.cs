@@ -32,9 +32,8 @@ public class Compagnies : Propriete {
     {
         if (this.etat == EtatPropriete.achete && proprietaire != j)
         {
-            if (j.sous > calculLoyer())
+            if (j.payer(calculLoyer(j.valeurDernierDeplacement, proprietaire.getNbCompagnies()), proprietaire))
             {
-                j.sous -= this.calculLoyer();
                 Console.Write("vous venez de payer le loyer");
             }
             else
@@ -43,7 +42,6 @@ public class Compagnies : Propriete {
                 j.mettreHypotheque();
                 Console.Write("Le joueur {0} est mort", this._nom);
             }
-
         }
         else if (this.etat == EtatPropriete.libre)
         {
@@ -54,7 +52,7 @@ public class Compagnies : Propriete {
                 c = Console.ReadKey();
             }
             while (c.KeyChar != 'y' && c.KeyChar != 'n');
-            if (c.KeyChar == 'y' && j.payer(_prixAchat))
+            if (c.KeyChar == 'y' && j.payer(_prixAchat,null))
             {
                 Console.WriteLine("Vous avez acheté {0}", this._nom);
                 this.proprietaire = j;

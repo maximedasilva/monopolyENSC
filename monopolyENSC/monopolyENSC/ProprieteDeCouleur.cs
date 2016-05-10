@@ -60,7 +60,7 @@ public class ProprieteDeCouleur : Propriete {
                 c = Console.ReadKey();
             }
             while (c.KeyChar != 'y' && c.KeyChar != 'n');
-            if (c.KeyChar == 'y' && j.payer(_prixAchat))
+            if (c.KeyChar == 'y' && j.payer(_prixAchat,null))
             {
                 Console.WriteLine("Vous avez acheté {0}", this._nom);
                 this.proprietaire = j;
