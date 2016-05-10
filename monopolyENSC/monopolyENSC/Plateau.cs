@@ -51,14 +51,14 @@ public class Plateau {
             var terrain = g.Descendants("terrain");
             foreach(var t in terrain)
             {
-                cases[(int)t.Attribute("id")] = new ProprieteDeCouleur((double)g.Attribute("maison"), 1000, (string)t.Attribute("nom"), (double)t.Attribute("prix"), (double)t.Attribute("t0"), (double)t.Attribute("hyp"), (ProprieteDeCouleur.couleur)Enum.Parse(typeof(ProprieteDeCouleur.couleur),(string)g.Attribute("couleur")));
+                cases[(int)t.Attribute("id")] = new ProprieteDeCouleur((double)g.Attribute("maison"), (string)t.Attribute("nom"), (double)t.Attribute("prix"), (double)t.Attribute("hyp"), (ProprieteDeCouleur.couleur)Enum.Parse(typeof(ProprieteDeCouleur.couleur),(string)g.Attribute("couleur")), (double)t.Attribute("t0"), (double)t.Attribute("t1"), (double)t.Attribute("t2"), (double)t.Attribute("t3"), (double)t.Attribute("t4"), (double)t.Attribute("t5"));
             }
         }
 
         var gare = plateau.Descendants("gare");
         foreach(var ga in gare)
         {
-            cases[(int)ga.Attribute("id")] = new Gare((string)ga.Attribute("nom"), (double)gares.Attribute("prix"), (double)gares.Attribute("t0"), (double)gares.Attribute("hyp"));
+            cases[(int)ga.Attribute("id")] = new Gare((string)ga.Attribute("nom"), (double)gares.Attribute("prix"),  (double)gares.Attribute("hyp"));
         }
         var taxe = plateau.Descendants("taxe");
         foreach(var t in taxe)
