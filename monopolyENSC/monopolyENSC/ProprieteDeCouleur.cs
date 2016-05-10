@@ -8,35 +8,70 @@ using System.Text;
 public class ProprieteDeCouleur : Propriete {
 
 
-    public ProprieteDeCouleur(double prixM, double prixH, string nom, double prixAchat, double prixLoyer, double prixHypotheque, couleur _Couleur) :base(nom, prixAchat, prixLoyer, prixHypotheque)
+    public ProprieteDeCouleur(double prixM, double prixH, string nom, double prixAchat, double prixHypotheque, couleur _Couleur) :base(nom, prixAchat, prixHypotheque)
     {
         _prixMaison = prixM;
         _prixHotel = prixH;
-        _nbHotelsConstruits = 0;
-        _nbMaisonConstruites = 0;
+        _nbBatimentsConstruits = 0;
         Couleur = _Couleur;
+        prixLoyer = new double[5];
     }
 
     public enum couleur {bleu, cyan, rose, marron, orange, rouge, jaune, vert};
-
+    public double[] prixLoyer;
     public couleur Couleur { get; set; }
     public double _prixMaison { get; }
 
     public double _prixHotel { get;}
 
 
-    public int _nbMaisonConstruites { get; set; }
+    public int _nbBatimentsConstruits { get; set; }
 
-    public int _nbHotelsConstruits { get; set; }
+   
 
     //le calcul de loyer ne peut pas se faire sans XML
     public override double calculLoyer() {
-        double loyer= _prixLoyer* (_nbMaisonConstruites+1);
+        double loyer = prixLoyer[_nbBatimentsConstruits];
         return loyer;
     }
     public override void action(Joueur j)
     {
-        base.action(j);
+        if (this.etat == EtatPropriete.achete && proprietaire != j)
+        {
+            if (j.sous > calculLoyer())
+            {
+                j.sous -= this.calculLoyer();
+                Console.Write("vous venez de payer le loyer");
+            }
+            else
+            {
+                j.etatCourant = Joueur.Etat.mort;
+                j.mettreHypotheque();
+                Console.Write("Le joueur {0} est mort", this._nom);
+            }
+
+        }
+        else if (this.etat == EtatPropriete.libre)
+        {
+            ConsoleKeyInfo c;
+            Console.Write("voulez vous acheter {0} pour {1} (y) (n)", this._nom, this._prixAchat);
+            do
+            {
+                c = Console.ReadKey();
+            }
+            while (c.KeyChar != 'y' && c.KeyChar != 'n');
+            if (c.KeyChar == 'y' && j.payer(_prixAchat))
+            {
+                Console.WriteLine("Vous avez acheté {0}", this._nom);
+                this.proprietaire = j;
+                etat = EtatPropriete.achete;
+                j.proprieteEnPossession.Add(this);
+            }
+            else
+            {
+                etat = EtatPropriete.hypotheque;
+            }
+        }
     }
 
 }
