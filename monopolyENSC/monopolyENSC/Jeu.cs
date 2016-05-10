@@ -33,6 +33,7 @@ public class Jeu {
             if (j.etatCourant != Joueur.Etat.enPrison)
             {
                 Console.Clear();
+                Console.WriteLine(j);
                 j.jouer();
                 Console.WriteLine(j);
                 Console.WriteLine("passer au joueur suivant, appuyez sur un touche");

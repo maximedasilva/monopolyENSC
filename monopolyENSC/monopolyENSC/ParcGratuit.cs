@@ -8,5 +8,6 @@ namespace monopolyENSC
 {
     class ParcGratuit : Cases
     {
+        public ParcGratuit():base("Parc Gratuit") { }
     }
 }

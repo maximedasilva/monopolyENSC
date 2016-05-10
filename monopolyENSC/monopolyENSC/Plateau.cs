@@ -23,7 +23,6 @@ public class Plateau {
         cartesChance = new List<Cartes>();
         cartesCaisseCommunaute = new List<Cartes>();
         generate();
-
     }
 
     public void addCartesChance(Cartes c)

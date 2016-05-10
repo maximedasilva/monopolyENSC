@@ -113,9 +113,10 @@ public class Joueur {
 
     public override string ToString()
     {
-        string rep = String.Format("{0}, il lui reste {1} euros et il est en position {2} ", nom,sous, position);
+        string rep = String.Format("{0}, il vous reste {1} euros et vous etes en position {2} ", nom,sous, position);
         return rep;
     }
+
     public void jouer()
     {
         if(etatCourant==Etat.vivant)

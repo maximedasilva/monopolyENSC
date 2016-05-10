@@ -8,5 +8,6 @@ namespace monopolyENSC
 {
     class Prison : Cases
     {
+        public Prison() : base("Prison") { }
     }
 }
