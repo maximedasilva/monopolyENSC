@@ -40,20 +40,43 @@ public class ProprieteDeCouleur : Propriete {
     }
     public override void action(Joueur j)
     {
-        if (this.etat == EtatPropriete.achete && proprietaire != j)
+        if (this.etat == EtatPropriete.achete )
         {
-            if (j.sous > calculLoyer())
+            if (proprietaire != j)
             {
-                j.sous -= this.calculLoyer();
-                Console.WriteLine("vous venez de payer le loyer");
+                if (j.sous > calculLoyer())
+                {
+                    j.sous -= this.calculLoyer();
+                    Console.WriteLine("vous venez de payer le loyer");
+                }
+                else
+                {
+                    j.etatCourant = Joueur.Etat.mort;
+                    j.mettreHypotheque();
+                    Console.WriteLine("Le joueur {0} est mort", j.nom);
+                }
             }
             else
             {
-                j.etatCourant = Joueur.Etat.mort;
-                j.mettreHypotheque();
-                Console.WriteLine("Le joueur {0} est mort", j.nom);
+                Console.WriteLine("ce terrain vous appartient voulez faire une nouvelle construction dessus?");
+                ConsoleKeyInfo c;
+                do
+                {
+                    c = Console.ReadKey();
+                }
+                while (c.KeyChar != 'y' && c.KeyChar != 'n');
+                if (c.KeyChar == 'y')
+                {
+                    if (construire(j))
+                    {
+                        Console.WriteLine("vous avez construit un nouveau terrain");
+                    }
+                    else
+                    {
+                        Console.WriteLine("vous ne pouvez pas construire");
+                    }
+                }
             }
-
         }
         else if (this.etat == EtatPropriete.libre)
         {

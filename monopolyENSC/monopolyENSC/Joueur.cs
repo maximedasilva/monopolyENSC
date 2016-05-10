@@ -20,7 +20,6 @@ public class Joueur {
         p = _p;
         proprieteEnPossession = new List<Propriete>();
         valeurDernierDeplacement = 0;
-
     }
 
 
@@ -88,6 +87,9 @@ public class Joueur {
     private static int cpt = 0;
 
     public List<Cartes> cartesEnPossession;
+    private int nbTourPrison {
+        get; set;
+    }
 
     public string nom { get; set; }
 
@@ -149,6 +151,20 @@ public class Joueur {
             Console.WriteLine(this.ToString());
             Console.WriteLine(p.cases[position]);
             p.cases[position].action(this);
+        }
+        else if(etatCourant==Etat.enPrison)
+        {
+            Random des = new Random();
+            int De1 = des.Next(1, 7);
+            int de2 = des.Next(1, 7);
+            if (de2 == De1||nbTourPrison==3)
+            {
+                etatCourant = Etat.vivant;
+                valeurDernierDeplacement = De1 + de2;
+                position += valeurDernierDeplacement;
+            }
+            else
+                this.nbTourPrison++;
         }
     }
 
