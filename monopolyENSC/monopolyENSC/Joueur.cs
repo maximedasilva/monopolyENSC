@@ -126,25 +126,7 @@ public class Joueur {
             }
         }
     }
-    public void addJoueur()
-    {
-        Console.Clear();
-        string name = null;
-        int cpt = 0;
-        do
-        {
-            Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
-
-            name = Console.ReadLine();
-            if (name != ".")
-            {
-                Joueurs.Add(new Joueur(name, this.plateau));
-                cpt++;
-            }
-        }
-        while (cpt < 2 || name != ".");
-
-    }
+   
     public override string ToString()
     {
         string rep = String.Format("{0}, il vous reste {1} euros et vous etes en position {2} ", nom,sous, position);
@@ -169,12 +151,13 @@ public class Joueur {
             Console.WriteLine(this.ToString());
             Console.WriteLine(p.cases[position]);
             p.cases[position].action(this);
-            Console.WriteLine("\n Menu: \n 1) Voir tous les joueurs \n sinon passer son tour")
+            Console.WriteLine("\n Menu: \n 1) Voir tous les joueurs \n sinon passer son tour");
            ConsoleKeyInfo c= Console.ReadKey();
-            if(c.KeyChar=='1')
+            if(c.KeyChar=='a')
             {
                 Console.WriteLine(p.playerInfo());
-                      }
+                Console.ReadKey();
+             }
         }
         else if(etatCourant==Etat.enPrison)
         {

@@ -183,7 +183,7 @@ public class Plateau {
             name = Console.ReadLine();
             if (name != ".")
             {
-                Joueurs.Add(new Joueur(name, ));
+                Joueurs.Add(new Joueur(name, this));
                 cpt++;
             }
         }
