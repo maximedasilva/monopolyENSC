@@ -8,13 +8,13 @@ using System.Text;
 public class ProprieteDeCouleur : Propriete {
 
 
-    public ProprieteDeCouleur(double prixM, double prixH, string nom, double prixAchat, double prixHypotheque, couleur _Couleur) :base(nom, prixAchat, prixHypotheque)
+    public ProprieteDeCouleur(double prixM, string nom, double prixAchat, double prixHypotheque, couleur _Couleur, double t0, double t1, double t2, double t3, double t4, double t5) :base(nom, prixAchat, prixHypotheque)
     {
         _prixMaison = prixM;
-        _prixHotel = prixH;
+        
         _nbBatimentsConstruits = 0;
         Couleur = _Couleur;
-        prixLoyer = new double[5];
+        double[] prixLoyer = { t0,t1,t2,t3,t4,t5};
     }
 
     public enum couleur {bleu, cyan, rose, marron, orange, rouge, jaune, vert};
