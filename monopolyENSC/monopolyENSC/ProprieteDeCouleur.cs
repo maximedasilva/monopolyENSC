@@ -14,7 +14,11 @@ public class ProprieteDeCouleur : Propriete {
         
         _nbBatimentsConstruits = 0;
         Couleur = _Couleur;
-        prixLoyer = { t0,t1,t2,t3,t4,t5};
+
+        
+
+         prixLoyer =new double[] { t0,t1,t2,t3,t4,t5};
+
     }
 
     public enum couleur {bleu, cyan, rose, marron, orange, rouge, jaune, vert};
