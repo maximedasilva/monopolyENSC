@@ -9,5 +9,10 @@ namespace monopolyENSC
     class ParcGratuit : Cases
     {
         public ParcGratuit():base("Parc Gratuit") { }
+        public override void action(Joueur j)
+        {
+
+        }
     }
+    
 }
