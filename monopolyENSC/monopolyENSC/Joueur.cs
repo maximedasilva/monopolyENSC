@@ -244,4 +244,9 @@ public class Joueur {
         }
         return res;
     }
+
+    public void piocher(List<Cartes> l)
+    {
+        //TODO on pioche la premiere carte, on fait action de cette carte, si c'est une carte libérer prison on la met dans la main du joueur, sinon on la met sous le tas
+    }
 }
