@@ -9,10 +9,13 @@ using System.Text;
  */
 public class Chance : Cases {
 
-    /**
-     * 
-     */
+    
     public Chance():base("chance") { 
+        
+    }
+
+    public override void action(Joueur j)
+    {
         
     }
 

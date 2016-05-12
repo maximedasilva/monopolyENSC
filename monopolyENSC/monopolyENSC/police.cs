@@ -7,4 +7,9 @@ using System.Text;
 class police : Cases
 {
     public police():base("Poste de Police") { }
+
+    public override void action(Joueur j)
+    {
+        j.etatCourant = Joueur.Etat.enPrison;
+    }
 }

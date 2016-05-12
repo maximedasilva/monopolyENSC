@@ -200,6 +200,32 @@ public class Joueur {
         }
     }
 
+    public int getNbMaison() //permet d'avoir le nombre de maisons du joueur
+    {
+        int nbMaison = 0;
+        foreach (ProprieteDeCouleur p in proprieteEnPossession)
+        {
+            if (p._nbBatimentsConstruits<5) //si ça vaut 5 c'est en fait un hotel
+            {
+                nbMaison = nbMaison + p._nbBatimentsConstruits;
+            }
+        }
+        return nbMaison;
+    }
+
+    public int getNbHotel()
+    {
+        int nbHotel = 0;
+        foreach (ProprieteDeCouleur p in proprieteEnPossession)
+        {
+            if (p._nbBatimentsConstruits==5)
+            {
+                nbHotel = nbHotel + 1;
+            }
+        }
+        return nbHotel;
+    }
+
     public Boolean MemeNbMaisons(ProprieteDeCouleur prop) // on vérifie ici que toutes les propriétés ont un nombre de maisons adapté à la construction  
     {
         Boolean res = true;

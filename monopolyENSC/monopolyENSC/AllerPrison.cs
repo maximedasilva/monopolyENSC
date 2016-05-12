@@ -11,5 +11,11 @@ namespace monopolyENSC
         public AllerPrison(TypeC typecarte, string fct):base(typecarte, fct)
         {
         }
+
+        public override void actionCarte(Joueur j)
+        {
+            j.etatCourant = Joueur.Etat.enPrison;
+            j.position = 10;
+        }
     }
 }

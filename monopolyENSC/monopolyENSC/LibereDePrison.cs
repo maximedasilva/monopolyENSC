@@ -13,4 +13,20 @@ public class LibereDePrison : Cartes {
           
     }
 
+    public override void actionCarte(Joueur j)
+    {
+        
+        if (j.etatCourant ==Joueur.Etat.enPrison)
+        {
+            j.etatCourant = Joueur.Etat.vivant;
+            Console.WriteLine("Vous êtes libéré(e) de prison");
+            
+
+        }
+        else
+        {
+            Console.WriteLine("Vous n'êtes pas en prison");
+        }
+        
+    }
 }

@@ -18,4 +18,25 @@ public class Transaction : Cartes {
         _valeur = valeur;
     }
 
+    public override void actionCarte (Joueur j)
+    {
+        if (reparation)
+        {
+            double ValeurRep = 25 * (j.getNbMaison()) + 100 * j.getNbHotel();
+            j.payer(ValeurRep, null);
+            Console.WriteLine("Vous avez payé " + ValeurRep + " euros pour vos réparations.");
+        }
+        else
+        {
+            j.payer(_valeur, null);
+            if (_valeur > 0)
+            {
+                Console.WriteLine("Vous avez payé " + _valeur + " euros.");
+            }
+            else
+            {
+                Console.WriteLine("Vous avez reçu " + Math.Abs(_valeur) + " euros.");
+            }
+        }
+    }
 }
