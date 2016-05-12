@@ -16,7 +16,7 @@ public class Chance : Cases {
 
     public override void action(Joueur j)
     {
-        
+        j.piocher(j.p.cartesChance);
     }
 
 }
