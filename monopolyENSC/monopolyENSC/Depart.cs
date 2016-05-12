@@ -9,5 +9,8 @@ namespace monopolyENSC
     class Depart : Cases
     {
         public Depart() : base("Depart") { }
+        public override void action(Joueur j)
+        { }
     }
+    
 }

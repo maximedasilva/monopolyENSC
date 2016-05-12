@@ -12,9 +12,10 @@ namespace monopolyENSC
         {
         }
 
-        public void enTaule(Joueur j)
+        public override void actionCarte(Joueur j)
         {
             j.etatCourant = Joueur.Etat.enPrison;
+            j.position = 10;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 
 
-public class Cartes {
+public abstract class Cartes {
 
     public enum TypeC { chance, communaute }
     public TypeC _typeCarte { get; set;  }
@@ -18,5 +18,5 @@ public class Cartes {
         _typeCarte = typeCarte;
         fonction = fct;
     }
-    
+    public abstract void actionCarte(Joueur j);
 }

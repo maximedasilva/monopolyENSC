@@ -13,20 +13,20 @@ public class LibereDePrison : Cartes {
           
     }
 
-    public Boolean liberation (Joueur j)
+    public override void actionCarte(Joueur j)
     {
-        Boolean lib;
+        
         if (j.etatCourant ==Joueur.Etat.enPrison)
         {
             j.etatCourant = Joueur.Etat.vivant;
-            lib = true;
-            j.position = 10; //10 étant la position de la case prison
+            Console.WriteLine("Vous êtes libéré(e) de prison");
+            
 
         }
         else
         {
-            lib = false;
+            Console.WriteLine("Vous n'êtes pas en prison");
         }
-        return lib;
+        
     }
 }

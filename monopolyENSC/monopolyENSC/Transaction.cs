@@ -18,7 +18,7 @@ public class Transaction : Cartes {
         _valeur = valeur;
     }
 
-    public void mouvementArgentTransaction (Joueur j)
+    public override void actionCarte (Joueur j)
     {
         if (reparation)
         {

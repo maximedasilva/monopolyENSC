@@ -8,7 +8,7 @@ class police : Cases
 {
     public police():base("Poste de Police") { }
 
-    public void enTaule(Joueur j)
+    public override void action(Joueur j)
     {
         j.etatCourant = Joueur.Etat.enPrison;
     }
