@@ -151,10 +151,17 @@ public class Joueur {
             Console.WriteLine(this.ToString());
             Console.WriteLine(p.cases[position].nom);
             p.cases[position].action(this);
-            Console.WriteLine("\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. \n sinon passer son tour");
-            ConsoleKeyInfo c = Console.ReadKey();
-            while (c.KeyChar == '1' || c.KeyChar == '2')
+            ConsoleKeyInfo c = new ConsoleKeyInfo();
+            do
             {
+               string affiche ="\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. \n sinon passer son tour";
+                if(this.num==0)
+                {
+                    affiche += "\n vous pouvez enregistrer la partie en appuyant sur 's'";
+                }
+                Console.WriteLine(affiche);
+                c = Console.ReadKey();
+
                 if (c.KeyChar == '1')
                 {
                     Console.WriteLine(p.playerInfo());
@@ -164,17 +171,25 @@ public class Joueur {
                 {
                     Console.WriteLine(p.cases[position].ToString());
                 }
-             
-                Console.WriteLine("\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. \n sinon passer son tour");
-                c = Console.ReadKey();
+                else if (c.KeyChar == 's' && num == 0)
+                {
+                    Console.WriteLine("ecrivez le nom de fichier et appuyez sur entree");
+                    p.jeu.saveAsXML(Console.ReadLine());
+                }
+
+                
+
             }
+            while (c.KeyChar == '1' || c.KeyChar == '2');
         }
-        else if(etatCourant==Etat.enPrison)
+
+
+        else if (etatCourant == Etat.enPrison)
         {
             Random des = new Random();
             int De1 = des.Next(1, 7);
             int de2 = des.Next(1, 7);
-            if (de2 == De1||nbTourPrison==3)
+            if (de2 == De1 || nbTourPrison == 3)
             {
                 etatCourant = Etat.vivant;
                 valeurDernierDeplacement = De1 + de2;

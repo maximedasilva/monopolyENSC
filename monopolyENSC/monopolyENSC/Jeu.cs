@@ -12,7 +12,7 @@ public class Jeu {
 
     public Jeu() {
         
-        plateau = new Plateau();
+        plateau = new Plateau(this);
         plateau.addJoueur();
     }
     public void saveAsXML(string filename)
@@ -66,7 +66,7 @@ public class Jeu {
     
     public void simulation()
     {
-        saveAsXML("test.xml");
+       
         while (joueursEnlice())
         {
             simulerUnTour();

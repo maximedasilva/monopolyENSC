@@ -54,7 +54,7 @@ public abstract class Propriete : Cases
             {
                 etat = EtatPropriete.hypotheque;
             }
-        }
+        } 
     }
     public virtual double calculLoyer()
     {

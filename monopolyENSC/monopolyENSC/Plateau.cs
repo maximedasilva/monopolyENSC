@@ -16,9 +16,11 @@ public class Plateau {
     public List<Cartes> cartesChance { get; set; }
     public List<Cartes> cartesCaisseCommunaute { get; set; }
     public List<Joueur> Joueurs { get; set; }
+    public Jeu jeu { get; }
 
-    public Plateau()
+    public Plateau(Jeu j)
     {
+        jeu = j;
         Joueurs = new List<Joueur>();
         cases = new Cases[40];
  
