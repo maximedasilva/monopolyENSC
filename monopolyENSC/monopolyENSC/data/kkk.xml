@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<jeu>
+  <joueurs>
+    <joueur nom="maxime" num="0" sous="1900" etatCourant="vivant" position="8" dernierDeplacement="8" />
+    <joueur nom="thomas" num="1" sous="2000" etatCourant="vivant" position="0" dernierDeplacement="0" />
+  </joueurs>
+  <proprietes>
+    <Couleur num="0" proprietaire="maxime, il vous reste 1900 euros et vous etes en position 8 " etat="achete" nbBatiment="0" />
+  </proprietes>
+</jeu>

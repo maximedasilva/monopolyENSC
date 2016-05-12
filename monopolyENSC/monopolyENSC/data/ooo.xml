@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<jeu>
+  <joueurs>
+    <joueur nom="maxime" num="0" sous="1204" etatCourant="vivant" position="0" dernierDeplacement="5" />
+    <joueur nom="thomas" num="1" sous="806" etatCourant="vivant" position="39" dernierDeplacement="5" />
+  </joueurs>
+  <proprietes>
+    <Couleur num="13" proprietaire="maxime" etat="achete" nbBatiment="0" />
+    <Couleur num="18" proprietaire="maxime" etat="achete" nbBatiment="0" />
+    <Couleur num="24" proprietaire="maxime" etat="achete" nbBatiment="0" />
+    <Couleur num="26" proprietaire="thomas" etat="achete" nbBatiment="0" />
+    <Couleur num="34" proprietaire="thomas" etat="achete" nbBatiment="0" />
+    <Couleur num="39" proprietaire="thomas" etat="achete" nbBatiment="0" />
+  </proprietes>
+</jeu>
