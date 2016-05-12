@@ -40,42 +40,45 @@ public class ProprieteDeCouleur : Propriete {
     }
     public override void action(Joueur j)
     {
-        if (this.etat == EtatPropriete.achete && proprietaire != j)
+        if (this.etat == EtatPropriete.achete )
         {
-            if (j.sous > calculLoyer())
+            if (proprietaire != j)
             {
-                j.sous -= this.calculLoyer();
-                Console.WriteLine("vous venez de payer le loyer");
+                if (j.sous > calculLoyer())
+                {
+                    j.sous -= this.calculLoyer();
+                    Console.WriteLine("vous venez de payer le loyer de "+calculLoyer()+" euros");
+                }
+                else
+                {
+                    j.etatCourant = Joueur.Etat.mort;
+                    j.mettreHypotheque();
+                    Console.WriteLine("Le joueur {0} est mort", j.nom);
+                }
             }
             else
             {
-                j.etatCourant = Joueur.Etat.mort;
-                j.mettreHypotheque();
-                Console.WriteLine("Le joueur {0} est mort", j.nom);
-            }
-
-        }
-        else if (this.etat == EtatPropriete.libre)
-        {
-            ConsoleKeyInfo c;
-            Console.WriteLine("voulez vous acheter {0} pour {1} (y) (n)", this.nom, this._prixAchat);
-            do
-            {
-                c = Console.ReadKey();
-            }
-            while (c.KeyChar != 'y' && c.KeyChar != 'n');
-            if (c.KeyChar == 'y' && j.payer(_prixAchat,null))
-            {
-                Console.WriteLine("Vous avez acheté {0}", this.nom);
-                this.proprietaire = j;
-                etat = EtatPropriete.achete;
-                j.proprieteEnPossession.Add(this);
-            }
-            else
-            {
-                etat = EtatPropriete.hypotheque;
+                Console.WriteLine("ce terrain vous appartient voulez faire une nouvelle construction dessus?");
+                ConsoleKeyInfo c;
+                do
+                {
+                    c = Console.ReadKey();
+                }
+                while (c.KeyChar != 'y' && c.KeyChar != 'n');
+                if (c.KeyChar == 'y')
+                {
+                    if (construire(j))
+                    {
+                        Console.WriteLine("vous avez construit un nouveau terrain");
+                    }
+                    else
+                    {
+                        Console.WriteLine("vous ne pouvez pas construire");
+                    }
+                }
             }
         }
+        base.action(j);
     }
     public Boolean construire(Joueur j)
     {

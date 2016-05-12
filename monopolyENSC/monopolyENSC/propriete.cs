@@ -23,10 +23,38 @@ public abstract class Propriete : Cases
         _prixHypotheque = prixHypotheque;
         proprietaire = null;
     }
-
+    public override string ToString()
+    {
+      string rep=  base.ToString() + "\n elle est " + etat.ToString() + " \n a l'achat elle vaut " + _prixAchat + "e \n en hypothèque elle en vaut " + _prixHypotheque + " ";
+        if(proprietaire!=null)
+        {
+            rep += "\n" + proprietaire.ToString();
+        }
+        return rep+"\n";
+    }
     public override void action(Joueur j)
     {
-
+        if (this.etat == EtatPropriete.libre)
+        {
+            ConsoleKeyInfo c;
+            Console.WriteLine("voulez vous acheter {0} pour {1} (y) (n)", this.nom, this._prixAchat);
+            do
+            {
+                c = Console.ReadKey();
+            }
+            while (c.KeyChar != 'y' && c.KeyChar != 'n');
+            if (c.KeyChar == 'y' && j.payer(_prixAchat, null))
+            {
+                Console.WriteLine("Vous avez acheté {0}", this.nom);
+                this.proprietaire = j;
+                etat = EtatPropriete.achete;
+                j.proprieteEnPossession.Add(this);
+            }
+            else
+            {
+                etat = EtatPropriete.hypotheque;
+            }
+        }
     }
     public virtual double calculLoyer()
     {

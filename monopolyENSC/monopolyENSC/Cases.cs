@@ -14,9 +14,9 @@ public abstract class Cases {
     }
     public int num { get; set; }
     public string nom { get; set;  }
-    public virtual void action(Joueur j) { }
+    public virtual void action(Joueur j) { Console.WriteLine(this); }
     public override string ToString()
     {
-        return nom;
+        return num+" "+nom;
     }
 }

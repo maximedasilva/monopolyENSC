@@ -2,25 +2,54 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System.Text;
+using System.Xml;
+using System.Xml.Linq;
 
 public class Jeu {
 
 
     public Jeu() {
-        Joueurs = new List<Joueur>();
+        
         plateau = new Plateau();
-        addJoueur();
+        plateau.addJoueur();
+    }
+    public void saveAsXML(string filename)
+    {
+        XDocument xmldoc = new XDocument();
+        XElement jeu = new XElement("jeu");
+        xmldoc.Add(jeu);
+        XElement joueurs = new XElement("joueurs");
+        jeu.Add(joueurs);
+        foreach(Joueur j in plateau.Joueurs)
+        {
+            XElement joueur = new XElement("joueur");
+            joueur.SetAttributeValue("nom", j.nom);
+            joueur.SetAttributeValue("num", j.num);
+            joueur.SetAttributeValue("sous", j.sous);
+            joueur.SetAttributeValue("etatCourant", j.etatCourant.ToString());
+            joueur.SetAttributeValue("position", j.position);
+            joueur.SetAttributeValue("dernierDeplacement", j.valeurDernierDeplacement);
+            joueurs.Add(joueur);
+        }
+
+
+
+    
+      xmldoc.Save("..//..//data//"+filename+".xml");
+
+       
+
     }
     
-    public List<Joueur> Joueurs { get; set; }
 
     public Plateau plateau{get; set;}
     
     public void simulation()
     {
-        while(joueursEnlice())
+        saveAsXML("test.xml");
+        while (joueursEnlice())
         {
             simulerUnTour();
         }
@@ -28,23 +57,22 @@ public class Jeu {
 
     private void simulerUnTour()
     {
-        foreach (Joueur j in Joueurs)
+        foreach (Joueur j in plateau.Joueurs)
         {
             if (j.etatCourant != Joueur.Etat.enPrison)
             {
                 Console.Clear();
                 j.jouer();
-                Console.WriteLine("passer au joueur suivant, appuyez sur un touche");
-                Console.ReadKey();
             }
             
         }
+       
     }
 
     public bool joueursEnlice()
     {
         int cpt = 0;
-        foreach(Joueur j in Joueurs)
+        foreach(Joueur j in plateau.Joueurs)
         {
             if (j.etatCourant != Joueur.Etat.mort)
             {
@@ -56,24 +84,6 @@ public class Jeu {
         else return false;
 
     }
-    public void addJoueur()
-    {
-        Console.Clear();
-        string name = null;
-        int cpt = 0;
-        do
-        {
-            Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
-
-            name = Console.ReadLine();
-            if (name != ".")
-            {
-                Joueurs.Add(new Joueur(name, this.plateau));
-                cpt++;
-            }
-        }
-        while (cpt < 2 || name != ".");
-
-    }
+   
    
 }

@@ -20,7 +20,6 @@ public class Joueur {
         p = _p;
         proprieteEnPossession = new List<Propriete>();
         valeurDernierDeplacement = 0;
-
     }
 
 
@@ -88,6 +87,9 @@ public class Joueur {
     private static int cpt = 0;
 
     public List<Cartes> cartesEnPossession;
+    private int nbTourPrison {
+        get; set;
+    }
 
     public string nom { get; set; }
 
@@ -124,7 +126,7 @@ public class Joueur {
             }
         }
     }
-
+   
     public override string ToString()
     {
         string rep = String.Format("{0}, il vous reste {1} euros et vous etes en position {2} ", nom,sous, position);
@@ -133,7 +135,7 @@ public class Joueur {
 
     public void jouer()
     {
-        if(etatCourant==Etat.vivant)
+        if (etatCourant == Etat.vivant)
         {
             Random des = new Random();
             int De1 = des.Next(1, 7);
@@ -141,14 +143,45 @@ public class Joueur {
             valeurDernierDeplacement = De1 + de2;
             position += valeurDernierDeplacement;
 
-            if(position>=p.cases.Length)
+            if (position >= p.cases.Length)
             {
                 position = position % p.cases.Length;
                 sous += 100;
             }
             Console.WriteLine(this.ToString());
-            Console.WriteLine(p.cases[position]);
+            Console.WriteLine(p.cases[position].nom);
             p.cases[position].action(this);
+            Console.WriteLine("\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. \n sinon passer son tour");
+            ConsoleKeyInfo c = Console.ReadKey();
+            while (c.KeyChar == '1' || c.KeyChar == '2')
+            {
+                if (c.KeyChar == '1')
+                {
+                    Console.WriteLine(p.playerInfo());
+
+                }
+                else if (c.KeyChar == '2')
+                {
+                    Console.WriteLine(p.cases[position].ToString());
+                }
+             
+                Console.WriteLine("\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. \n sinon passer son tour");
+                c = Console.ReadKey();
+            }
+        }
+        else if(etatCourant==Etat.enPrison)
+        {
+            Random des = new Random();
+            int De1 = des.Next(1, 7);
+            int de2 = des.Next(1, 7);
+            if (de2 == De1||nbTourPrison==3)
+            {
+                etatCourant = Etat.vivant;
+                valeurDernierDeplacement = De1 + de2;
+                position += valeurDernierDeplacement;
+            }
+            else
+                this.nbTourPrison++;
         }
     }
 

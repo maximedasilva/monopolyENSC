@@ -10,7 +10,7 @@ public class LibereDePrison : Cartes {
     
     public LibereDePrison(TypeC typecarte, string fct):base(typecarte, fct)
     {
-
+          
     }
 
 }
