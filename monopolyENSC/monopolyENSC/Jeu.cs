@@ -39,12 +39,16 @@ public class Jeu {
         {
             if(c is ProprieteDeCouleur)
             {
-                XElement couleur = new XElement("Couleur");
+      
                 ProprieteDeCouleur tmp = c as ProprieteDeCouleur;
-                couleur.SetAttributeValue("num", tmp.num);
-                couleur.SetAttributeValue("proprietaire", tmp.proprietaire);
-                couleur.SetAttributeValue("etat", tmp.etat.ToString());
-                couleur.SetAttributeValue("nbBatiment", tmp._nbBatimentsConstruits);
+                if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)
+                {
+                    XElement couleur = new XElement("Couleur");
+                    couleur.SetAttributeValue("num", tmp.num);
+                    couleur.SetAttributeValue("proprietaire", tmp.proprietaire);
+                    couleur.SetAttributeValue("etat", tmp.etat.ToString());
+                    couleur.SetAttributeValue("nbBatiment", tmp._nbBatimentsConstruits);
+                }
             }
         }
 
