@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System.Text;
+using System.Xml;
+using System.Xml.Linq;
 
 public class Jeu {
 
@@ -13,14 +15,41 @@ public class Jeu {
         plateau = new Plateau();
         plateau.addJoueur();
     }
+    public void saveAsXML(string filename)
+    {
+        XDocument xmldoc = new XDocument();
+        XElement jeu = new XElement("jeu");
+        xmldoc.Add(jeu);
+        XElement joueurs = new XElement("joueurs");
+        jeu.Add(joueurs);
+        foreach(Joueur j in plateau.Joueurs)
+        {
+            XElement joueur = new XElement("joueur");
+            joueur.SetAttributeValue("nom", j.nom);
+            joueur.SetAttributeValue("num", j.num);
+            joueur.SetAttributeValue("sous", j.sous);
+            joueur.SetAttributeValue("etatCourant", j.etatCourant.ToString());
+            joueur.SetAttributeValue("position", j.position);
+            joueur.SetAttributeValue("dernierDeplacement", j.valeurDernierDeplacement);
+            joueurs.Add(joueur);
+        }
+
+
+
     
+      xmldoc.Save("..//..//data//"+filename+".xml");
+
+       
+
+    }
     
 
     public Plateau plateau{get; set;}
     
     public void simulation()
     {
-        while(joueursEnlice())
+        saveAsXML("test.xml");
+        while (joueursEnlice())
         {
             simulerUnTour();
         }
@@ -37,6 +66,7 @@ public class Jeu {
             }
             
         }
+       
     }
 
     public bool joueursEnlice()

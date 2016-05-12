@@ -160,6 +160,7 @@ public class Plateau {
                 }
             }
         }
+        
     }
 
     internal string playerInfo()
