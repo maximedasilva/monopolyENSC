@@ -15,6 +15,10 @@ public class Jeu {
         plateau = new Plateau(this);
         plateau.addJoueur();
     }
+    public void loadAnXML()
+    {
+
+    }
     public void saveAsXML(string filename)
     {
         XDocument xmldoc = new XDocument();

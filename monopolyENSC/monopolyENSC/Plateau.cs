@@ -23,7 +23,6 @@ public class Plateau {
         jeu = j;
         Joueurs = new List<Joueur>();
         cases = new Cases[40];
- 
         cartesChance = new List<Cartes>();
         cartesCaisseCommunaute = new List<Cartes>();
         generate();
