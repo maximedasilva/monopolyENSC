@@ -19,7 +19,7 @@ public class Deplacement : Cartes {
         _deplacementRelatif = depRel;
     }
 
-    public override void action (Joueur j)
+    public override void actionCarte (Joueur j)
     {
         if (this._deplacementRelatif==0)
         {

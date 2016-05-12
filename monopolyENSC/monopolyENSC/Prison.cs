@@ -9,5 +9,11 @@ namespace monopolyENSC
     class Prison : Cases
     {
         public Prison() : base("Prison") { }
+
+        public override void action(Joueur j)
+        {
+
+        }
     }
+    
 }
