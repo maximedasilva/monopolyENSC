@@ -34,24 +34,29 @@ public class Jeu {
             joueurs.Add(joueur);
         }
         XElement propriete = new XElement("proprietes");
-
-        foreach(Cases c in plateau.cases)
+        int i = 0;
+        foreach (Cases c in plateau.cases)
         {
+            
             if(c is ProprieteDeCouleur)
             {
       
                 ProprieteDeCouleur tmp = c as ProprieteDeCouleur;
                 if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)
                 {
-                    XElement couleur = new XElement("Couleur");
-                    couleur.SetAttributeValue("num", tmp.num);
-                    couleur.SetAttributeValue("proprietaire", tmp.proprietaire);
-                    couleur.SetAttributeValue("etat", tmp.etat.ToString());
-                    couleur.SetAttributeValue("nbBatiment", tmp._nbBatimentsConstruits);
+                    XElement terrain = new XElement("Couleur");
+                    terrain.SetAttributeValue("num", i);
+                    terrain.SetAttributeValue("proprietaire", tmp.proprietaire.nom);
+                    terrain.SetAttributeValue("etat", tmp.etat.ToString());
+                    terrain.SetAttributeValue("nbBatiment", tmp._nbBatimentsConstruits);
+
+                    propriete.Add(terrain);
                 }
             }
+            i++;
         }
-
+        jeu.Add(propriete);
+        
 
 
     
