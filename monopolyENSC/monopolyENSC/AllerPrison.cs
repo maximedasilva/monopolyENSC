@@ -11,5 +11,10 @@ namespace monopolyENSC
         public AllerPrison(TypeC typecarte, string fct):base(typecarte, fct)
         {
         }
+
+        public void enTaule(Joueur j)
+        {
+            j.etatCourant = Joueur.Etat.enPrison;
+        }
     }
 }
