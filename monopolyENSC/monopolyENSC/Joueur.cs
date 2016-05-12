@@ -152,7 +152,7 @@ public class Joueur {
         }
     }
 
-    public Boolean MemeNbMaisons(ProprieteDeCouleur prop) // on vérifie ici que toutes les propriétés de la même couleur que prop ont le mêmeme nombre de maisons 
+    public Boolean MemeNbMaisons(ProprieteDeCouleur prop) // on vérifie ici que toutes les propriétés ont un nombre de maisons adapté à la construction  
     {
         Boolean res = true;
         int i = 0;
