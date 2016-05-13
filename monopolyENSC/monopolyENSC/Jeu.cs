@@ -32,34 +32,35 @@ public class Jeu {
             tmp.sous = (int)j.Attribute("sous");
             plateau.addJoueur(tmp);
         }
-        var couleur = jeu.Descendants("couleur");
+        var couleur = jeu.Descendants("Couleur");
         foreach(var j in couleur)
         {
             var tmp = plateau.cases[(int)j.Attribute("num")] as ProprieteDeCouleur;
             tmp._nbBatimentsConstruits = (int)j.Attribute("nbBatiment");
             tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete),(string)j.Attribute("etat"));
+            plateau.cases[(int)j.Attribute("num")] = tmp;
         }
 
 
     }
     public void initialiser()
     {
-     //   loadAnXML("testset");
-       Console.Clear();
-        string name = null;
-        int cpt = 0;
-        do
-        {
-            Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
+        loadAnXML("hhhhh");
+        /*  Console.Clear();
+           string name = null;
+           int cpt = 0;
+           do
+           {
+               Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
 
-            name = Console.ReadLine();
-            if (name != ".")
-            {
-                plateau.Joueurs.Add(new Joueur(name, plateau));
-                cpt++;
-            }
-        }
-        while (cpt < 2 || name != ".");
+               name = Console.ReadLine();
+               if (name != ".")
+               {
+                   plateau.Joueurs.Add(new Joueur(name, plateau));
+                   cpt++;
+               }
+           }
+           while (cpt < 2 || name != ".");*/
     }
     public void saveAsXML(string filename)
     {
