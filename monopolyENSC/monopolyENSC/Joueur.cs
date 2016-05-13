@@ -173,8 +173,15 @@ public class Joueur {
                 }
                 else if (c.KeyChar == 's' && num == 0)
                 {
-                    Console.WriteLine("ecrivez le nom de fichier et appuyez sur entree");
-                    p.jeu.saveAsXML(Console.ReadLine());
+                    if (p.jeu.fichierSave == "")
+                    {
+                        Console.WriteLine("ecrivez le nom de fichier et appuyez sur entree");
+                        p.jeu.saveAsXML(Console.ReadLine());
+                    }
+                    else
+                    {
+                        p.jeu.saveAsXML("");
+                    }
                 }
 
                 

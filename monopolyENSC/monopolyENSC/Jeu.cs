@@ -15,6 +15,7 @@ public class Jeu {
         plateau = new Plateau(this);
         
     }
+    public string fichierSave { get; set; }
     public void loadAnXML(string filename)
     {
         XDocument doc = XDocument.Load("..//..//data//" + filename + ".xml");
@@ -33,15 +34,15 @@ public class Jeu {
         var couleur = jeu.Descendants("couleur");
         foreach(var j in couleur)
         {
-
+           // plateau.cases[(int)j.Attribute("num")]
         }
 
 
     }
     public void initialiser()
     {
-        loadAnXML("testset");
-    /*    Console.Clear();
+     //   loadAnXML("testset");
+       Console.Clear();
         string name = null;
         int cpt = 0;
         do
@@ -55,10 +56,14 @@ public class Jeu {
                 cpt++;
             }
         }
-        while (cpt < 2 || name != ".");*/
+        while (cpt < 2 || name != ".");
     }
     public void saveAsXML(string filename)
     {
+        if(fichierSave=="")
+        {
+            fichierSave = filename;
+        }
         XDocument xmldoc = new XDocument();
         XElement jeu = new XElement("jeu");
         xmldoc.Add(jeu);
@@ -102,7 +107,7 @@ public class Jeu {
 
 
     
-      xmldoc.Save("..//..//data//"+filename+".xml");
+      xmldoc.Save("..//..//data//"+fichierSave+".xml");
 
        
 
