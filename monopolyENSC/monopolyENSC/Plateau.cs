@@ -11,11 +11,10 @@ using System.Xml.Linq;
  * 
  */
 public class Plateau {
-    public Cases[] cases{ get; set; }
-  //  public List<CaisseCommunaute> {get; set;}
+    public Cases[] cases{ get; private set; }
     public List<Cartes> cartesChance { get; set; }
     public List<Cartes> cartesCaisseCommunaute { get; set; }
-    public List<Joueur> Joueurs { get; set; }
+    public List<Joueur> Joueurs { get;  }
     public Jeu jeu { get; }
 
     public Plateau(Jeu j)

@@ -13,6 +13,7 @@ public class Jeu {
     public Jeu() {
         
         plateau = new Plateau(this);
+        fichierSave = "";
         
     }
     public string fichierSave { get; set; }
