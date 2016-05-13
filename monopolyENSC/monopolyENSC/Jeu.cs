@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using System.Text;
@@ -55,8 +56,15 @@ public class Jeu {
             c = Console.ReadKey();
             if (c.KeyChar == '2')
             {
-
-                loadAnXML("hhhhh");
+                Console.Clear();
+                DirectoryInfo d = new DirectoryInfo("..//..//data");
+                FileInfo[] files = d.GetFiles("*.xml");
+                int i = 1;
+                foreach(var file in files)
+                {
+                    Console.WriteLine(i+") "+file.Name);
+                    i++;
+                }
             }
             if (c.KeyChar == '1')
             {
