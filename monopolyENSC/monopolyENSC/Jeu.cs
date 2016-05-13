@@ -34,7 +34,8 @@ public class Jeu {
     }
     public void initialiser()
     {
-        Console.Clear();
+        loadAnXML("testset");
+    /*    Console.Clear();
         string name = null;
         int cpt = 0;
         do
@@ -48,7 +49,7 @@ public class Jeu {
                 cpt++;
             }
         }
-        while (cpt < 2 || name != ".");
+        while (cpt < 2 || name != ".");*/
     }
     public void saveAsXML(string filename)
     {
