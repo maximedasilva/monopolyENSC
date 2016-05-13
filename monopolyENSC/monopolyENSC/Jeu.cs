@@ -23,8 +23,14 @@ public class Jeu {
         foreach(var j in joueurs)
         {
             Joueur tmp = new Joueur((string)j.Attribute("nom"), plateau);
+            tmp.num = (int)j.Attribute("num");
+            tmp.position = (int)j.Attribute("position");
+            tmp.etatCourant = (Joueur.Etat)Enum.Parse(typeof(Joueur.Etat),(string)j.Attribute("etatCourant"));
+            tmp.valeurDernierDeplacement = (int)j.Attribute("dernierDeplacement");
+            tmp.sous = (int)j.Attribute("sous");
             plateau.addJoueur(tmp);
         }
+
     }
     public void initialiser()
     {
