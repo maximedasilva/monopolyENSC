@@ -35,7 +35,9 @@ public class Jeu {
         var couleur = jeu.Descendants("couleur");
         foreach(var j in couleur)
         {
-           // plateau.cases[(int)j.Attribute("num")]
+            var tmp = plateau.cases[(int)j.Attribute("num")] as ProprieteDeCouleur;
+            tmp._nbBatimentsConstruits = (int)j.Attribute("nbBatiment");
+            tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete),(string)j.Attribute("etat"));
         }
 
 
