@@ -30,6 +30,12 @@ public class Jeu {
             tmp.sous = (int)j.Attribute("sous");
             plateau.addJoueur(tmp);
         }
+        var couleur = jeu.Descendants("couleur");
+        foreach(var j in couleur)
+        {
+
+        }
+
 
     }
     public void initialiser()
