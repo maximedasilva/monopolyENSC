@@ -48,22 +48,40 @@ public class Jeu {
     }
     public void initialiser()
     {
-        loadAnXML("hhhhh");
-        /*  Console.Clear();
-           string name = null;
-           int cpt = 0;
-           do
-           {
-               Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
+        ConsoleKeyInfo c;
+        do
+        {
+            Console.WriteLine("1)Nouvelle partie 2) Charger une partie 3)Quitter");
+            c = Console.ReadKey();
+            if (c.KeyChar == '2')
+            {
 
-               name = Console.ReadLine();
-               if (name != ".")
-               {
-                   plateau.Joueurs.Add(new Joueur(name, plateau));
-                   cpt++;
-               }
-           }
-           while (cpt < 2 || name != ".");*/
+                loadAnXML("hhhhh");
+            }
+            if (c.KeyChar == '1')
+            {
+                Console.Clear();
+                string name = null;
+                int cpt = 0;
+                do
+                {
+                    Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
+
+                    name = Console.ReadLine();
+                    if (name != ".")
+                    {
+                        plateau.Joueurs.Add(new Joueur(name, plateau));
+                        cpt++;
+                    }
+                }
+                while (cpt < 2 || name != ".");
+            }
+            if(c.KeyChar=='3')
+            {
+                System.Environment.Exit(1);
+            }
+        }
+        while (c.KeyChar != '1' && c.KeyChar != '2');
     }
     public void saveAsXML(string filename)
     {

@@ -24,7 +24,7 @@ public class Plateau {
         cases = new Cases[40];
         cartesChance = new List<Cartes>();
         cartesCaisseCommunaute = new List<Cartes>();
-        generate();
+
     }
 
     public void addCartesChance(Cartes c)
