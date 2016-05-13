@@ -14,8 +14,16 @@ DONE
 -
 - Création des classes et du digramme UML
 - Génération automatique du plateau
+- Sauvegarde XML
+- génération des fichiers XML
+
+
+DOING
+-
+-   Chargement XML
+-   Boucles de jeu
 
 TODO
 -
-- Faire les algorithmes et les boucles de jeu
 - faire toutes les transactions.
+- Recréer des parties depuis le fichier XML
