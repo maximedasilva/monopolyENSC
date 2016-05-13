@@ -38,7 +38,10 @@ public class Jeu {
             var tmp = plateau.cases[(int)j.Attribute("num")] as ProprieteDeCouleur;
             tmp._nbBatimentsConstruits = (int)j.Attribute("nbBatiment");
             tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete),(string)j.Attribute("etat"));
+            var joueur=plateau.Joueurs.Find(current => current.num == (int)j.Attribute("proprietaire"));
+            tmp.proprietaire = joueur;
             plateau.cases[(int)j.Attribute("num")] = tmp;
+
         }
 
 
@@ -97,7 +100,7 @@ public class Jeu {
                 {
                     XElement terrain = new XElement("Couleur");
                     terrain.SetAttributeValue("num", i);
-                    terrain.SetAttributeValue("proprietaire", tmp.proprietaire.nom);
+                    terrain.SetAttributeValue("proprietaire", tmp.proprietaire.num);
                     terrain.SetAttributeValue("etat", tmp.etat.ToString());
                     terrain.SetAttributeValue("nbBatiment", tmp._nbBatimentsConstruits);
 
