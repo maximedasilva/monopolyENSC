@@ -59,12 +59,43 @@ public class Jeu {
                 Console.Clear();
                 DirectoryInfo d = new DirectoryInfo("..//..//data");
                 FileInfo[] files = d.GetFiles("*.xml");
-                int i = 1;
-                foreach(var file in files)
+                int j = 0;
+                int i = 0;
+                ConsoleKeyInfo selectFile;
+                do
                 {
-                    Console.WriteLine(i+") "+file.Name);
-                    i++;
-                }
+                    i = 0;
+                    Console.Clear();
+                    
+                    foreach (var file in files)
+                    {
+                        if (i == j)
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.WriteLine(file.Name);
+                        }
+                        else
+                        {
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor =  ConsoleColor.White;
+                            Console.WriteLine(file.Name);
+                        }
+                        i++;
+                    }
+                    selectFile = Console.ReadKey();
+                    if(selectFile.Key==ConsoleKey.DownArrow&& j<files.Count()-1)
+                    {
+                        j++;
+                    }
+                    else if(selectFile.Key == ConsoleKey.UpArrow && j > 0)
+                    {
+                        j--;
+                    }
+
+                } while (selectFile.Key != ConsoleKey.Enter);
+                Console.WriteLine(j);
+                     
             }
             if (c.KeyChar == '1')
             {
