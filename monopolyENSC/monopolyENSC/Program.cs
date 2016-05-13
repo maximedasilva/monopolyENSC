@@ -11,6 +11,7 @@ namespace monopolyENSC
         static void Main(string[] args)
         {
             var t = new Jeu();
+            t.initialiser();
             t.simulation();
         }
     }

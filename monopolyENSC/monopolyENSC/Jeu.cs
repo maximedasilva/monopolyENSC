@@ -13,11 +13,36 @@ public class Jeu {
     public Jeu() {
         
         plateau = new Plateau(this);
-        plateau.addJoueur();
+        
     }
-    public void loadAnXML()
+    public void loadAnXML(string filename)
     {
+        XDocument doc = XDocument.Load("..//..//data//" + filename + ".xml");
+        var jeu = doc.Descendants("jeu").First();
+        var joueurs = jeu.Descendants("joueur");
+        foreach(var j in joueurs)
+        {
+            Joueur tmp = new Joueur((string)j.Attribute("nom"), plateau);
+            plateau.addJoueur(tmp);
+        }
+    }
+    public void initialiser()
+    {
+        Console.Clear();
+        string name = null;
+        int cpt = 0;
+        do
+        {
+            Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
 
+            name = Console.ReadLine();
+            if (name != ".")
+            {
+                plateau.Joueurs.Add(new Joueur(name, plateau));
+                cpt++;
+            }
+        }
+        while (cpt < 2 || name != ".");
     }
     public void saveAsXML(string filename)
     {

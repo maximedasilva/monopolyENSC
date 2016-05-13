@@ -173,24 +173,9 @@ public class Plateau {
         }
         return rep;
     }
-    public void addJoueur()
+    public void addJoueur(Joueur j)
     {
-        Console.Clear();
-        string name = null;
-        int cpt = 0;
-        do
-        {
-            Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
-
-            name = Console.ReadLine();
-            if (name != ".")
-            {
-                Joueurs.Add(new Joueur(name, this));
-                cpt++;
-            }
-        }
-        while (cpt < 2 || name != ".");
-
+        Joueurs.Add(j);
     }
 
     public int calculePropCouleur (ProprieteDeCouleur prop) // calcule le nombre de prop de la couleur de la prop qu'on fournit 
