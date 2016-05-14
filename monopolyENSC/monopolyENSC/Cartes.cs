@@ -8,7 +8,7 @@ using System.Text;
 public abstract class Cartes {
 
     public enum TypeC { chance, communaute }
-    public TypeC _typeCarte { get; set;  }
+    public TypeC _typeCarte { get;  }
     public string fonction;
     private static int  cpt=0;
     public int num { get; set; }
