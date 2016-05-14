@@ -152,11 +152,29 @@ public class Joueur {
             Console.WriteLine(this.ToString());
             Console.WriteLine(p.cases[position].nom);
             p.cases[position].action(this);
+        }
+
+
+
+        else if (etatCourant == Etat.enPrison)
+        {
+            Random des = new Random();
+            int De1 = des.Next(1, 7);
+            int de2 = des.Next(1, 7);
+            if (de2 == De1 || nbTourPrison == 3)
+            {
+                etatCourant = Etat.vivant;
+                valeurDernierDeplacement = De1 + de2;
+                position += valeurDernierDeplacement;
+            }
+            else
+                this.nbTourPrison++;
+        }
             ConsoleKeyInfo c = new ConsoleKeyInfo();
             do
             {
-               string affiche ="\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. 3) Mettre une propriété en hypotheque et vendre les biens dessus\n sinon passer son tour";
-                if(this.num==0)
+                string affiche = "\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. 3) Mettre une propriété en hypotheque et vendre les biens dessus\n sinon passer son tour";
+                if (this.num == 0)
                 {
                     affiche += "\n vous pouvez enregistrer la partie en appuyant sur 's'";
                 }
@@ -187,13 +205,13 @@ public class Joueur {
                             {
                                 Console.BackgroundColor = ConsoleColor.White;
                                 Console.ForegroundColor = ConsoleColor.Black;
-                              
+
                             }
                             else
                             {
                                 Console.BackgroundColor = ConsoleColor.Black;
                                 Console.ForegroundColor = ConsoleColor.White;
-                                                            }
+                            }
                             Console.WriteLine(p.nom);
                             cpt++;
                         }
@@ -201,21 +219,21 @@ public class Joueur {
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("Echap pour quitter");
                         select = Console.ReadKey();
-                        if (select.Key == ConsoleKey.DownArrow&&actual<proprieteEnPossession.Count-1)
+                        if (select.Key == ConsoleKey.DownArrow && actual < proprieteEnPossession.Count - 1)
                         {
                             actual++;
                         }
-                        if(select.Key==ConsoleKey.UpArrow&&actual>0)
+                        if (select.Key == ConsoleKey.UpArrow && actual > 0)
                         {
                             actual--;
                         }
-                        if(select.Key==ConsoleKey.Enter)
+                        if (select.Key == ConsoleKey.Enter)
                         {
                             this.hypothequeVolontaire(proprieteEnPossession.ElementAt(actual));
                         }
                     }
                     while (select.Key != ConsoleKey.Escape);
-                    }
+                }
                 else if (c.KeyChar == 's' && num == 0)
                 {
                     if (p.jeu.fichierSave == "")
@@ -229,28 +247,12 @@ public class Joueur {
                     }
                 }
 
-                
+
 
             }
             while (c.KeyChar == '1' || c.KeyChar == '2');
         }
-
-
-        else if (etatCourant == Etat.enPrison)
-        {
-            Random des = new Random();
-            int De1 = des.Next(1, 7);
-            int de2 = des.Next(1, 7);
-            if (de2 == De1 || nbTourPrison == 3)
-            {
-                etatCourant = Etat.vivant;
-                valeurDernierDeplacement = De1 + de2;
-                position += valeurDernierDeplacement;
-            }
-            else
-                this.nbTourPrison++;
-        }
-    }
+    
 
     private void hypothequeVolontaire(Propriete propriete)
     {
