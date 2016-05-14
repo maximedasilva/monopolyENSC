@@ -49,11 +49,18 @@ public class ProprieteDeCouleur : Propriete {
                     
                     j.payer(this.calculLoyer(), proprietaire);
                     Console.WriteLine("vous venez de payer le loyer de "+calculLoyer()+" euros");
+
+                }
+                else {
+                    j.etatCourant = Joueur.Etat.mort;
+                    j.mettreHypotheque();
+                    Console.WriteLine("Le joueur {0} est mort", j.nom);
+                 
                 }
             }
             else
             {
-                Console.WriteLine("ce terrain vous appartient voulez faire une nouvelle construction dessus?");
+                Console.WriteLine("ce terrain vous appartient voulez faire une nouvelle construction dessus? (y) (n)");
                 ConsoleKeyInfo c;
                 do
                 {

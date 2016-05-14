@@ -26,14 +26,25 @@ public class Transaction : Cartes {
             double ValeurRep = 25 * (j.getNbMaison()) + 100 * j.getNbHotel();
             if (j.payer(ValeurRep, null))
                 Console.WriteLine(fonction);
+            else {
+                j.etatCourant = Joueur.Etat.mort;
+                j.mettreHypotheque();
+                Console.WriteLine("Le joueur {0} est mort", j.nom);
+                
+            }
         }
         else
         {
 
             if (j.payer(_valeur, null))
                 Console.WriteLine(fonction);
+            else {
+                j.etatCourant = Joueur.Etat.mort;
+                j.mettreHypotheque();
+                Console.WriteLine("Le joueur {0} est mort", j.nom);
+               
+            }
 
-            
         }
     }
 }

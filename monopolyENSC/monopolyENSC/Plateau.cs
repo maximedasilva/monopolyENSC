@@ -48,7 +48,7 @@ public class Plateau {
         var cartes = document.Descendants("cartes").First();
 
 
-        /*
+        
         foreach(var g in groupe)
         {
             var terrain = g.Descendants("terrain");
@@ -91,13 +91,8 @@ public class Plateau {
                 cases[(int)c.Attribute("id")] = new Chance();
             }
         }
-        */
-        cases[0] = new Depart();
-        for (int i=1;i<cases.Length;i++)
-        {
-
-            cases[i] = new Communaute();
-        }
+        
+       
 
         var caisseCom = cartes.Descendants("paquet");
         

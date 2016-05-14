@@ -47,12 +47,8 @@ public class Joueur {
             }
             return true;
         }
-        else {
-            j.etatCourant = Joueur.Etat.mort;
-            j.mettreHypotheque();
-            Console.WriteLine("Le joueur {0} est mort", j.nom);
-            return false;
-        }
+        else
+            return false; 
     }
 
     internal int getNbGares()
@@ -159,7 +155,7 @@ public class Joueur {
             ConsoleKeyInfo c = new ConsoleKeyInfo();
             do
             {
-               string affiche ="\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. \n sinon passer son tour";
+               string affiche ="\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. 3) Mettre une propriété en hypotheque et vendre les biens dessus\n sinon passer son tour";
                 if(this.num==0)
                 {
                     affiche += "\n vous pouvez enregistrer la partie en appuyant sur 's'";
@@ -176,6 +172,22 @@ public class Joueur {
                 {
                     Console.WriteLine(p.cases[position].ToString());
                 }
+                else if (c.KeyChar == '3')
+                {
+                    Console.Clear();
+                    ConsoleKeyInfo select;
+                    
+                    do {
+                        foreach (Propriete p in this.proprieteEnPossession)
+                        {
+                            Console.WriteLine(p.nom);
+                        }
+
+                        Console.WriteLine("Echap pour quitter");
+                        select = Console.ReadKey();
+                    }
+                    while (select.Key!=ConsoleKey.Escape);
+                    }
                 else if (c.KeyChar == 's' && num == 0)
                 {
                     if (p.jeu.fichierSave == "")
