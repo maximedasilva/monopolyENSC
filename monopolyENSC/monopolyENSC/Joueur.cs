@@ -158,6 +158,32 @@ public class Joueur {
 
         else if (etatCourant == Etat.enPrison)
         {
+            if (cartesEnPossession.Count > 0)
+            {
+                ConsoleKeyInfo choix;
+                do
+                {
+
+
+                    Console.WriteLine("Voulez vous utiliser une carte libéré de prison (y) (n)?");
+                
+                    choix = Console.ReadKey();
+                    if(choix.KeyChar=='y')
+                    {
+                        etatCourant = Etat.vivant;
+                        var tmp = cartesEnPossession.ElementAt(0);
+                        cartesEnPossession.RemoveAt(0);
+                        if (tmp._typeCarte == Cartes.TypeC.chance)
+                        {
+                            p.addCartesChance(tmp);
+                        }
+                        else
+                            p.addCartesCaisseCommunaute(tmp);
+
+                    }
+                }while(choix.KeyChar!='y'&&choix.KeyChar!='n')
+                }
+
             Random des = new Random();
             int De1 = des.Next(1, 7);
             int de2 = des.Next(1, 7);
