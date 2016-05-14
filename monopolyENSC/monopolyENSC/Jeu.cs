@@ -20,7 +20,7 @@ public class Jeu {
     public string fichierSave { get; set; }
     public void loadAnXML(string filename)
     {
-        XDocument doc = XDocument.Load("..//..//data//" + filename);
+        XDocument doc = XDocument.Load("..//..//data//" + filename+".xml");
         var jeu = doc.Descendants("jeu").First();
         var joueurs = jeu.Descendants("joueur");
         foreach(var j in joueurs)
@@ -44,7 +44,7 @@ public class Jeu {
             plateau.cases[(int)j.Attribute("num")] = tmp;
 
         }
-
+        fichierSave = filename;
 
     }
     public void initialiser()
@@ -95,7 +95,7 @@ public class Jeu {
                     }
 
                 } while (selectFile.Key != ConsoleKey.Enter);
-                loadAnXML(files.ElementAt(j).ToString());
+                loadAnXML(Path.GetFileNameWithoutExtension(files.ElementAt(j).Name));
                      
             }
             if (c.KeyChar == '1')

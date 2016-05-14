@@ -173,6 +173,7 @@ public class Joueur {
             ConsoleKeyInfo c = new ConsoleKeyInfo();
             do
             {
+          
                 string affiche = "\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. 3) Mettre une propriété en hypotheque et vendre les biens dessus\n sinon passer son tour";
                 if (this.num == 0)
                 {
@@ -180,8 +181,8 @@ public class Joueur {
                 }
                 Console.WriteLine(affiche);
                 c = Console.ReadKey();
-
-                if (c.KeyChar == '1')
+            Console.Clear();
+            if (c.KeyChar == '1')
                 {
                     Console.WriteLine(p.playerInfo());
 
@@ -250,7 +251,7 @@ public class Joueur {
 
 
             }
-            while (c.KeyChar == '1' || c.KeyChar == '2');
+            while (c.KeyChar == '1' || c.KeyChar == '2'|| c.KeyChar == '3'|| c.KeyChar == 's');
         }
     
 
@@ -274,6 +275,7 @@ public class Joueur {
             var tmp = propriete as Gare;
             this.sous = tmp._prixHypotheque;
         }
+        proprieteEnPossession.Remove(propriete);
         propriete.etat = Propriete.EtatPropriete.hypotheque;
     }
 
