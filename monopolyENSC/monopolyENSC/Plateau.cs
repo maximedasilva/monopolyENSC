@@ -12,8 +12,8 @@ using System.Xml.Linq;
  */
 public class Plateau {
     public Cases[] cases{ get; private set; }
-    public Stack<Cartes> cartesChance { get; set; }
-    public Stack<Cartes> cartesCaisseCommunaute { get; set; }
+    public List<Cartes> cartesChance { get; set; }
+    public List<Cartes> cartesCaisseCommunaute { get; set; }
     public List<Joueur> Joueurs { get;  }
     public Jeu jeu { get; }
 
@@ -22,18 +22,33 @@ public class Plateau {
         jeu = j;
         Joueurs = new List<Joueur>();
         cases = new Cases[40];
-        cartesChance = new Stack<Cartes>();
-        cartesCaisseCommunaute = new Stack<Cartes>();
+        cartesChance = new List<Cartes>();
+        cartesCaisseCommunaute = new List<Cartes>();
 
+    }
+    public Cartes pullCartesChances()
+    {
+
+        var tmp= cartesChance.ElementAt(0);
+        cartesChance.RemoveAt(0);
+        cartesChance.Add(tmp);
+        return tmp;
+    }
+    public Cartes pullCartesCaisseCommunaute()
+    {
+        var tmp = cartesCaisseCommunaute.ElementAt(0);
+        cartesCaisseCommunaute.RemoveAt(0);
+        cartesCaisseCommunaute.Add(tmp);
+        return tmp;
     }
 
     public void addCartesChance(Cartes c)
     {
-        cartesChance.Push(c);
+        cartesChance.Add(c);
     }
     public void addCartesCaisseCommunaute(Cartes c)
     {
-        cartesCaisseCommunaute.Push(c);
+        cartesCaisseCommunaute.Add(c);
         
     }
     public void generate()
