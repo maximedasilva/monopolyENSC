@@ -62,6 +62,19 @@ public abstract class Propriete : Cases
             {
                 Console.WriteLine("cette propriete est en enchère, voulez vous l'acheter pour {0}e (y) (n)??", _prixHypotheque);
                 rep = Console.ReadKey();
+                if (rep.KeyChar == 'y')
+                {
+                    if (j.payer(_prixHypotheque, null))
+                    {
+                        proprietaire = j;
+                        etat = EtatPropriete.achete;
+                        Console.WriteLine("vous avez racheté cette propriété");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vous ne pouvea pas acheter cette propriété");
+                    }
+                }
             }
             while (rep.KeyChar != 'y' && rep.KeyChar != 'n');
         }
