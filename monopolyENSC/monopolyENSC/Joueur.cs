@@ -38,7 +38,7 @@ public class Joueur {
     }
     public bool payer(double prix, Joueur J2)
     {
-        if(this.sous>prix)
+        if (this.sous > prix)
         {
             sous -= prix;
             if (J2 != null)
@@ -47,7 +47,12 @@ public class Joueur {
             }
             return true;
         }
-        else return false;
+        else {
+            j.etatCourant = Joueur.Etat.mort;
+            j.mettreHypotheque();
+            Console.WriteLine("Le joueur {0} est mort", j.nom);
+            return false;
+        }
     }
 
     internal int getNbGares()

@@ -23,13 +23,15 @@ public class Transaction : Cartes {
         if (reparation)
         {
             double ValeurRep = 25 * (j.getNbMaison()) + 100 * j.getNbHotel();
-            j.payer(ValeurRep, null);
-            Console.WriteLine("Vous avez payé " + ValeurRep + " euros pour vos réparations.");
+            if (j.payer(ValeurRep, null))
+                Console.WriteLine(fonction);
         }
         else
         {
-            j.payer(_valeur, null);
-              Console.WriteLine(fonction);
+
+            if (j.payer(_valeur, null))
+                Console.WriteLine(fonction);
+
             
         }
     }
