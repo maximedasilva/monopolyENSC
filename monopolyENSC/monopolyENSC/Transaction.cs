@@ -16,6 +16,7 @@ public class Transaction : Cartes {
     public Transaction(TypeC typeCarte, string fct, double valeur, Boolean rep):base(typeCarte, fct)
     {
         _valeur = valeur;
+        reparation = rep;
     }
 
     public override void actionCarte (Joueur j)
