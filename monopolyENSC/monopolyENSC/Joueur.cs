@@ -176,17 +176,41 @@ public class Joueur {
                 {
                     Console.Clear();
                     ConsoleKeyInfo select;
-                    
-                    do {
+                    int actual = 0;
+                    do
+                    {
+                        Console.Clear();
+                        int cpt = 0;
                         foreach (Propriete p in this.proprieteEnPossession)
                         {
+                            if (cpt == actual)
+                            {
+                                Console.BackgroundColor = ConsoleColor.White;
+                                Console.ForegroundColor = ConsoleColor.Black;
+                              
+                            }
+                            else
+                            {
+                                Console.BackgroundColor = ConsoleColor.Black;
+                                Console.ForegroundColor = ConsoleColor.White;
+                                                            }
                             Console.WriteLine(p.nom);
+                            cpt++;
                         }
-
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("Echap pour quitter");
                         select = Console.ReadKey();
+                        if (select.Key == ConsoleKey.DownArrow&&actual<proprieteEnPossession.Count-1)
+                        {
+                            actual++;
+                        }
+                        if(select.Key==ConsoleKey.UpArrow&&actual>0)
+                        {
+                            actual--;
+                        }
                     }
-                    while (select.Key!=ConsoleKey.Escape);
+                    while (select.Key != ConsoleKey.Escape);
                     }
                 else if (c.KeyChar == 's' && num == 0)
                 {
