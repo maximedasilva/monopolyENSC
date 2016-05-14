@@ -194,11 +194,10 @@ public class Jeu {
     {
         foreach (Joueur j in plateau.Joueurs)
         {
-            if (j.etatCourant != Joueur.Etat.enPrison)
-            {
+         
                 Console.Clear();
                 j.jouer();
-            }
+            
             
         }
        

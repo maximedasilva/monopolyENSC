@@ -29,14 +29,8 @@ public class Transaction : Cartes {
         else
         {
             j.payer(_valeur, null);
-            if (_valeur > 0)
-            {
-                Console.WriteLine("Vous avez payé " + _valeur + " euros.");
-            }
-            else
-            {
-                Console.WriteLine("Vous avez reçu " + Math.Abs(_valeur) + " euros.");
-            }
+              Console.WriteLine(fonction);
+            
         }
     }
 }
