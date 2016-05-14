@@ -209,6 +209,10 @@ public class Joueur {
                         {
                             actual--;
                         }
+                        if(select.Key==ConsoleKey.Enter)
+                        {
+                            this.hypothequeVolontaire(proprieteEnPossession.ElementAt(actual));
+                        }
                     }
                     while (select.Key != ConsoleKey.Escape);
                     }
@@ -247,7 +251,18 @@ public class Joueur {
                 this.nbTourPrison++;
         }
     }
-   
+
+    private void hypothequeVolontaire(Propriete propriete)
+    {
+        if(propriete is ProprieteDeCouleur)
+        {
+            var tmp = propriete as ProprieteDeCouleur;
+            this.sous += (tmp._nbBatimentsConstruits * tmp._prixConstruction) / 2;
+
+
+        }
+    }
+
     public int getNbMaison() //permet d'avoir le nombre de maisons du joueur
     {
         int nbMaison = 0;
