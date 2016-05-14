@@ -206,7 +206,7 @@ public class Joueur {
                 this.nbTourPrison++;
         }
     }
-
+   
     public int getNbMaison() //permet d'avoir le nombre de maisons du joueur
     {
         int nbMaison = 0;
@@ -254,6 +254,15 @@ public class Joueur {
 
     public void piocher(List<Cartes> l)
     {
-        //TODO on pioche la premiere carte, on fait action de cette carte, si c'est une carte libérer prison on la met dans la main du joueur, sinon on la met sous le tas
+        var tmp = l.ElementAt(0);
+        l.RemoveAt(0);
+        if (tmp is LibereDePrison)
+        {
+            this.ajoutCarte(tmp);
+        }
+        else {
+            l.Add(tmp);
+            tmp.actionCarte(this);
+        }
     }
 }

@@ -15,6 +15,6 @@ public class Communaute : Cases {
 
     public override void action(Joueur j)
     {
-        
+        j.piocher(j.p.cartesCaisseCommunaute);
     }
 }
