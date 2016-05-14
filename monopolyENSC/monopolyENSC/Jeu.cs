@@ -105,7 +105,7 @@ public class Jeu {
                 int cpt = 0;
                 do
                 {
-                    Console.WriteLine("Entrez un nom d'un nouveau joueur joueur (rentrez . pour quitter) 2 joueurs minimum");
+                    Console.WriteLine("Entrez un nom d'un nouveau joueur (rentrez . pour quitter) 2 joueurs minimum");
 
                     name = Console.ReadLine();
                     if (name != ".")
