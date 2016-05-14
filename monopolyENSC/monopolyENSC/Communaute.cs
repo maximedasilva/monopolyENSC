@@ -10,7 +10,7 @@ using System.Text;
 public class Communaute : Cases {
 
     
-    public Communaute():base("communaute") {
+    public Communaute():base("case caisse de communaute") {
     }
 
     public override void action(Joueur j)
