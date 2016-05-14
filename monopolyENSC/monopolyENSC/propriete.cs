@@ -55,6 +55,16 @@ public abstract class Propriete : Cases
                 etat = EtatPropriete.hypotheque;
             }
         } 
+        else if(etat==EtatPropriete.hypotheque)
+        {
+            ConsoleKeyInfo rep;
+            do
+            {
+                Console.WriteLine("cette propriete est en enchère, voulez vous l'acheter pour {0}e (y) (n)??", _prixHypotheque);
+                rep = Console.ReadKey();
+            }
+            while (rep.KeyChar != 'y' && rep.KeyChar != 'n');
+        }
     }
     public virtual double calculLoyer()
     {

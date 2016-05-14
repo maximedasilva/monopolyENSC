@@ -259,6 +259,7 @@ public class Joueur {
             var tmp = propriete as ProprieteDeCouleur;
             this.sous += (tmp._nbBatimentsConstruits * tmp._prixConstruction) / 2;
             this.sous += tmp._prixHypotheque;
+            tmp._nbBatimentsConstruits = 0;
 
         }
         if(propriete is Compagnies)
