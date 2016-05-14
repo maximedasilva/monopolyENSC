@@ -26,21 +26,7 @@ public class Plateau {
         cartesCaisseCommunaute = new List<Cartes>();
 
     }
-    public Cartes pullCartesChances()
-    {
-
-        var tmp= cartesChance.ElementAt(0);
-        cartesChance.RemoveAt(0);
-        cartesChance.Add(tmp);
-        return tmp;
-    }
-    public Cartes pullCartesCaisseCommunaute()
-    {
-        var tmp = cartesCaisseCommunaute.ElementAt(0);
-        cartesCaisseCommunaute.RemoveAt(0);
-        cartesCaisseCommunaute.Add(tmp);
-        return tmp;
-    }
+ 
 
     public void addCartesChance(Cartes c)
     {
