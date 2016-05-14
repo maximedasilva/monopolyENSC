@@ -258,9 +258,20 @@ public class Joueur {
         {
             var tmp = propriete as ProprieteDeCouleur;
             this.sous += (tmp._nbBatimentsConstruits * tmp._prixConstruction) / 2;
-
+            this.sous += tmp._prixHypotheque;
 
         }
+        if(propriete is Compagnies)
+        {
+            var tmp = propriete as Compagnies;
+            this.sous += (tmp._prixHypotheque);
+        }
+        if(propriete is Gare)
+        {
+            var tmp = propriete as Gare;
+            this.sous = tmp._prixHypotheque;
+        }
+        propriete.etat = Propriete.EtatPropriete.hypotheque;
     }
 
     public int getNbMaison() //permet d'avoir le nombre de maisons du joueur
