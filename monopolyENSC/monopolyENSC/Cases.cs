@@ -17,6 +17,6 @@ public abstract class Cases {
     
     public override string ToString()
     {
-        return num+" "+nom;
+        return nom;
     }
 }

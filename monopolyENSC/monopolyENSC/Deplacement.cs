@@ -26,15 +26,26 @@ public class Deplacement : Cartes {
             int anciennePosition = j.position;
             j.position = _deplacementAbsolu;
 
+            Console.WriteLine(this.fonction);
             if (j.position < anciennePosition)
             {
                 j.sous += 100;
                 Console.WriteLine("Vous gagnez 100 euros en passant par la case départ.");
             }
+            Console.WriteLine(j.ToString());
+            Console.WriteLine(j.p.cases[j.position].nom);
+            
+            j.p.cases[j.position].action(j);
+
+            
         }
         else
         {
+            Console.WriteLine(this.fonction);
             j.position += _deplacementRelatif;
+            Console.WriteLine(j.p.cases[j.position].nom);
+            
+            j.p.cases[j.position].action(j);
 
             if (j.position >= j.p.cases.Length)
             {

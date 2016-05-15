@@ -11,5 +11,6 @@ class police : Cases
     public override void action(Joueur j)
     {
         j.etatCourant = Joueur.Etat.enPrison;
+        Console.WriteLine("Vous etes envoyé(e) en prison");
     }
 }

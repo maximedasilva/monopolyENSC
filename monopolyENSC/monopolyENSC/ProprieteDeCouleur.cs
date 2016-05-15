@@ -48,7 +48,7 @@ public class ProprieteDeCouleur : Propriete {
                 {
                     
                     j.payer(this.calculLoyer(), proprietaire);
-                    Console.WriteLine("vous venez de payer le loyer de "+calculLoyer()+" euros");
+                    Console.WriteLine("vous venez de payer le loyer de "+calculLoyer()+" euros à "+ proprietaire);
 
                 }
                 else {
@@ -75,7 +75,19 @@ public class ProprieteDeCouleur : Propriete {
                     }
                     else
                     {
-                        Console.WriteLine("vous ne pouvez pas construire");
+                        if (j.compteProprieteCouleurJoueur(this) != j.p.calculePropCouleur(this))
+                        {
+                            Console.WriteLine("vous ne pouvez pas construire, il vous faut toutes les proprietes de cette couleur (" + j.compteProprieteCouleurJoueur(this) + "/" + j.p.calculePropCouleur(this) + ")");
+                        }
+                        else if (this._nbBatimentsConstruits == 5)
+                        {
+                            Console.WriteLine("Vous ne pouvez plus construire.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Il vous faut construire sur vos autres terrains de cette couleur d'abord");
+                        }
+                        
                     }
                 }
             }

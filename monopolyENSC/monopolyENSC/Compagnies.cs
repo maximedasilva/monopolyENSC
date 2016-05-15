@@ -34,7 +34,7 @@ public class Compagnies : Propriete {
         {
             if (j.payer(calculLoyer(j.valeurDernierDeplacement, proprietaire.getNbCompagnies()), proprietaire))
             {
-                Console.WriteLine("vous venez de payer le loyer de "+ calculLoyer(j.valeurDernierDeplacement, proprietaire.getNbCompagnies())+" euros");
+                Console.WriteLine("vous venez de payer le loyer de "+ calculLoyer(j.valeurDernierDeplacement, proprietaire.getNbCompagnies())+" euros à "+ proprietaire);
             }
             else
             {

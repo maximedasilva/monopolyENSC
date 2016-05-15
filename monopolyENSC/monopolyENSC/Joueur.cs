@@ -27,12 +27,17 @@ public class Joueur {
     {
         //elle retroune le nb de propriétés de couleur que le joueur a qui sont de la même couleur qu'une propriété donnée
         int nb = 0;
-        foreach (ProprieteDeCouleur p in proprieteEnPossession)
+        foreach (Propriete p in proprieteEnPossession)
         {
-            if (p.Couleur == prop.Couleur)
+            if (p is ProprieteDeCouleur)
             {
-                nb = nb + 1;
+                ProprieteDeCouleur tmp = p as ProprieteDeCouleur; //double vérification on sait jamais
+                if (tmp.Couleur == prop.Couleur)
+                {
+                    nb = nb + 1;
+                }
             }
+            
         }
         return nb;
     }
@@ -148,6 +153,7 @@ public class Joueur {
             {
                 position = position % p.cases.Length;
                 sous += 100;
+                Console.WriteLine("Vous avez reçu 100 en passant par la case depart.");
             }
             Console.WriteLine(this.ToString());
             Console.WriteLine(p.cases[position].nom);
@@ -166,9 +172,9 @@ public class Joueur {
 
 
                     Console.WriteLine("Voulez vous utiliser une carte libéré de prison (y) (n)?");
-                
+
                     choix = Console.ReadKey();
-                    if(choix.KeyChar=='y')
+                    if (choix.KeyChar == 'y')
                     {
                         etatCourant = Etat.vivant;
                         var tmp = cartesEnPossession.ElementAt(0);
@@ -181,7 +187,7 @@ public class Joueur {
                             p.addCartesCaisseCommunaute(tmp);
 
                     }
-                }while(choix.KeyChar!='y'&&choix.KeyChar!='n')
+                } while (choix.KeyChar != 'y' && choix.KeyChar != 'n');
                 }
 
             Random des = new Random();
@@ -356,10 +362,12 @@ public class Joueur {
         l.RemoveAt(0);
         if (tmp is LibereDePrison)
         {
+            
             this.ajoutCarte(tmp);
         }
         else {
             l.Add(tmp);
+            
             tmp.actionCarte(this);
         }
     }

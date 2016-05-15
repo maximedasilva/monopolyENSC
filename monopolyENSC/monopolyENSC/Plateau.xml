@@ -57,63 +57,63 @@
 		<carte id="36" type="0"/>
 		<taxe id="4" nom="Impot sur le revenu" prix="200"/>
 		<taxe id="38" nom="Taxe de luxe" prix="100"/>
-		<compagnie id="12" nom="Campagne de distribution d'electricite" />
-		<compagnie id="28" nom="Campagne de distribution des eaux" />
+		<compagnie id="12" nom="Compagnie de distribution d'electricite" />
+		<compagnie id="28" nom="Compagnie de distribution des eaux" />
 	</plateau>
 	<cartes>
 		<paquet type="1" nom="Caisse de Communaute">
-			<carte lib="Payez a l'hopital 10e" type="argent" valeur="-10" />
+			<carte lib="Payez a l'hopital 10e" type="argent" valeur="10" />
 			<carte lib="Erreur de la banque en votre faveur.
-				Recevez 200e" type="argent" valeur="200" />
-			<carte lib="Recevez votre interet sur l'emprunt a 7%, 25e" type="argent" valeur="25" />
+				Recevez 200e" type="argent" valeur="-200" />
+			<carte lib="Recevez votre interet sur l'emprunt a 7%, 25e" type="argent" valeur="-25" />
 			<carte lib="Payez une amende de 10e" type="argent" valeur="10"  />
-			<carte lib="Les contributions vous remboursent la somme de 20e" type="argent" valeur="20" />
-			<carte lib="Payer la note du medecin 50e" type="argent" valeur="-50"/>
+			<carte lib="Les contributions vous remboursent la somme de 20e" type="argent" valeur="-20" />
+			<carte lib="Payer la note du medecin 50e" type="argent" valeur="50"/>
 			<carte lib="Vous avez gagne le deuxieme prix de beaute.
-				Recevez 10e." type="argent" valeur="10" />
-			<carte lib="Vous heritez 100e" type="argent" valeur="100" />
-			<carte lib="La vente de votre stock vous rapporte 50e" type="argent" valeur="50" />
+				Recevez 10e." type="argent" valeur="-10" />
+			<carte lib="Vous heritez 100e" type="argent" valeur="-100" />
+			<carte lib="La vente de votre stock vous rapporte 50e" type="argent" valeur="-50" />
 			<carte lib="Allez en prison.
 Avancez tous droit en prison.
 Ne passez pas par la case depart.
-Ne recevez pas 200e"
+Ne recevez pas 100e"
 				type="aller_prison" />
-			<carte lib="Recevez votre revenu annuel 100e" type="argent" valeur="100" />
+			<carte lib="Recevez votre revenu annuel 100e" type="argent" valeur="-100" />
 			<carte lib="C'est votre anniversaire:
-vous gagnez 20e" type="argent" valeur="20"/>
+vous gagnez 20e" type="argent" valeur="-20"/>
 			<carte lib="Retournez a Belleville" type="aller_a" id="1" dep="0" />
 			<carte lib="Vous etes libere de prison." type="libere" />
 			<carte lib="Avancez jusqu'a la case depart" type="aller_a" id="0" dep="0"/>
-			<carte lib="Payer votre Police d'Assurance s'elevant a 50e" type="argent" valeur="-50" />
+			<carte lib="Payer votre Police d'Assurance s'elevant a 250e" type="argent" valeur="250" />
 		</paquet>
 		<paquet type="0" nom="Chance">
 			<carte lib="Reculez de 3 cases" type="aller_a" dep="-3" id="0" />
 			<carte lib="Avancez a Boulevard de la Villette.
-Si vous passez par la case Depart recevez 200e" type="aller_a" id="11" dep="0" />
-			<carte lib="La banque vous verse un diviende de 50e" type="argent" valeur="50" />
-			<carte lib="Payez pour frais de scolarite. 150e" type="argent" valeur="-150" />
+Si vous passez par la case Depart recevez 100e" type="aller_a" id="11" dep="0" />
+			<carte lib="La banque vous verse un diviende de 50e" type="argent" valeur="-50" />
+			<carte lib="Payez pour frais de scolarite. 150e" type="argent" valeur="150" />
 			<carte lib="Rendez-vous a l'Avenue Henri-Martin.
-Si vous passer par la case Depart recevez 200e" type="aller_a" id="24" dep="0" />
+Si vous passer par la case Depart recevez 100e" type="aller_a" id="24" dep="0" />
 			<carte lib="Faites des reparations dans toutes vos maisons.
 Versez pour chaque maison 25e.
-Versez pour chaque hotel 100e." type="reparation" maison="-25" hotel="-100" />
+Versez pour chaque hotel 100e." type="reparation" maison="25" hotel="100" />
 			<carte lib="Vous etes impose pour les reparations
 de voirie a raison de:
 25e par maison et
-100e par hotel." type="reparation" maison="-25" hotel="-100" />
+100e par hotel." type="reparation" maison="25" hotel="100" />
 			<carte lib="Allez a la gare de Lyon" type="aller_a" id="15" dep="0"/>
-			<carte lib="Amende pour exces de vitesse: 15e." type="argent" valeur="-15" />
+			<carte lib="Amende pour exces de vitesse: 15e." type="argent" valeur="15" />
 			<carte lib="Vous avez gagne le prix de mots croises.
-recevez 100e." type="argent" valeur="100" />
-			<carte lib="Amende pour ivresse: 20e" type="argent" valeur="-20" />
+recevez 100e." type="argent" valeur="-100" />
+			<carte lib="Amende pour ivresse: 20e" type="argent" valeur="20" />
 			<carte lib="Avancez jusqu'a la case depart" type="aller_a" id="0" dep="0" />
 			<carte lib="Vous etes libere de prison." type="libere" />
 			<carte lib="Rendez-vous a la Rue de la Paix" type="aller_a" id="39" dep="0"/>
-			<carte lib="Votre immeuble et votre pret rapportent 150e" type="argent" valeur="150" />
+			<carte lib="Votre immeuble et votre pret rapportent 150e" type="argent" valeur="-150" />
 			<carte lib="Allez en prison.
 Avancez tous droit en prison.
 Ne passez pas par la case depart.
-Ne recevez pas 200e"
+Ne recevez pas 100e"
 				type="aller_prison" />
 		</paquet>
 	</cartes>
