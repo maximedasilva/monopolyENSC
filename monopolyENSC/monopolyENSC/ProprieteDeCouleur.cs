@@ -31,9 +31,18 @@ public class ProprieteDeCouleur : Propriete {
 
     public int _nbBatimentsConstruits { get; set; }
 
-   
+    public override string ToString()
+    {
+        string rep = base.ToString() + "\n elle est " + etat.ToString() + " \n a l'achat elle vaut " + _prixAchat + " \n en hypothèque elle en vaut " + _prixHypotheque + " \n et sa couleur est " + Couleur + " ";
+        if (proprietaire != null)
+        {
+            rep += "\n" + proprietaire.ToString();
+        }
+        return rep + "\n";
+    }
 
-    
+
+
     public override double calculLoyer() {
         double loyer = prixLoyer[_nbBatimentsConstruits];
         return loyer;
@@ -77,7 +86,7 @@ public class ProprieteDeCouleur : Propriete {
                     {
                         if (j.compteProprieteCouleurJoueur(this) != j.p.calculePropCouleur(this))
                         {
-                            Console.WriteLine("vous ne pouvez pas construire, il vous faut toutes les proprietes de cette couleur (" + j.compteProprieteCouleurJoueur(this) + "/" + j.p.calculePropCouleur(this) + ")");
+                            Console.WriteLine("vous ne pouvez pas construire, il vous faut toutes les proprietes (" + j.compteProprieteCouleurJoueur(this) + "/" + j.p.calculePropCouleur(this) + ") de cette couleur (" + Couleur + ")");
                         }
                         else if (this._nbBatimentsConstruits == 5)
                         {
