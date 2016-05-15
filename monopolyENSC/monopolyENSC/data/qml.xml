@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<jeu>
+  <joueurs>
+    <joueur nom="maxime" num="0" sous="1794" etatCourant="vivant" position="26" dernierDeplacement="9" />
+    <joueur nom="thomas" num="1" sous="1436" etatCourant="vivant" position="26" dernierDeplacement="9" />
+  </joueurs>
+  <proprietes>
+    <Couleur num="3" proprietaire="maxime" etat="achete" nbBatiment="0" />
+    <Couleur num="6" proprietaire="maxime" etat="achete" nbBatiment="0" />
+    <Couleur num="26" proprietaire="thomas" etat="achete" nbBatiment="0" />
+  </proprietes>
+</jeu>

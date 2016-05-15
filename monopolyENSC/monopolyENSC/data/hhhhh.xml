@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<jeu>
+  <joueurs>
+    <joueur nom="jja" num="0" sous="1680" etatCourant="vivant" position="16" dernierDeplacement="5" />
+    <joueur nom="jja" num="1" sous="1880" etatCourant="vivant" position="9" dernierDeplacement="9" />
+  </joueurs>
+  <proprietes>
+    <Couleur num="9" proprietaire="0" etat="achete" nbBatiment="3" />
+    <Couleur num="11" proprietaire="0" etat="achete" nbBatiment="2" />
+    <Couleur num="16" proprietaire="0" etat="achete" nbBatiment="0" />
+  </proprietes>
+</jeu>
