@@ -166,9 +166,9 @@ public class Joueur {
 
 
                     Console.WriteLine("Voulez vous utiliser une carte libéré de prison (y) (n)?");
-                
+
                     choix = Console.ReadKey();
-                    if(choix.KeyChar=='y')
+                    if (choix.KeyChar == 'y')
                     {
                         etatCourant = Etat.vivant;
                         var tmp = cartesEnPossession.ElementAt(0);
@@ -181,7 +181,7 @@ public class Joueur {
                             p.addCartesCaisseCommunaute(tmp);
 
                     }
-                }while(choix.KeyChar!='y'&&choix.KeyChar!='n')
+                } while (choix.KeyChar != 'y' && choix.KeyChar != 'n');
                 }
 
             Random des = new Random();
