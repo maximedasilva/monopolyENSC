@@ -48,7 +48,7 @@ public class ProprieteDeCouleur : Propriete {
                 {
                     
                     j.payer(this.calculLoyer(), proprietaire);
-                    Console.WriteLine("vous venez de payer le loyer de "+calculLoyer()+" euros à "+ proprietaire);
+                    Console.WriteLine("vous venez de payer le loyer de "+calculLoyer()+" euros à "+ proprietaire.nom);
 
                 }
                 else {

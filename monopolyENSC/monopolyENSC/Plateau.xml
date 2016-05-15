@@ -24,7 +24,7 @@
 		</groupe>
 		<groupe couleur="orange" r="" g="" b="" maison="100">
 			<terrain id="16" nom="Avenue Mozart" t0="14" t1="70" t2="200" t3="550" t4="750" t5="950" hyp="90" prix="180"/>
-			<terrain id="18" nom="Boumlevard Saint-Michel" t0="14" t1="70" t2="200" t3="550" t4="750" t5="950" hyp="90" prix="180"/>
+			<terrain id="18" nom="Boulevard Saint-Michel" t0="14" t1="70" t2="200" t3="550" t4="750" t5="950" hyp="90" prix="180"/>
 			<terrain id="19" nom="Place Pligalle" t0="16" t1="80" t2="220" t3="600" t4="800" t5="1000" hyp="100" prix="200"/>
 		</groupe>
 		<groupe couleur="rose" r="" g="" b="" maison="100">

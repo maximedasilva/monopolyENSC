@@ -25,7 +25,7 @@ public class Gare : Propriete {
         {
             if(j.payer(calculLoyer(25,proprietaire.getNbGares()),proprietaire))
             { 
-                Console.WriteLine("vous venez de payer le loyer de "+ calculLoyer(25, proprietaire.getNbGares())+" euros");
+                Console.WriteLine("vous venez de payer le loyer de "+ calculLoyer(25, proprietaire.getNbGares())+" euros à "+ proprietaire.nom);
             }
             else
             {

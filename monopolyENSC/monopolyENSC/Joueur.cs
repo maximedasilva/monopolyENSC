@@ -164,6 +164,7 @@ public class Joueur {
 
         else if (etatCourant == Etat.enPrison)
         {
+            Console.WriteLine(nom + " vous êtes actuellement en prison.");
             if (cartesEnPossession.Count > 0)
             {
                 ConsoleKeyInfo choix;
@@ -177,6 +178,7 @@ public class Joueur {
                     if (choix.KeyChar == 'y')
                     {
                         etatCourant = Etat.vivant;
+                        Console.WriteLine("Vous vous êtes libéré(e) de prison.");
                         var tmp = cartesEnPossession.ElementAt(0);
                         cartesEnPossession.RemoveAt(0);
                         if (tmp._typeCarte == Cartes.TypeC.chance)
@@ -190,17 +192,33 @@ public class Joueur {
                 } while (choix.KeyChar != 'y' && choix.KeyChar != 'n');
                 }
 
-            Random des = new Random();
-            int De1 = des.Next(1, 7);
-            int de2 = des.Next(1, 7);
-            if (de2 == De1 || nbTourPrison == 3)
+            if (etatCourant == Etat.enPrison) //il pourrait très bien s'être libéré avec une carte depuis la vérif du premier if 
             {
-                etatCourant = Etat.vivant;
-                valeurDernierDeplacement = De1 + de2;
-                position += valeurDernierDeplacement;
+                Random des = new Random();
+                
+                int De1 = des.Next(1, 7);
+                int de2 = des.Next(1, 7);
+                if (de2 == De1 || nbTourPrison == 3)
+                {
+                    etatCourant = Etat.vivant;
+                    Console.WriteLine("Vous êtes libéré(e) de prison.");
+                    position = 10; //10 étant la case prison
+                    valeurDernierDeplacement = De1 + de2;
+                    position += valeurDernierDeplacement;
+                    Console.WriteLine(this.ToString());
+                    Console.WriteLine(p.cases[position].nom);
+                    p.cases[position].action(this);
+
+                }
+                else
+                {
+                    Console.WriteLine("Pour sortir, vous devez faire un double");
+                    Console.WriteLine("Vous avez fait " + De1 + " et " + de2 + ", vous restez en prison");
+                    this.nbTourPrison++;
+                }
             }
-            else
-                this.nbTourPrison++;
+                
+                
         }
             ConsoleKeyInfo c = new ConsoleKeyInfo();
             do
@@ -314,12 +332,17 @@ public class Joueur {
     public int getNbMaison() //permet d'avoir le nombre de maisons du joueur
     {
         int nbMaison = 0;
-        foreach (ProprieteDeCouleur p in proprieteEnPossession)
+        foreach (Propriete p in proprieteEnPossession)
         {
-            if (p._nbBatimentsConstruits<5) //si ça vaut 5 c'est en fait un hotel
+            if (p is ProprieteDeCouleur)
             {
-                nbMaison = nbMaison + p._nbBatimentsConstruits;
+                ProprieteDeCouleur tmp = p as ProprieteDeCouleur;
+                if (tmp._nbBatimentsConstruits < 5) //si ça vaut 5 c'est en fait un hotel
+                {
+                    nbMaison = nbMaison + tmp._nbBatimentsConstruits;
+                }
             }
+            
         }
         return nbMaison;
     }
@@ -327,12 +350,17 @@ public class Joueur {
     public int getNbHotel()
     {
         int nbHotel = 0;
-        foreach (ProprieteDeCouleur p in proprieteEnPossession)
+        foreach (Propriete p in proprieteEnPossession)
         {
-            if (p._nbBatimentsConstruits==5)
+            if (p is ProprieteDeCouleur)
             {
-                nbHotel = nbHotel + 1;
+                ProprieteDeCouleur tmp = p as ProprieteDeCouleur;
+                if (tmp._nbBatimentsConstruits == 5)
+                {
+                    nbHotel = nbHotel + 1;
+                }
             }
+            
         }
         return nbHotel;
     }
