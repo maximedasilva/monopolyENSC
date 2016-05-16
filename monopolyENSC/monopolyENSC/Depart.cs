@@ -8,8 +8,8 @@ namespace monopolyENSC
 {
     class Depart : Cases
     {
-        public Depart() : base("case Depart") { }
-        public override void action(Joueur j)
+        public Depart() : base("case Depart") { }//Constructeur
+        public override void action(Joueur j)//Méthode action, elle ne fait rien puisque la case ne "sert a rien"
         { }
     }
     

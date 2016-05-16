@@ -8,12 +8,12 @@ using System.Text;
 public class LibereDePrison : Cartes {
 
     
-    public LibereDePrison(TypeC typecarte, string fct):base(typecarte, fct)
+    public LibereDePrison(TypeC typecarte, string fct):base(typecarte, fct)//Constructeur
     {
           
     }
 
-    public override void actionCarte(Joueur j)
+    public override void actionCarte(Joueur j)//Override de la méthode d'action
     {
         
         if (j.etatCourant ==Joueur.Etat.enPrison)

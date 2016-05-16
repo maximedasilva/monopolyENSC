@@ -8,11 +8,11 @@ namespace monopolyENSC
 {
     public class AllerPrison : Cartes
     {
-        public AllerPrison(TypeC typecarte, string fct):base(typecarte, fct)
+        public AllerPrison(TypeC typecarte, string fct):base(typecarte, fct)//Constructeur
         {
         }
 
-        public override void actionCarte(Joueur j)
+        public override void actionCarte(Joueur j)//Override de la méthode actionCarte
         {
             j.etatCourant = Joueur.Etat.enPrison;
             j.position = 10;

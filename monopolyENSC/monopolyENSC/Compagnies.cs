@@ -4,22 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-/**
- * 
- */
+//Une compagnie est une sorte de Propriete.
 public class Compagnies : Propriete {
 
-    /**
-     * 
-     */
-    public Compagnies(string nom,double prixAchat,double prixLoyer,double prixHypotheque):base(nom,prixAchat,prixHypotheque)
+
+    public Compagnies(string nom,double prixAchat,double prixLoyer,double prixHypotheque):base(nom,prixAchat,prixHypotheque)//Constructeur
     {
     }
 
-    /**
-     * 
-     */
-    public override double calculLoyer(int valeurDe, int nbCompagnies)
+
+    public override double calculLoyer(int valeurDe, int nbCompagnies)//On calcule le loyer en fonction de la valeur des dés et du nombre de compag,ies
     {
         if (nbCompagnies == 1)
         {
@@ -28,7 +22,7 @@ public class Compagnies : Propriete {
         else
             return (double)10 * valeurDe;
     }
-    public override void action(Joueur j)
+    public override void action(Joueur j)//Override de la méthode action 
     {
         if (this.etat == EtatPropriete.achete && proprietaire != j)
         {
@@ -43,7 +37,7 @@ public class Compagnies : Propriete {
                 Console.WriteLine("Le joueur {0} est mort", j.nom);
             }
         }
-        base.action(j);
+        base.action(j);//On appelle la méthode case de propriété (pour avoir une factorisation du code)
     }
 
 }

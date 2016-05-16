@@ -7,15 +7,14 @@ using System.Text;
 
 public abstract class Cases {
 
-    public abstract void action(Joueur j);
-    public Cases(string _nom)
+    public abstract void action(Joueur j); //Méthode abstraite d'action
+    public Cases(string _nom) //Constructeur
     {
         nom = _nom;
     }
-    public int num { get; set; }
-    public string nom { get; set;  }
+    public string nom { get; set;  }//Nom de la carte
     
-    public override string ToString()
+    public override string ToString()//Méthode d'affichage
     {
         return nom;
     }
