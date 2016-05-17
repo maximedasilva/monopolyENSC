@@ -17,7 +17,10 @@ public class Jeu {
         fichierSave = "";
         
     }
+    public Plateau plateau { get; set; }//le plateau de jeu
+
     public string fichierSave { get; set; }//Pour connaitre le nom du fichier courant, pour ne pas a avoir a remettre un nom de fichier a chaque fois
+
     public void loadAnXML(string filename)//Méthode de chargement d'une partie sauvegardée
     {
         XDocument doc = XDocument.Load("..//..//data//" + filename+".xml");//On charge le bon fichier xml
@@ -40,18 +43,42 @@ public class Jeu {
             plateau.addJoueur(tmp);//On l'ajoute au plateau
         }
         var couleur = jeu.Descendants("Couleur");
-        foreach(var j in couleur)//pour cahque propriété de couleur
+        foreach(var proprieteCouleur in couleur)//pour cahque propriété de couleur
         {
-            var tmp = plateau.cases[(int)j.Attribute("num")] as ProprieteDeCouleur;//on cosidère la case en tant que propriété de couelur
-            tmp._nbBatimentsConstruits = (int)j.Attribute("nbBatiment");//on lui réaffecte tous ses attributs originels
-            tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete),(string)j.Attribute("etat"));
-            if ((int)j.Attribute("proprietaire") != -1)
+            var tmp = plateau.cases[(int)proprieteCouleur.Attribute("num")] as ProprieteDeCouleur;//on cosidère la case en tant que propriété de couelur
+            tmp._nbBatimentsConstruits = (int)proprieteCouleur.Attribute("nbBatiment");//on lui réaffecte tous ses attributs originels
+            tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete),(string)proprieteCouleur.Attribute("etat"));
+            if ((int)proprieteCouleur.Attribute("proprietaire") != -1)
             {
-                var joueur = plateau.Joueurs.Find(current => current.num == (int)j.Attribute("proprietaire"));
+                var joueur = plateau.Joueurs.Find(current => current.num == (int)proprieteCouleur.Attribute("proprietaire"));
                 tmp.proprietaire = joueur;
             }
-            plateau.cases[(int)j.Attribute("num")] = tmp;
+            plateau.cases[(int)proprieteCouleur.Attribute("num")] = tmp;
 
+        }
+        var gares = jeu.Descendants("Gare");
+        foreach(var gare in gares)
+        {
+            var tmp = plateau.cases[(int)gare.Attribute("num")] as Gare;//on cosidère la case en tant que gare
+            tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete), (string)gare.Attribute("etat"));
+            if ((int)gare.Attribute("proprietaire") != -1)
+            {
+                var joueur = plateau.Joueurs.Find(current => current.num == (int)gare.Attribute("proprietaire"));
+                tmp.proprietaire = joueur;
+            }
+            plateau.cases[(int)gare.Attribute("num")] = tmp;
+        }
+        var compagnies = jeu.Descendants("Compagnie");
+        foreach(var compagnie in compagnies)
+        {
+            var tmp = plateau.cases[(int)compagnie.Attribute("num")] as Compagnies;//on cosidère la case en tant que compagnie
+            tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete), (string)compagnie.Attribute("etat"));
+            if ((int)compagnie.Attribute("proprietaire") != -1)
+            {
+                var joueur = plateau.Joueurs.Find(current => current.num == (int)compagnie.Attribute("proprietaire"));
+                tmp.proprietaire = joueur;
+            }
+            plateau.cases[(int)compagnie.Attribute("num")] = tmp;
         }
         fichierSave = filename;//On modifie le nom du fichier sur lequel sauvegarder (pour automatiser les prochaine sauvegarde de cette partie
 
@@ -197,7 +224,7 @@ public class Jeu {
                 Compagnies tmp = c as Compagnies;
                 if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)
                 {
-                    XElement compagnie = new XElement("Gare");
+                    XElement compagnie = new XElement("Compagnie");
                     compagnie.SetAttributeValue("num", i);
                     if (tmp.etat == Propriete.EtatPropriete.achete)
                         compagnie.SetAttributeValue("proprietaire", tmp.proprietaire.num);
@@ -223,7 +250,6 @@ public class Jeu {
     }
     
 
-    public Plateau plateau{get; set;}//le plateau de jeu
     
     public void simulation()//Simulation globale du jeu
     {
