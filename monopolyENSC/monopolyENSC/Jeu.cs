@@ -45,8 +45,11 @@ public class Jeu {
             var tmp = plateau.cases[(int)j.Attribute("num")] as ProprieteDeCouleur;//on cosidère la case en tant que propriété de couelur
             tmp._nbBatimentsConstruits = (int)j.Attribute("nbBatiment");//on lui réaffecte tous ses attributs originels
             tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete),(string)j.Attribute("etat"));
-            var joueur=plateau.Joueurs.Find(current => current.num == (int)j.Attribute("proprietaire"));
-            tmp.proprietaire = joueur;
+            if ((int)j.Attribute("proprietaire") != -1)
+            {
+                var joueur = plateau.Joueurs.Find(current => current.num == (int)j.Attribute("proprietaire"));
+                tmp.proprietaire = joueur;
+            }
             plateau.cases[(int)j.Attribute("num")] = tmp;
 
         }
@@ -164,7 +167,10 @@ public class Jeu {
                 {
                     XElement terrain = new XElement("Couleur");
                     terrain.SetAttributeValue("num", i);
+                    if(tmp.etat == Propriete.EtatPropriete.achete)
                     terrain.SetAttributeValue("proprietaire", tmp.proprietaire.num);
+                    else
+                        terrain.SetAttributeValue("proprietaire", -1);
                     terrain.SetAttributeValue("etat", tmp.etat.ToString());
                     terrain.SetAttributeValue("nbBatiment", tmp._nbBatimentsConstruits);
 
@@ -178,7 +184,10 @@ public class Jeu {
                 {
                     XElement gare = new XElement("Gare");
                     gare.SetAttributeValue("num", i);
-                    gare.SetAttributeValue("proprietaire", tmp.proprietaire.num);
+                    if (tmp.etat == Propriete.EtatPropriete.achete)
+                        gare.SetAttributeValue("proprietaire", tmp.proprietaire.num);
+                    else
+                        gare.SetAttributeValue("proprietaire", -1);
                     gare.SetAttributeValue("etat", tmp.etat.ToString());
                     propriete.Add(gare);
                 }
@@ -190,7 +199,10 @@ public class Jeu {
                 {
                     XElement compagnie = new XElement("Gare");
                     compagnie.SetAttributeValue("num", i);
-                    compagnie.SetAttributeValue("proprietaire", tmp.proprietaire.num);
+                    if (tmp.etat == Propriete.EtatPropriete.achete)
+                        compagnie.SetAttributeValue("proprietaire", tmp.proprietaire.num);
+                    else
+                        compagnie.SetAttributeValue("proprietaire", -1);
                     compagnie.SetAttributeValue("etat", tmp.etat.ToString());
                     propriete.Add(compagnie);
                 }

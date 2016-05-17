@@ -327,6 +327,7 @@ public class Joueur {
         }
         proprieteEnPossession.Remove(propriete);
         propriete.etat = Propriete.EtatPropriete.hypotheque;
+        propriete.proprietaire = null;
     }
 
     public int getNbMaison() //permet d'avoir le nombre de maisons du joueur
