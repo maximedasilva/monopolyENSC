@@ -7,12 +7,10 @@ using System.Text;
 /**
  * 
  */
-public class Joueur
-{
+public class Joueur {
 
 
-    public Joueur(string _nom, Plateau _p)
-    {//Constructeur 
+    public Joueur(string _nom,Plateau _p) {//Constructeur 
         nom = _nom;
         num = cpt++;
         cartesEnPossession = new List<Cartes>();
@@ -39,7 +37,7 @@ public class Joueur
                     nb = nb + 1;
                 }
             }
-
+            
         }
         return nb;
     }
@@ -55,7 +53,7 @@ public class Joueur
             return true;
         }
         else
-            return false;
+            return false; 
     }
 
     internal int getNbGares()//Récupérer le nombre de gare possédées
@@ -88,9 +86,9 @@ public class Joueur
     public enum Etat { vivant, mort, enPrison };//ENum de l'état du joueur
     public Plateau p { get; }//Plateau dans lequel evolue le jouer
 
-    public List<Propriete> proprieteEnPossession { get; }//LIste des propriétés en possession
+    public List<Propriete> proprieteEnPossession { get;  }//LIste des propriétés en possession
 
-    public int num { get; }//Numéro unique du joueur
+    public int num  { get; }//Numéro unique du joueur
 
     private static int cpt = 0;//compteur permettant d'affecter des numéros uniques
 
@@ -98,8 +96,7 @@ public class Joueur
     {
         get;
     }
-    private int nbTourPrison
-    {//nombre de tours passés en prison
+    private int nbTourPrison {//nombre de tours passés en prison
         get; set;
     }
 
@@ -113,35 +110,35 @@ public class Joueur
 
     public int position { get; set; }//Position du joueur
 
-
+    
     public void ajoutCarte(Cartes c)//Rajoutuer une carte aux cartes du joueur
     {
         cartesEnPossession.Add(c);
     }
-
+    
     public void retraitCartes(Cartes c)//sortir une carte du joueur
     {
-        if (cartesEnPossession.Count > 0)
+        if (cartesEnPossession.Count>0)
         {
             //permet de supprimer une carte de la main du joueur
-            cartesEnPossession.Remove(cartesEnPossession.Find(current => current.num == c.num));
+            cartesEnPossession.Remove(cartesEnPossession.Find(current=>current.num==c.num));
         }
     }
     public void mettreHypotheque()//Mettre en hypotheques toutes les propriétés, hypotheque obligatoire
     {
-        if (proprieteEnPossession.Count() > 0)
+        if(proprieteEnPossession.Count()>0)
         {
-            foreach (Propriete p in proprieteEnPossession)
+            foreach(Propriete p in proprieteEnPossession)
             {
                 p.proprietaire = null;
                 p.etat = Propriete.EtatPropriete.hypotheque;
             }
         }
     }
-
+   
     public override string ToString()
     {
-        string rep = String.Format("{0}, il vous reste {1} euros et vous etes en position {2} ", nom, sous, position);
+        string rep = String.Format("{0}, il vous reste {1} euros et vous etes en position {2} ", nom,sous, position);
         return rep;
     }
 
@@ -196,12 +193,12 @@ public class Joueur
 
                     }
                 } while (choix.KeyChar != 'y' && choix.KeyChar != 'n');
-            }
+                }
 
             if (etatCourant == Etat.enPrison) //il pourrait très bien s'être libéré avec une carte depuis la vérif du premier if 
             {
                 Random des = new Random();
-
+                
                 int De1 = des.Next(1, 7);
                 int de2 = des.Next(1, 7);
                 if (de2 == De1 || nbTourPrison == 3)
@@ -223,97 +220,97 @@ public class Joueur
                     this.nbTourPrison++;
                 }
             }
-
-
+                
+                
         }
-        ConsoleKeyInfo c = new ConsoleKeyInfo();
-        do
-        {
-
-            string affiche = "\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. 3) Mettre une propriété en hypotheque et vendre les biens dessus\n sinon passer son tour";
-            if (this.num == 0)
+            ConsoleKeyInfo c = new ConsoleKeyInfo();
+            do
             {
-                affiche += "\n vous pouvez enregistrer la partie en appuyant sur 's'";
-            }
-            Console.WriteLine(affiche);
-            c = Console.ReadKey();
+          
+                string affiche = "\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. 3) Mettre une propriété en hypotheque et vendre les biens dessus\n sinon passer son tour";
+                if (this.num == 0)
+                {
+                    affiche += "\n vous pouvez enregistrer la partie en appuyant sur 's'";
+                }
+                Console.WriteLine(affiche);
+                c = Console.ReadKey();
             Console.Clear();
             if (c.KeyChar == '1')
-            {
-                Console.WriteLine(p.playerInfo());
+                {
+                    Console.WriteLine(p.playerInfo());
 
-            }
-            else if (c.KeyChar == '2')
-            {
-                Console.WriteLine(p.cases[position].ToString());
-            }
-            else if (c.KeyChar == '3')
-            {
-                Console.Clear();
-                ConsoleKeyInfo select;
-                int actual = 0;
-                do
+                }
+                else if (c.KeyChar == '2')
+                {
+                    Console.WriteLine(p.cases[position].ToString());
+                }
+                else if (c.KeyChar == '3')
                 {
                     Console.Clear();
-                    int cpt = 0;
-                    foreach (Propriete p in this.proprieteEnPossession)
+                    ConsoleKeyInfo select;
+                    int actual = 0;
+                    do
                     {
-                        if (cpt == actual)
+                        Console.Clear();
+                        int cpt = 0;
+                        foreach (Propriete p in this.proprieteEnPossession)
                         {
-                            Console.BackgroundColor = ConsoleColor.White;
-                            Console.ForegroundColor = ConsoleColor.Black;
+                            if (cpt == actual)
+                            {
+                                Console.BackgroundColor = ConsoleColor.White;
+                                Console.ForegroundColor = ConsoleColor.Black;
 
+                            }
+                            else
+                            {
+                                Console.BackgroundColor = ConsoleColor.Black;
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
+                            Console.WriteLine(p.nom);
+                            cpt++;
                         }
-                        else
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("Echap pour quitter");
+                        select = Console.ReadKey();
+                        if (select.Key == ConsoleKey.DownArrow && actual < proprieteEnPossession.Count - 1)
                         {
-                            Console.BackgroundColor = ConsoleColor.Black;
-                            Console.ForegroundColor = ConsoleColor.White;
+                            actual++;
                         }
-                        Console.WriteLine(p.nom);
-                        cpt++;
+                        if (select.Key == ConsoleKey.UpArrow && actual > 0)
+                        {
+                            actual--;
+                        }
+                        if (select.Key == ConsoleKey.Enter)
+                        {
+                            this.hypothequeVolontaire(proprieteEnPossession.ElementAt(actual));
+                        }
                     }
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("Echap pour quitter");
-                    select = Console.ReadKey();
-                    if (select.Key == ConsoleKey.DownArrow && actual < proprieteEnPossession.Count - 1)
-                    {
-                        actual++;
-                    }
-                    if (select.Key == ConsoleKey.UpArrow && actual > 0)
-                    {
-                        actual--;
-                    }
-                    if (select.Key == ConsoleKey.Enter)
-                    {
-                        this.hypothequeVolontaire(proprieteEnPossession.ElementAt(actual));
-                    }
+                    while (select.Key != ConsoleKey.Escape);
                 }
-                while (select.Key != ConsoleKey.Escape);
-            }
-            else if (c.KeyChar == 's' && num == 0)
-            {
-                if (p.jeu.fichierSave == "")
+                else if (c.KeyChar == 's' && num == 0)
                 {
-                    Console.WriteLine("ecrivez le nom de fichier et appuyez sur entree");
-                    p.jeu.saveAsXML(Console.ReadLine());
+                    if (p.jeu.fichierSave == "")
+                    {
+                        Console.WriteLine("ecrivez le nom de fichier et appuyez sur entree");
+                        p.jeu.saveAsXML(Console.ReadLine());
+                    }
+                    else
+                    {
+                        p.jeu.saveAsXML("");
+                    }
                 }
-                else
-                {
-                    p.jeu.saveAsXML("");
-                }
+
+
+
             }
-
-
-
+            while (c.KeyChar == '1' || c.KeyChar == '2'|| c.KeyChar == '3'|| c.KeyChar == 's');
         }
-        while (c.KeyChar == '1' || c.KeyChar == '2' || c.KeyChar == '3' || c.KeyChar == 's');
-    }
-
+    
 
     private void hypothequeVolontaire(Propriete propriete)
     {
-        if (propriete is ProprieteDeCouleur)
+        if(propriete is ProprieteDeCouleur)
         {
             var tmp = propriete as ProprieteDeCouleur;
             this.sous += (tmp._nbBatimentsConstruits * tmp._prixConstruction) / 2;
@@ -321,12 +318,12 @@ public class Joueur
             tmp._nbBatimentsConstruits = 0;
 
         }
-        if (propriete is Compagnies)
+        if(propriete is Compagnies)
         {
             var tmp = propriete as Compagnies;
             this.sous += (tmp._prixHypotheque);
         }
-        if (propriete is Gare)
+        if(propriete is Gare)
         {
             var tmp = propriete as Gare;
             this.sous = tmp._prixHypotheque;
@@ -349,7 +346,7 @@ public class Joueur
                     nbMaison = nbMaison + tmp._nbBatimentsConstruits;
                 }
             }
-
+            
         }
         return nbMaison;
     }
@@ -367,7 +364,7 @@ public class Joueur
                     nbHotel = nbHotel + 1;
                 }
             }
-
+            
         }
         return nbHotel;
     }
@@ -376,7 +373,7 @@ public class Joueur
     {
         Boolean res = true;
         int i = 0;
-        while (res == true && i < proprieteEnPossession.Count)
+        while (res== true && i<proprieteEnPossession.Count)
         {
             ProprieteDeCouleur tmp = proprieteEnPossession.ElementAt(i) as ProprieteDeCouleur;
             if (tmp.Couleur == prop.Couleur)
@@ -397,12 +394,12 @@ public class Joueur
         l.RemoveAt(0);
         if (tmp is LibereDePrison)
         {
-
+            
             this.ajoutCarte(tmp);
         }
         else {
             l.Add(tmp);
-
+            
             tmp.actionCarte(this);
         }
     }
