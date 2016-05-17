@@ -10,7 +10,7 @@ using System.Text;
 public class Joueur {
 
 
-    public Joueur(string _nom,Plateau _p) {
+    public Joueur(string _nom,Plateau _p) {//Constructeur 
         nom = _nom;
         num = cpt++;
         cartesEnPossession = new List<Cartes>();
@@ -23,7 +23,7 @@ public class Joueur {
     }
 
 
-    public int compteProprieteCouleurJoueur(ProprieteDeCouleur prop) 
+    public int compteProprieteCouleurJoueur(ProprieteDeCouleur prop) //On compte combien de propriété de la même couleur que celle envoyé en parametres compte le joueur
     {
         //elle retroune le nb de propriétés de couleur que le joueur a qui sont de la même couleur qu'une propriété donnée
         int nb = 0;
@@ -41,12 +41,12 @@ public class Joueur {
         }
         return nb;
     }
-    public bool payer(double prix, Joueur J2)
+    public bool payer(double prix, Joueur J2)//Fonction de paiement
     {
         if (this.sous > prix)
         {
             sous -= prix;
-            if (J2 != null)
+            if (J2 != null)//Si le J2 n'est pas nul, c'est que le paiement s'effectue entre 2 joueurs, sinon c'est qu'il s'effectue a la banque.
             {
                 J2.sous += prix;
             }
@@ -56,7 +56,7 @@ public class Joueur {
             return false; 
     }
 
-    internal int getNbGares()
+    internal int getNbGares()//Récupérer le nombre de gare possédées
     {
         int cpt = 0;
         foreach (Propriete p in proprieteEnPossession)
@@ -69,7 +69,7 @@ public class Joueur {
 
         return cpt;
     }
-    public int getNbCompagnies()
+    public int getNbCompagnies()//Récupérer le nombr de compagnies possédées
     {
         int cpt = 0;
         foreach (Propriete p in proprieteEnPossession)
@@ -83,37 +83,40 @@ public class Joueur {
         return cpt;
     }
 
-    public enum Etat { vivant, mort, enPrison };
-    public Plateau p { get; set; }
+    public enum Etat { vivant, mort, enPrison };//ENum de l'état du joueur
+    public Plateau p { get; }//Plateau dans lequel evolue le jouer
 
-    public List<Propriete> proprieteEnPossession { get; set; }
+    public List<Propriete> proprieteEnPossession { get;  }//LIste des propriétés en possession
 
-    public int num  { get; set;}
+    public int num  { get; }//Numéro unique du joueur
 
-    private static int cpt = 0;
+    private static int cpt = 0;//compteur permettant d'affecter des numéros uniques
 
-    public List<Cartes> cartesEnPossession;
-    private int nbTourPrison {
+    public List<Cartes> cartesEnPossession//cartes en possession par le joueur
+    {
+        get;
+    }
+    private int nbTourPrison {//nombre de tours passés en prison
         get; set;
     }
 
-    public string nom { get; set; }
+    public string nom { get; }//Nom du joueur
 
-    public int valeurDernierDeplacement { get; set; }
+    public int valeurDernierDeplacement { get; set; }//valeur du dernier déplacement 
 
-    public double sous { get; set; }
+    public double sous { get; set; }//sous actuels possédés par le joueur
 
-    public Etat etatCourant { get; set; }
+    public Etat etatCourant { get; set; }//Etat courant du joueur (cf enum)
 
-    public int position { get; set; }
+    public int position { get; set; }//Position du joueur
 
     
-    public void ajoutCarte(Cartes c)
+    public void ajoutCarte(Cartes c)//Rajoutuer une carte aux cartes du joueur
     {
         cartesEnPossession.Add(c);
     }
     
-    public void retraitCartes(Cartes c)
+    public void retraitCartes(Cartes c)//sortir une carte du joueur
     {
         if (cartesEnPossession.Count>0)
         {
@@ -121,7 +124,7 @@ public class Joueur {
             cartesEnPossession.Remove(cartesEnPossession.Find(current=>current.num==c.num));
         }
     }
-    public void mettreHypotheque()
+    public void mettreHypotheque()//Mettre en hypotheques toutes les propriétés, hypotheque obligatoire
     {
         if(proprieteEnPossession.Count()>0)
         {
@@ -139,7 +142,7 @@ public class Joueur {
         return rep;
     }
 
-    public void jouer()
+    public void jouer()//jouer un tour
     {
         if (etatCourant == Etat.vivant)
         {
