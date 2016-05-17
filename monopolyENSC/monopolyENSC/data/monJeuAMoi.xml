@@ -16,6 +16,7 @@
     <Couleur num="16" proprietaire="-1" etat="hypotheque" nbBatiment="0" />
     <Couleur num="18" proprietaire="0" etat="achete" nbBatiment="0" />
     <Couleur num="19" proprietaire="0" etat="achete" nbBatiment="0" />
+    
     <Couleur num="21" proprietaire="0" etat="achete" nbBatiment="0" />
     <Couleur num="23" proprietaire="-1" etat="hypotheque" nbBatiment="0" />
     <Gare num="25" proprietaire="0" etat="achete" />
