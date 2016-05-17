@@ -171,7 +171,7 @@ public class Jeu {
                     propriete.Add(terrain);
                 }
             }
-            if(c is Gare)
+            if (c is Gare)
             {
                 Gare tmp = c as Gare;
                 if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)
@@ -180,8 +180,21 @@ public class Jeu {
                     gare.SetAttributeValue("num", i);
                     gare.SetAttributeValue("proprietaire", tmp.proprietaire.num);
                     gare.SetAttributeValue("etat", tmp.etat.ToString());
-                    
+                    propriete.Add(gare);
                 }
+            }
+            if(c is Compagnies)
+            {
+                Compagnies tmp = c as Compagnies;
+                if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)
+                {
+                    XElement compagnie = new XElement("Gare");
+                    compagnie.SetAttributeValue("num", i);
+                    compagnie.SetAttributeValue("proprietaire", tmp.proprietaire.num);
+                    compagnie.SetAttributeValue("etat", tmp.etat.ToString());
+                    propriete.Add(compagnie);
+                }
+            }
             i++;
         }
         jeu.Add(propriete);
