@@ -144,15 +144,15 @@ public class Joueur {
 
     public void jouer()//jouer un tour
     {
-        if (etatCourant == Etat.vivant)
+        if (etatCourant == Etat.vivant)//si on est vivant
         {
             Random des = new Random();
             int De1 = des.Next(1, 7);
             int de2 = des.Next(1, 7);
-            valeurDernierDeplacement = De1 + de2;
+            valeurDernierDeplacement = De1 + de2;//Random des dés + affectation du déplacement
             position += valeurDernierDeplacement;
 
-            if (position >= p.cases.Length)
+            if (position >= p.cases.Length)//SI on arrive a la fin du plateau, on revient au début
             {
                 position = position % p.cases.Length;
                 sous += 100;
@@ -160,12 +160,12 @@ public class Joueur {
             }
             Console.WriteLine(this.ToString());
             Console.WriteLine(p.cases[position].nom);
-            p.cases[position].action(this);
+            p.cases[position].action(this);//On fait l'action de la case atuelle 
         }
 
 
 
-        else if (etatCourant == Etat.enPrison)
+        else if (etatCourant == Etat.enPrison)//Si on est en prison
         {
             Console.WriteLine(nom + " vous êtes actuellement en prison.");
             if (cartesEnPossession.Count > 0)
