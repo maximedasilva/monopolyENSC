@@ -98,7 +98,7 @@ public class Jeu {
             if (c.KeyChar == '2')
             {
                 Console.Clear();
-                DirectoryInfo d = new DirectoryInfo("..//..//data");//Si il eut charger, on lui fait choisir un fichier
+                DirectoryInfo d = new DirectoryInfo("..//..//data");//Si il veut charger, on lui fait choisir un fichier
                 FileInfo[] files = d.GetFiles("*.xml");
                 int j = 0;
                 int i = 0;
@@ -145,7 +145,7 @@ public class Jeu {
                 int cpt = 0;
                 do
                 {
-                    Console.WriteLine("Entrez un nom d'un nouveau joueur (rentrez . pour quitter) 2 joueurs minimum");
+                    Console.WriteLine("Nouveau joueur (rentrez . pour quitter) 2 joueurs minimum");
 
                     name = Console.ReadLine();
                     if (name != ".")
@@ -165,50 +165,50 @@ public class Jeu {
     }
     public void saveAsXML(string filename)//Sauvegarde en XML
     {
-        if(fichierSave=="")
+        if(fichierSave=="")//Si fichierSave est null i.e cette partie n'a jamais été sauvegardée
         {
-            fichierSave = filename;
+            fichierSave = filename;//on récupère le nom du fichier écrit par l'utilisateur et on l'affecte.
         }
-        XDocument xmldoc = new XDocument();
-        XElement jeu = new XElement("jeu");
-        xmldoc.Add(jeu);
-        XElement joueurs = new XElement("joueurs");
+        XDocument xmldoc = new XDocument();//On crée un nouveau fichier Xml
+        XElement jeu = new XElement("jeu");//ON crée une balise générale jeu
+        xmldoc.Add(jeu);//On l'ajoute au fichier
+        XElement joueurs = new XElement("joueurs");//On ajoute une balise joueur
         jeu.Add(joueurs);
-        foreach(Joueur j in plateau.Joueurs)
+        foreach(Joueur j in plateau.Joueurs)//Pour chaque joueur dans mon jeu
         {
-            XElement joueur = new XElement("joueur");
-            joueur.SetAttributeValue("nom", j.nom);
+            XElement joueur = new XElement("joueur");//On crée une nouvelle balise joueur
+            joueur.SetAttributeValue("nom", j.nom);//A laquelle on ajoute toutes les informations voulues(nom num sous etat...)
             joueur.SetAttributeValue("num", j.num);
             joueur.SetAttributeValue("sous", j.sous);
             joueur.SetAttributeValue("etatCourant", j.etatCourant.ToString());
             joueur.SetAttributeValue("position", j.position);
             joueur.SetAttributeValue("dernierDeplacement", j.valeurDernierDeplacement);
-            joueurs.Add(joueur);
+            joueurs.Add(joueur);//On ajoute cet élément a notre xml
         }
         XElement propriete = new XElement("proprietes");
         int i = 0;
-        foreach (Cases c in plateau.cases)
+        foreach (Cases c in plateau.cases)//Pour chaque cases
         {
             
-            if(c is ProprieteDeCouleur)
+            if(c is ProprieteDeCouleur)//Si c'est une propriete
             {
       
                 ProprieteDeCouleur tmp = c as ProprieteDeCouleur;
-                if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)
+                if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)//si elle a un interet a etre sauvegardée (elle a été achetée)
                 {
-                    XElement terrain = new XElement("Couleur");
-                    terrain.SetAttributeValue("num", i);
-                    if(tmp.etat == Propriete.EtatPropriete.achete)
+                    XElement terrain = new XElement("Couleur");//On crée une nouvelle balise pour stocker la propriété de couleur
+                    terrain.SetAttributeValue("num", i);//et on rajoute des attributs pour chaque element intéressant 
+                    if(tmp.etat == Propriete.EtatPropriete.achete)//Sii elle est achetée (et pas en hypothèque)
                     terrain.SetAttributeValue("proprietaire", tmp.proprietaire.num);
                     else
                         terrain.SetAttributeValue("proprietaire", -1);
                     terrain.SetAttributeValue("etat", tmp.etat.ToString());
                     terrain.SetAttributeValue("nbBatiment", tmp._nbBatimentsConstruits);
 
-                    propriete.Add(terrain);
+                    propriete.Add(terrain);//on ajoute le terrain aux propriétés
                 }
             }
-            if (c is Gare)
+            if (c is Gare)//on fait de même pour les gares
             {
                 Gare tmp = c as Gare;
                 if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)
@@ -223,7 +223,7 @@ public class Jeu {
                     propriete.Add(gare);
                 }
             }
-            if(c is Compagnies)
+            if(c is Compagnies)//On fait la même pour les compagnies
             {
                 Compagnies tmp = c as Compagnies;
                 if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)
@@ -240,12 +240,9 @@ public class Jeu {
             }
             i++;
         }
-        jeu.Add(propriete);
+        jeu.Add(propriete);//On ajoute les propriétés au XML
 
-        //TODO rajouter les gare et compagnies
         
-
-
     
       xmldoc.Save("..//..//data//"+fichierSave+".xml");//On sauvegarde notre partie
 
