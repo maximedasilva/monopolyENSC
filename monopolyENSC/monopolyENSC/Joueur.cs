@@ -290,6 +290,7 @@ public class Joueur {
                 }
                 else if (c.KeyChar == 's' && num == 0)
                 {
+
                     if (p.jeu.fichierSave == "")
                     {
                         Console.WriteLine("ecrivez le nom de fichier et appuyez sur entree");
