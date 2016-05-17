@@ -17,9 +17,13 @@ public class Jeu {
         fichierSave = "";
         
     }
-    public Plateau plateau { get; set; }//le plateau de jeu
+    public Plateau plateau
+    {
+        get;
+        
+    }//le plateau de jeu
 
-    public string fichierSave { get; set; }//Pour connaitre le nom du fichier courant, pour ne pas a avoir a remettre un nom de fichier a chaque fois
+    public string fichierSave { get; private set; }//Pour connaitre le nom du fichier courant, pour ne pas a avoir a remettre un nom de fichier a chaque fois
 
     public void loadAnXML(string filename)//Méthode de chargement d'une partie sauvegardée
     {
