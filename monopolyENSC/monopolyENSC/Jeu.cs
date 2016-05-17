@@ -171,6 +171,17 @@ public class Jeu {
                     propriete.Add(terrain);
                 }
             }
+            if(c is Gare)
+            {
+                Gare tmp = c as Gare;
+                if (tmp.etat == Propriete.EtatPropriete.achete || tmp.etat == Propriete.EtatPropriete.hypotheque)
+                {
+                    XElement gare = new XElement("Gare");
+                    gare.SetAttributeValue("num", i);
+                    gare.SetAttributeValue("proprietaire", tmp.proprietaire.num);
+                    gare.SetAttributeValue("etat", tmp.etat.ToString());
+                    
+                }
             i++;
         }
         jeu.Add(propriete);

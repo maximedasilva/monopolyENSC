@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <jeu>
   <joueurs>
-    <joueur nom="jja" num="0" sous="1680" etatCourant="vivant" position="16" dernierDeplacement="5" />
-    <joueur nom="jja" num="1" sous="1880" etatCourant="vivant" position="9" dernierDeplacement="9" />
+    <joueur nom="jja" num="0" sous="910" etatCourant="vivant" position="32" dernierDeplacement="11" />
+    <joueur nom="jja" num="1" sous="1260" etatCourant="vivant" position="4" dernierDeplacement="9" />
   </joueurs>
   <proprietes>
     <Couleur num="9" proprietaire="0" etat="achete" nbBatiment="3" />
     <Couleur num="11" proprietaire="0" etat="achete" nbBatiment="2" />
+    <Couleur num="14" proprietaire="0" etat="achete" nbBatiment="0" />
     <Couleur num="16" proprietaire="0" etat="achete" nbBatiment="0" />
+    <Couleur num="21" proprietaire="0" etat="hypotheque" nbBatiment="0" />
+    <Couleur num="23" proprietaire="0" etat="achete" nbBatiment="0" />
+    <Couleur num="24" proprietaire="1" etat="achete" nbBatiment="0" />
+    <Couleur num="31" proprietaire="0" etat="hypotheque" nbBatiment="0" />
+    <Couleur num="32" proprietaire="0" etat="achete" nbBatiment="0" />
   </proprietes>
 </jeu>
