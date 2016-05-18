@@ -88,7 +88,7 @@ public class Joueur {
 
     public List<Propriete> proprieteEnPossession { get;  }//LIste des propriétés en possession
 
-    public int num  { get; }//Numéro unique du joueur
+    public int num  { get; set; }//Numéro unique du joueur
 
     private static int cpt = 0;//compteur permettant d'affecter des numéros uniques
 
@@ -139,7 +139,16 @@ public class Joueur {
     public override string ToString()
     {
         string rep = String.Format("{0}, il vous reste {1} euros et vous etes en position {2} ", nom,sous, position);
-        return rep;
+        if (this.etatCourant!= Etat.mort)
+        {
+            return rep;
+        }
+        else
+        {
+            string repmort = String.Format("{0} est mort", nom);
+            return repmort;
+        }
+        
     }
 
     public void jouer()//jouer un tour
