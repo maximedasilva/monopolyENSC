@@ -32,12 +32,14 @@ public class Compagnies : Propriete {
             }
             else
             {
-                j.etatCourant = Joueur.Etat.mort;
+                
                 j.mettreHypotheque();
                 if (j.sous < 0)
                 {
+                    j.etatCourant = Joueur.Etat.mort;
                     Console.WriteLine("Le joueur {0} est mort", j.nom);
                 }
+                
             }
         }
         base.action(j);//On appelle la méthode case de propriété (pour avoir une factorisation du code)

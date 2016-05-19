@@ -133,6 +133,14 @@ public class Jeu {
                     {
                         j--;
                     }
+                    else if(selectFile.Key==ConsoleKey.Escape)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Clear();
+  
+                        initialiser();
+                    }
 
                 } while (selectFile.Key != ConsoleKey.Enter);
                 loadAnXML(Path.GetFileNameWithoutExtension(files.ElementAt(j).Name));//On récupère juste le nom du fichier
