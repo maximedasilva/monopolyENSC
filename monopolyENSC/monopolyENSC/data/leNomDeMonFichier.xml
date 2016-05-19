@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<jeu>
+  <joueurs>
+    <joueur nom="albert" num="0" sous="1800" etatCourant="vivant" position="4" dernierDeplacement="4" />
+    <joueur nom="alfred" num="1" sous="2000" etatCourant="vivant" position="0" dernierDeplacement="0" />
+  </joueurs>
+  <proprietes />
+</jeu>
