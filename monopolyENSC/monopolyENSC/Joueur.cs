@@ -252,78 +252,81 @@ public class Joueur {
                 string affiche = "\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. 3) Mettre une propriété en hypotheque et vendre les biens dessus\n sinon passer son tour";
                 if (this.num == 0)
                 {
-                    affiche += "\n vous pouvez enregistrer la partie en appuyant sur 's'";
+                    affiche += "\n vous pouvez enregistrer la partie en appuyant sur 's' \n 'q' pour quitter la partie";
                 }
                 Console.WriteLine(affiche);
                 c = Console.ReadKey();
             Console.Clear();
             if (c.KeyChar == '1')
-                {
-                    Console.WriteLine(p.playerInfo());
+            {
+                Console.WriteLine(p.playerInfo());
 
-                }
-                else if (c.KeyChar == '2')
-                {
-                    Console.WriteLine(p.cases[position].ToString());
-                }
-                else if (c.KeyChar == '3')
+            }
+            else if (c.KeyChar == '2')
+            {
+                Console.WriteLine(p.cases[position].ToString());
+            }
+            else if (c.KeyChar == '3')
+            {
+                Console.Clear();
+                ConsoleKeyInfo select;
+                int actual = 0;
+                do
                 {
                     Console.Clear();
-                    ConsoleKeyInfo select;
-                    int actual = 0;
-                    do
+                    int cpt = 0;
+                    foreach (Propriete p in this.proprieteEnPossession)
                     {
-                        Console.Clear();
-                        int cpt = 0;
-                        foreach (Propriete p in this.proprieteEnPossession)
+                        if (cpt == actual)
                         {
-                            if (cpt == actual)
-                            {
-                                Console.BackgroundColor = ConsoleColor.White;
-                                Console.ForegroundColor = ConsoleColor.Black;
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Black;
 
-                            }
-                            else
-                            {
-                                Console.BackgroundColor = ConsoleColor.Black;
-                                Console.ForegroundColor = ConsoleColor.White;
-                            }
-                            Console.WriteLine(p.nom);
-                            cpt++;
                         }
-                        Console.BackgroundColor = ConsoleColor.Black;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("Echap pour quitter");
-                        select = Console.ReadKey();
-                        if (select.Key == ConsoleKey.DownArrow && actual < proprieteEnPossession.Count - 1)
+                        else
                         {
-                            actual++;
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
-                        if (select.Key == ConsoleKey.UpArrow && actual > 0)
-                        {
-                            actual--;
-                        }
-                        if (select.Key == ConsoleKey.Enter)
-                        {
-                            this.hypothequeVolontaire(proprieteEnPossession.ElementAt(actual));
-                        }
+                        Console.WriteLine(p.nom);
+                        cpt++;
                     }
-                    while (select.Key != ConsoleKey.Escape);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Echap pour quitter");
+                    select = Console.ReadKey();
+                    if (select.Key == ConsoleKey.DownArrow && actual < proprieteEnPossession.Count - 1)
+                    {
+                        actual++;
+                    }
+                    if (select.Key == ConsoleKey.UpArrow && actual > 0)
+                    {
+                        actual--;
+                    }
+                    if (select.Key == ConsoleKey.Enter)
+                    {
+                        this.hypothequeVolontaire(proprieteEnPossession.ElementAt(actual));
+                    }
                 }
-                else if (c.KeyChar == 's' && num == 0)
+                while (select.Key != ConsoleKey.Escape);
+            }
+            else if (c.KeyChar == 's' && num == 0)
+            {
+
+                if (p.jeu.fichierSave == "")
                 {
-
-                    if (p.jeu.fichierSave == "")
-                    {
-                        Console.WriteLine("ecrivez le nom de fichier et appuyez sur entree");
-                        p.jeu.saveAsXML(Console.ReadLine());
-                    }
-                    else
-                    {
-                        p.jeu.saveAsXML("");
-                    }
+                    Console.WriteLine("ecrivez le nom de fichier et appuyez sur entree");
+                    p.jeu.saveAsXML(Console.ReadLine());
                 }
-
+                else
+                {
+                    p.jeu.saveAsXML("");
+                }
+            }
+            else if (c.KeyChar == 'q' && num == 0)
+            {
+                System.Environment.Exit(1);
+            }
 
 
             }
