@@ -249,7 +249,7 @@ public class Joueur {
             do
             {
           
-                string affiche = "\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. 3) Mettre une propriété en hypotheque et vendre les biens dessus\n sinon passer son tour";
+                string affiche = "\n Menu: \n 1) Voir tous les joueurs \n 2) Information sur la case. \n 3) Mettre une propriété en hypotheque et vendre les biens dessus\n sinon passer son tour";
                 if (this.num == 0)
                 {
                     affiche += "\n vous pouvez enregistrer la partie en appuyant sur 's'";
@@ -396,16 +396,20 @@ public class Joueur {
     {
         Boolean res = true;
         int i = 0;
-        while (res== true && i<proprieteEnPossession.Count)
+        while (res == true && i < proprieteEnPossession.Count)
         {
-            ProprieteDeCouleur tmp = proprieteEnPossession.ElementAt(i) as ProprieteDeCouleur;
-            if (tmp.Couleur == prop.Couleur)
+            if (proprieteEnPossession.ElementAt(i) is ProprieteDeCouleur)
             {
-                if (tmp._nbBatimentsConstruits != prop._nbBatimentsConstruits && prop._nbBatimentsConstruits != tmp._nbBatimentsConstruits - 1)
+                ProprieteDeCouleur tmp = proprieteEnPossession.ElementAt(i) as ProprieteDeCouleur;
+                if (tmp.Couleur == prop.Couleur)
                 {
-                    res = false;
+                    if (tmp._nbBatimentsConstruits != prop._nbBatimentsConstruits && prop._nbBatimentsConstruits != tmp._nbBatimentsConstruits - 1)
+                    {
+                        res = false;
+                    } 
                 }
             }
+    
             i = i + 1;
         }
         return res;

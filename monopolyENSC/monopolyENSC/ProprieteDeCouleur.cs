@@ -34,10 +34,17 @@ public class ProprieteDeCouleur : Propriete {
     public override string ToString()
     {
         string rep = this.nom + "\n elle est " + etat.ToString() + " \n a l'achat elle vaut " + _prixAchat + " \n en hypothèque elle en vaut " + _prixHypotheque + " \n et sa couleur est " + Couleur + " ";
+        
+        if (this._nbBatimentsConstruits != 0)
+        {
+            rep = rep + "\n" + "Il y a " + _nbBatimentsConstruits + " batiments construits dessus.";
+        }
         if (proprietaire != null)
         {
-            rep += "\n" + proprietaire.ToString();
+            rep += "\n Le propriétaire est " + proprietaire.nom;
         }
+        Console.WriteLine();
+        
         return rep + "\n";
     }
 
@@ -83,7 +90,7 @@ public class ProprieteDeCouleur : Propriete {
                 {
                     if (construire(j))
                     {
-                        Console.WriteLine("vous avez construit un nouveau terrain");
+                        Console.WriteLine("vous avez construit un nouveau batiment");
                     }
                     else
                     {
