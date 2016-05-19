@@ -9,14 +9,14 @@ using System.Text;
 public class Taxe : Cases {
 
     
-    double prix;
+    double prix { get; set; }
     public Taxe(string nom,double _prix) :base(nom)
     {
         prix = _prix;
     }
 
     
-    public float valeurTaxe;
+ 
     public override void action(Joueur j)
     {
         j.payer(prix, null);

@@ -37,6 +37,21 @@ public class Plateau {
         cartesCaisseCommunaute.Add(c);
         
     }
+    public bool joueursEnlice()//Permet de savoir s'il reste plus d'un joueur qui n'est pas mort
+    {
+        int cpt = 0;
+        foreach (Joueur j in Joueurs)
+        {
+            if (j.etatCourant != Joueur.Etat.mort)
+            {
+                cpt++;
+            }
+        }
+        if (cpt > 1)
+            return true;
+        else return false;
+
+    }
     public void generate()
     {
         XDocument document = XDocument.Load("..//..//Plateau.xml");
@@ -179,7 +194,7 @@ public class Plateau {
         Joueurs.Add(j);
     }
 
-    public int calculePropCouleur (ProprieteDeCouleur prop) // calcule le nombre de prop de la couleur de la prop qu'on fournit 
+    public int calculePropCouleur (ProprieteDeCouleur prop) // calcule le nombre de prop de la couleur de la propriete qu'on fournit 
     {
         int nb = 0;
         foreach (Cases c in cases)

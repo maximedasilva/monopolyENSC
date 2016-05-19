@@ -10,7 +10,37 @@ using System.Text;
 public class Joueur {
 
 
-    public Joueur(string _nom,Plateau _p) {//Constructeur 
+
+
+    public enum Etat { vivant, mort, enPrison };//ENum de l'état du joueur
+    public Plateau p { get; }//Plateau dans lequel evolue le jouer
+
+    public List<Propriete> proprieteEnPossession { get;  }//LIste des propriétés en possession
+
+    public int num  { get; set; }//Numéro unique du joueur
+
+    private static int cpt = 0;//compteur permettant d'affecter des numéros uniques
+    public List<Cartes> cartesEnPossession//cartes en possession par le joueur
+    {
+        get;
+    }
+    private int nbTourPrison
+    {//nombre de tours passés en prison
+        get; set;
+    }
+
+    public string nom { get; }//Nom du joueur
+
+    public int valeurDernierDeplacement { get; set; }//valeur du dernier déplacement 
+
+    public double sous { get; set; }//sous actuels possédés par le joueur
+
+    public Etat etatCourant { get; set; }//Etat courant du joueur (cf enum)
+
+    public int position { get; set; }//Position du joueur
+
+    public Joueur(string _nom, Plateau _p)
+    {//Constructeur 
         nom = _nom;
         num = cpt++;
         cartesEnPossession = new List<Cartes>();
@@ -37,7 +67,7 @@ public class Joueur {
                     nb = nb + 1;
                 }
             }
-            
+
         }
         return nb;
     }
@@ -53,7 +83,7 @@ public class Joueur {
             return true;
         }
         else
-            return false; 
+            return false;
     }
 
     internal int getNbGares()//Récupérer le nombre de gare possédées
@@ -82,34 +112,7 @@ public class Joueur {
 
         return cpt;
     }
-
-    public enum Etat { vivant, mort, enPrison };//ENum de l'état du joueur
-    public Plateau p { get; }//Plateau dans lequel evolue le jouer
-
-    public List<Propriete> proprieteEnPossession { get;  }//LIste des propriétés en possession
-
-    public int num  { get; set; }//Numéro unique du joueur
-
-    private static int cpt = 0;//compteur permettant d'affecter des numéros uniques
-
-    public List<Cartes> cartesEnPossession//cartes en possession par le joueur
-    {
-        get;
-    }
-    private int nbTourPrison {//nombre de tours passés en prison
-        get; set;
-    }
-
-    public string nom { get; }//Nom du joueur
-
-    public int valeurDernierDeplacement { get; set; }//valeur du dernier déplacement 
-
-    public double sous { get; set; }//sous actuels possédés par le joueur
-
-    public Etat etatCourant { get; set; }//Etat courant du joueur (cf enum)
-
-    public int position { get; set; }//Position du joueur
-
+ 
     
     public void ajoutCarte(Cartes c)//Rajoutuer une carte aux cartes du joueur
     {

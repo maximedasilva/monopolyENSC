@@ -255,7 +255,7 @@ public class Jeu {
     public void simulation()//Simulation globale du jeu
     {
        
-        while (joueursEnlice())//S'il reste plus d'un joueur
+        while (plateau.joueursEnlice())//S'il reste plus d'un joueur
         {
             simulerUnTour();//On simule un nouveau tour
         }
@@ -274,21 +274,7 @@ public class Jeu {
        
     }
 
-    public bool joueursEnlice()//Permet de savoir s'il reste plus d'un joueur qui n'est pas mort
-    {
-        int cpt = 0;
-        foreach(Joueur j in plateau.Joueurs)
-        {
-            if (j.etatCourant != Joueur.Etat.mort)
-            {
-                cpt++;
-            }
-        }
-        if (cpt > 1)
-            return true;
-        else return false;
-
-    }
+    
    
    
 }
