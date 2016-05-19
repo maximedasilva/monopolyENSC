@@ -49,7 +49,7 @@ public class Jeu {
         var couleur = jeu.Descendants("Couleur");
         foreach(var proprieteCouleur in couleur)//pour cahque propriété de couleur
         {
-            var tmp = plateau.cases[(int)proprieteCouleur.Attribute("num")] as ProprieteDeCouleur;//on cosidère la case en tant que propriété de couelur
+            var tmp = plateau.cases[(int)proprieteCouleur.Attribute("num")] as ProprieteDeCouleur;//on considère la case en tant que propriété de couelur
             tmp._nbBatimentsConstruits = (int)proprieteCouleur.Attribute("nbBatiment");//on lui réaffecte tous ses attributs originels
             tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete),(string)proprieteCouleur.Attribute("etat"));
             if ((int)proprieteCouleur.Attribute("proprietaire") != -1)
@@ -63,7 +63,7 @@ public class Jeu {
         var gares = jeu.Descendants("Gare");
         foreach(var gare in gares)
         {
-            var tmp = plateau.cases[(int)gare.Attribute("num")] as Gare;//on cosidère la case en tant que gare
+            var tmp = plateau.cases[(int)gare.Attribute("num")] as Gare;//on considère la case en tant que gare
             tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete), (string)gare.Attribute("etat"));
             if ((int)gare.Attribute("proprietaire") != -1)
             {
@@ -75,7 +75,7 @@ public class Jeu {
         var compagnies = jeu.Descendants("Compagnie");
         foreach(var compagnie in compagnies)
         {
-            var tmp = plateau.cases[(int)compagnie.Attribute("num")] as Compagnies;//on cosidère la case en tant que compagnie
+            var tmp = plateau.cases[(int)compagnie.Attribute("num")] as Compagnies;//on considère la case en tant que compagnie
             tmp.etat = (Propriete.EtatPropriete)Enum.Parse(typeof(ProprieteDeCouleur.EtatPropriete), (string)compagnie.Attribute("etat"));
             if ((int)compagnie.Attribute("proprietaire") != -1)
             {
