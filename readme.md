@@ -16,14 +16,13 @@ DONE
 - Génération automatique du plateau
 - Sauvegarde XML
 - génération des fichiers XML
-
-
-DOING
+- Chargement XML
+- Boucles de jeu
+- faire toutes les transactions.
+-  Recréer des parties depuis le fichier XML
 -
--   Chargement XML
--   Boucles de jeu
-
 TODO
 -
-- faire toutes les transactions.
-- Recréer des parties depuis le fichier XML
+- Gestion des enchères
+- Création d'une intelligence artificielle
+-
