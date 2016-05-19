@@ -160,6 +160,7 @@ public class Joueur {
             int de2 = des.Next(1, 7);
             valeurDernierDeplacement = De1 + de2;//Random des dés + affectation du déplacement
             position += valeurDernierDeplacement;
+            Console.WriteLine("Vous avez fait {0} et {1} lors de votre lancer de dés.", De1, de2);
 
             if (position >= p.cases.Length)//SI on arrive a la fin du plateau, on revient au début
             {
@@ -213,7 +214,15 @@ public class Joueur {
                 if (de2 == De1 || nbTourPrison == 3)
                 {
                     etatCourant = Etat.vivant;
-                    Console.WriteLine("Vous êtes libéré(e) de prison.");
+                    if (de2==De1)
+                    {
+                        Console.WriteLine("Vous êtes libéré(e) de prison après avoir fait un double.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vous êtes libéré(e) de prison car vous y etes resté 3 tours.");
+                    }
+                    
                     position = 10; //10 étant la case prison
                     valeurDernierDeplacement = De1 + de2;
                     position += valeurDernierDeplacement;
