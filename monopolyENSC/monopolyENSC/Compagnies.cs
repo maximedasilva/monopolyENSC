@@ -34,7 +34,10 @@ public class Compagnies : Propriete {
             {
                 j.etatCourant = Joueur.Etat.mort;
                 j.mettreHypotheque();
-                Console.WriteLine("Le joueur {0} est mort", j.nom);
+                if (j.sous < 0)
+                {
+                    Console.WriteLine("Le joueur {0} est mort", j.nom);
+                }
             }
         }
         base.action(j);//On appelle la méthode case de propriété (pour avoir une factorisation du code)

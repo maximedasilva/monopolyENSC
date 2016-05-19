@@ -27,10 +27,13 @@ public class Transaction : Cartes {
             if (j.payer(ValeurRep, null))
                 Console.WriteLine(fonction);
             else {
-                j.etatCourant = Joueur.Etat.mort;
                 j.mettreHypotheque();
-                Console.WriteLine("Le joueur {0} est mort", j.nom);
-                
+                if (j.sous < 0)
+                {
+                    j.etatCourant = Joueur.Etat.mort;
+                    Console.WriteLine("Le joueur {0} est mort", j.nom);
+                }
+
             }
         }
         else
@@ -39,10 +42,12 @@ public class Transaction : Cartes {
             if (j.payer(_valeur, null))
                 Console.WriteLine(fonction);
             else {
-                j.etatCourant = Joueur.Etat.mort;
                 j.mettreHypotheque();
-                Console.WriteLine("Le joueur {0} est mort", j.nom);
-               
+                if (j.sous < 0)
+                {
+                    j.etatCourant = Joueur.Etat.mort;
+                    Console.WriteLine("Le joueur {0} est mort", j.nom);
+                }
             }
 
         }
