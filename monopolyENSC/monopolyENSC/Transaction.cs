@@ -28,11 +28,17 @@ public class Transaction : Cartes {
                 Console.WriteLine(fonction);
             else {
                 j.mettreHypotheque();
-                if (j.sous < 0)
+
+                if (!j.payer(ValeurRep, null))
                 {
                     j.etatCourant = Joueur.Etat.mort;
                     Console.WriteLine("Le joueur {0} est mort", j.nom);
                 }
+                else
+                {
+                    Console.WriteLine("la mise en hypothèque de vos biens vous a sauvé !");
+                }
+
 
             }
         }
@@ -43,10 +49,15 @@ public class Transaction : Cartes {
                 Console.WriteLine(fonction);
             else {
                 j.mettreHypotheque();
-                if (j.sous < 0)
+
+                if (!j.payer(_valeur, null))
                 {
                     j.etatCourant = Joueur.Etat.mort;
                     Console.WriteLine("Le joueur {0} est mort", j.nom);
+                }
+                else
+                {
+                    Console.WriteLine("la mise en hypothèque de vos biens vous a sauvé !");
                 }
             }
 

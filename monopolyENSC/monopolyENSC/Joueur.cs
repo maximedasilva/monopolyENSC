@@ -86,7 +86,7 @@ public class Joueur {
     public enum Etat { vivant, mort, enPrison };//ENum de l'état du joueur
     public Plateau p { get; }//Plateau dans lequel evolue le jouer
 
-    public List<Propriete> proprieteEnPossession { get;  }//LIste des propriétés en possession
+    public List<Propriete> proprieteEnPossession { get; set; }//LIste des propriétés en possession
 
     public int num  { get; set; }//Numéro unique du joueur
 
@@ -128,11 +128,15 @@ public class Joueur {
     {
         if(proprieteEnPossession.Count()>0)
         {
+            int i = 0;
             foreach(Propriete p in proprieteEnPossession)
             {
                 p.proprietaire = null;
+                sous += p._prixHypotheque;
                 p.etat = Propriete.EtatPropriete.hypotheque;
             }
+            proprieteEnPossession = new List<Propriete>();
+
         }
     }
    

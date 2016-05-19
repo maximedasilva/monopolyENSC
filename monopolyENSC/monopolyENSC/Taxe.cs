@@ -19,8 +19,24 @@ public class Taxe : Cases {
  
     public override void action(Joueur j)
     {
-        j.payer(prix, null);
-        Console.WriteLine(this);
+       if(!j.payer(prix, null))
+        { 
+          
+                j.mettreHypotheque();
+
+                if (!j.payer(prix, null))
+                {
+                    j.etatCourant = Joueur.Etat.mort;
+                    Console.WriteLine("Le joueur {0} est mort", j.nom);
+                }
+            else
+            {
+                Console.WriteLine("la mise en hypothèque de vos biens vous a sauvé !");
+            }
+
+
+        }
+            Console.WriteLine(this);
     }
     public override string ToString()
     {
