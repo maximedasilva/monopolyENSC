@@ -61,10 +61,13 @@ public class ProprieteDeCouleur : Propriete {
 
                 }
                 else {
-                    j.etatCourant = Joueur.Etat.mort;
                     j.mettreHypotheque();
-                    Console.WriteLine("Le joueur {0} est mort", j.nom);
-                 
+                    if (j.sous < 0)
+                    {
+                        j.etatCourant = Joueur.Etat.mort;
+                        Console.WriteLine("Le joueur {0} est mort", j.nom);
+                    }
+
                 }
             }
             else
