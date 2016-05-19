@@ -56,6 +56,7 @@ public class Jeu {
             {
                 var joueur = plateau.Joueurs.Find(current => current.num == (int)proprieteCouleur.Attribute("proprietaire"));
                 tmp.proprietaire = joueur;
+                joueur.proprieteEnPossession.Add(tmp);
             }
             plateau.cases[(int)proprieteCouleur.Attribute("num")] = tmp;
 
@@ -69,6 +70,8 @@ public class Jeu {
             {
                 var joueur = plateau.Joueurs.Find(current => current.num == (int)gare.Attribute("proprietaire"));
                 tmp.proprietaire = joueur;
+
+                joueur.proprieteEnPossession.Add(tmp);
             }
             plateau.cases[(int)gare.Attribute("num")] = tmp;
         }
@@ -81,6 +84,8 @@ public class Jeu {
             {
                 var joueur = plateau.Joueurs.Find(current => current.num == (int)compagnie.Attribute("proprietaire"));
                 tmp.proprietaire = joueur;
+
+                joueur.proprieteEnPossession.Add(tmp);
             }
             plateau.cases[(int)compagnie.Attribute("num")] = tmp;
         }
