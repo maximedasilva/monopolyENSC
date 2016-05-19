@@ -20,10 +20,9 @@ DONE
 - Boucles de jeu
 - faire toutes les transactions.
 - Recréer des parties depuis le fichier XML
--
+
 
 TODO
 -
 - Gestion des enchères
 - Création d'une intelligence artificielle
--
