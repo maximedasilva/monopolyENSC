@@ -3,41 +3,41 @@
 	<compagnie prix="150" mul1="4" mul2="10" hyp="75"/>
 	<gare prix="200" t0="25" t1="50" t2="100" t3="200" hyp="100" />
 	<plateau taille_case="300" espace_maison="240" taille_traits="5">
-		<groupe couleur="bleu" r="" g="" b="" maison="200">
+		<groupe couleur="bleu"   maison="200">
 			<terrain id="37" nom="Avenue des Champs-Elysees" t0="35" t1="175" t2="500" t3="1100" t4="1300" t5="1500" hyp="175" prix="350"/>
 			<terrain id="39" nom="Rue de la Paix" t0="50" t1="200" t2="600" t3="1400" t4="1700" t5="2000" hyp="200" prix="400"/>
 		</groupe>
-		<groupe couleur="vert" r="" g="" b="" maison="200">
+		<groupe couleur="vert"  maison="200">
 			<terrain id="31" nom="Avenue de Breteuil" t0="26" t1="130" t2="390" t3="900" t4="1100" t5="1275" hyp="150" prix="300"/>
 			<terrain id="32" nom="Avenue Foch" t0="26" t1="130" t2="390" t3="900" t4="1100" t5="1275" hyp="150" prix="300"/>
 			<terrain id="34" nom="Boulevard des Capucines" t0="28" t1="150" t2="450" t3="1000" t4="1200" t5="1400" hyp="160" prix="320"/>
 		</groupe>
-		<groupe couleur="jaune" r="" g="" b="" maison="150">
+		<groupe couleur="jaune"   maison="150">
 			<terrain id="26" nom="Faubourg Saint-Honore" t0="22" t1="110" t2="330" t3="800" t4="975" t5="1150" hyp="130" prix="260"/>
 			<terrain id="27" nom="Place de la Bourse" t0="22" t1="110" t2="330" t3="800" t4="975" t5="1150" hyp="130" prix="260"/>
 			<terrain id="29" nom="Rue la Fayette" t0="24" t1="120" t2="360" t3="850" t4="1025" t5="1200" hyp="140" prix="280"/>
 		</groupe>
-		<groupe couleur="rouge" r="" g="" b="" maison="150">
+		<groupe couleur="rouge"   maison="150">
 			<terrain id="21" nom="Avenue Matignon" t0="18" t1="90" t2="250" t3="700" t4="875" t5="1050" hyp="110" prix="220"/>
 			<terrain id="23" nom="Boulevard Malesherbes" t0="18" t1="90" t2="250" t3="700" t4="875" t5="1050" hyp="110" prix="220"/>
 			<terrain id="24" nom="Avenue Henri-Martin" t0="20" t1="100" t2="300" t3="750" t4="925" t5="1100" hyp="120" prix="240"/>
 		</groupe>
-		<groupe couleur="orange" r="" g="" b="" maison="100">
+		<groupe couleur="orange"   maison="100">
 			<terrain id="16" nom="Avenue Mozart" t0="14" t1="70" t2="200" t3="550" t4="750" t5="950" hyp="90" prix="180"/>
 			<terrain id="18" nom="Boulevard Saint-Michel" t0="14" t1="70" t2="200" t3="550" t4="750" t5="950" hyp="90" prix="180"/>
 			<terrain id="19" nom="Place Pligalle" t0="16" t1="80" t2="220" t3="600" t4="800" t5="1000" hyp="100" prix="200"/>
 		</groupe>
-		<groupe couleur="rose" r="" g="" b="" maison="100">
+		<groupe couleur="rose"   maison="100">
 			<terrain id="11" nom="Boulevard de la Villette" t0="10" t1="50" t2="150" t3="450" t4="625" t5="750" hyp="70" prix="140"/>
 			<terrain id="13" nom="Avenue de Neuilly" t0="10" t1="50" t2="150" t3="450" t4="625" t5="750" hyp="70" prix="140"/>
 			<terrain id="14" nom="Rue de Paradis" t0="12" t1="60" t2="180" t3="500" t4="700" t5="900" hyp="80" prix="160"/>
 		</groupe>
-		<groupe couleur="cyan" r="" g="" b="" maison="50">
+		<groupe couleur="cyan"   maison="50">
 			<terrain id="6" nom="Rue de Vaugirard" t0="6" t1="30" t2="90" t3="270" t4="400" t5="550" hyp="50" prix="100"/>
 			<terrain id="8" nom="Rue de Courcelles" t0="6" t1="30" t2="90" t3="270" t4="400" t5="550" hyp="50" prix="100"/>
 			<terrain id="9" nom="Avenue de la Republique" t0="8" t1="40" t2="100" t3="300" t4="450" t5="600" hyp="60" prix="120"/>
 		</groupe>
-		<groupe couleur="marron" r="" g="" b="" maison="50">
+		<groupe couleur="marron"   maison="50">
 			<terrain id="1" nom="Boulvard de Belleville" t0="2" t1="10" t2="30" t3="90" t4="160" t5="250" hyp="30" prix="60"/>
 			<terrain id="3" nom="Rue Lecourbe" t0="4" t1="20" t2="60" t3="180" t4="320" t5="450" hyp="30" prix="60"/>
 		</groupe>
