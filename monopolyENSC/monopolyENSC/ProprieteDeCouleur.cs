@@ -33,7 +33,7 @@ public class ProprieteDeCouleur : Propriete {
 
     public override string ToString()
     {
-        string rep = base.ToString() + "\n elle est " + etat.ToString() + " \n a l'achat elle vaut " + _prixAchat + " \n en hypothèque elle en vaut " + _prixHypotheque + " \n et sa couleur est " + Couleur + " ";
+        string rep = this.nom + "\n elle est " + etat.ToString() + " \n a l'achat elle vaut " + _prixAchat + " \n en hypothèque elle en vaut " + _prixHypotheque + " \n et sa couleur est " + Couleur + " ";
         if (proprietaire != null)
         {
             rep += "\n" + proprietaire.ToString();
