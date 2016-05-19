@@ -19,8 +19,9 @@ DONE
 - Chargement XML
 - Boucles de jeu
 - faire toutes les transactions.
--  Recréer des parties depuis le fichier XML
+- Recréer des parties depuis le fichier XML
 -
+
 TODO
 -
 - Gestion des enchères
