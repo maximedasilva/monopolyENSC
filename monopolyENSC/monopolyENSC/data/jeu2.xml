@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<jeu>
-  <joueurs>
-    <joueur nom="maxime" num="0" sous="1794" etatCourant="vivant" position="8" dernierDeplacement="3" />
-    <joueur nom="thomas" num="1" sous="1906" etatCourant="vivant" position="8" dernierDeplacement="8" />
-  </joueurs>
-</jeu>
